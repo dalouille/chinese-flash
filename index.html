@@ -47,7 +47,33 @@
     font-size: 22px;
     color: var(--accent);
     letter-spacing: 2px;
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
   }
+  .version {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--muted);
+  }
+
+  /* ── Swipe animations ── */
+  @keyframes swipeLeft {
+    to { transform: translateX(-130%) rotate(-8deg); opacity: 0; }
+  }
+  @keyframes swipeRight {
+    to { transform: translateX(130%) rotate(8deg); opacity: 0; }
+  }
+  @keyframes cardEnter {
+    from { transform: translateX(50px); opacity: 0; }
+    to   { transform: translateX(0);    opacity: 1; }
+  }
+  .swiping-left  { animation: swipeLeft  0.25s ease-in  forwards; pointer-events: none; }
+  .swiping-right { animation: swipeRight 0.25s ease-in  forwards; pointer-events: none; }
+  .card-enter    { animation: cardEnter  0.28s ease-out; }
+
   .direction-badge {
     font-size: 11px;
     font-weight: 600;
@@ -265,7 +291,7 @@
 </div>
 
 <div class="header">
-  <div class="logo">汉字</div>
+  <div class="logo">汉字 <span class="version">v1.2</span></div>
   <div class="direction-badge" id="dirBadge">—</div>
 </div>
 
@@ -446,14 +472,20 @@ function revealCard() {
     const dx = e.changedTouches[0].clientX - startX;
     const dy = e.changedTouches[0].clientY - startY;
     if (isSwiping && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-      nextCard();
+      // Animate out, then load next
+      card.classList.add(dx < 0 ? 'swiping-left' : 'swiping-right');
+      setTimeout(() => {
+        card.classList.remove('swiping-left', 'swiping-right');
+        nextCard();
+        card.classList.add('card-enter');
+        setTimeout(() => card.classList.remove('card-enter'), 300);
+      }, 250);
     } else if (!isSwiping) {
       revealCard();
     }
     isSwiping = false;
   }, { passive: true });
 
-  // Remove onclick from card so touch and click don't double-fire on mobile
   card.onclick = null;
 })();
 
