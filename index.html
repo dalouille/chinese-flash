@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>汉字 Flash</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans:wght@300;400;600&display=swap');
+
+  :root {
+    --bg:       #0f0e0c;
+    --surface:  #1a1814;
+    --surface2: #242018;
+    --border:   #2e2a22;
+    --text:     #e8e0d0;
+    --muted:    #7a7060;
+    --accent:   #c8a96e;
+    --soft:     #a09080;
+    --hsk1:     #4caf7d;
+    --hsk2:     #5b9bd5;
+    --hsk3:     #b07fd4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans', sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  .header {
+    padding: 14px 16px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .logo {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    color: var(--accent);
+    letter-spacing: 2px;
+  }
+  .direction-badge {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .direction-badge.zh { color: var(--accent); border-color: var(--accent); }
+  .direction-badge.en { color: #7ab8d4;      border-color: #7ab8d4; }
+
+  /* ── Settings bar ── */
+  .settings {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .settings::-webkit-scrollbar { display: none; }
+
+  .settings-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .pill {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: 'Noto Sans', sans-serif;
+    transition: all 0.15s;
+  }
+  .pill:active { transform: scale(0.95); }
+
+  /* HSK filter pills */
+  .pill.hsk-all.active  { color: var(--accent);  border-color: var(--accent);  background: #c8a96e18; }
+  .pill.hsk-1.active   { color: var(--hsk1);    border-color: var(--hsk1);   background: #4caf7d18; }
+  .pill.hsk-2.active   { color: var(--hsk2);    border-color: var(--hsk2);   background: #5b9bd518; }
+  .pill.hsk-3.active   { color: var(--hsk3);    border-color: var(--hsk3);   background: #b07fd418; }
+
+  .divider {
+    width: 1px; height: 18px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  /* Direction pills */
+  .pill.dir.active { color: var(--text); border-color: var(--soft); background: #a0908018; }
+
+  /* ── Card area ── */
+  .card-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    overflow: hidden;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 24px 24px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.12s ease;
+  }
+  .card:active { transform: scale(0.985); }
+
+  .front-label {
+    position: absolute;
+    top: 14px; left: 18px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hsk-tag {
+    position: absolute;
+    top: 14px; right: 18px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid;
+  }
+  .hsk-tag.h1 { color: var(--hsk1); border-color: var(--hsk1); }
+  .hsk-tag.h2 { color: var(--hsk2); border-color: var(--hsk2); }
+  .hsk-tag.h3 { color: var(--hsk3); border-color: var(--hsk3); }
+
+  .front-block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+    margin-top: 8px;
+  }
+
+  .zh-big {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(36px, 10vw, 56px);
+    line-height: 1.3;
+    text-align: center;
+  }
+  .en-big {
+    font-size: clamp(18px, 5vw, 26px);
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .tap-hint {
+    margin-top: 20px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    animation: pulse 2.2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 0.4; }
+    50%      { opacity: 1; }
+  }
+
+  .reveal-block {
+    width: 100%;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: fadeUp 0.28s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .zh-reveal { font-family: 'Noto Serif SC', serif; font-size: clamp(26px,7vw,42px); text-align: center; }
+  .py-reveal  { font-size: clamp(14px,3.8vw,19px); color: var(--soft); text-align: center; letter-spacing: 0.5px; }
+  .en-reveal  { font-size: clamp(14px,3.8vw,18px); font-weight: 300; color: var(--soft); text-align: center; }
+
+  .hidden { display: none !important; }
+
+  /* ── Controls ── */
+  .controls {
+    padding: 10px 16px 28px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .btn {
+    border: none;
+    border-radius: 50px;
+    padding: 14px 0;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Noto Sans', sans-serif;
+    cursor: pointer;
+    min-width: 130px;
+    transition: transform 0.12s, opacity 0.12s;
+  }
+  .btn:active { transform: scale(0.96); }
+  .btn-reveal { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+  .btn-next   { background: var(--accent); color: #0f0e0c; }
+  .btn-next:disabled { opacity: 0.35; cursor: default; }
+
+  /* ── Status overlay ── */
+  #status {
+    position: fixed; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: var(--bg);
+    font-size: 15px; color: var(--muted);
+    gap: 12px;
+    z-index: 99;
+  }
+  #status.hidden { display: none; }
+  #statusMsg { text-align: center; padding: 0 32px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div id="status">
+  <div style="font-family:'Noto Serif SC',serif;font-size:28px;color:var(--accent)">汉字</div>
+  <div id="statusMsg">Loading sentences…</div>
+</div>
+
+<div class="header">
+  <div class="logo">汉字</div>
+  <div class="direction-badge" id="dirBadge">—</div>
+</div>
+
+<!-- Settings bar: HSK filter + direction toggle -->
+<div class="settings">
+  <span class="settings-label">HSK</span>
+  <button class="pill hsk-all active" data-hsk="all"  onclick="setHSK('all')">All</button>
+  <button class="pill hsk-1"          data-hsk="1"    onclick="setHSK('1')">HSK 1</button>
+  <button class="pill hsk-2"          data-hsk="2"    onclick="setHSK('2')">HSK 2</button>
+  <button class="pill hsk-3"          data-hsk="3"    onclick="setHSK('3')">HSK 3</button>
+  <div class="divider"></div>
+  <span class="settings-label">Direction</span>
+  <button class="pill dir active" data-dir="random"   onclick="setDir('random')">Random</button>
+  <button class="pill dir"        data-dir="zh"       onclick="setDir('zh')">中 → EN</button>
+  <button class="pill dir"        data-dir="en"       onclick="setDir('en')">EN → 中</button>
+</div>
+
+<div class="card-area">
+  <div class="card" id="card" onclick="revealCard()">
+    <div class="front-label" id="frontLabel"></div>
+    <div class="hsk-tag"     id="hskTag"></div>
+    <div class="front-block" id="frontBlock"></div>
+    <div class="tap-hint"    id="tapHint">tap to reveal</div>
+    <div class="reveal-block hidden" id="revealBlock"></div>
+  </div>
+</div>
+
+<div class="controls">
+  <button class="btn btn-reveal" id="btnReveal" onclick="revealCard()">Reveal</button>
+  <button class="btn btn-next"   id="btnNext"   onclick="nextCard()">Next →</button>
+</div>
+
+<script>
+let allSentences = [];
+let filtered     = [];
+let current      = null;
+let mode         = null;   // 'zh' | 'en'
+let revealed     = false;
+let hskFilter    = 'all';  // 'all' | '1' | '2' | '3'
+let dirSetting   = 'random'; // 'random' | 'zh' | 'en'
+
+// ── CSV parser ──────────────────────────────────────────────────────────
+function parseCSV(text) {
+  const lines = text.trim().split('\n').slice(1);
+  return lines.map(line => {
+    const cols = line.split(',');
+    return {
+      zh:      cols[0]?.trim(),
+      pinyin:  cols[1]?.trim(),
+      english: cols[2]?.trim(),
+      hsk:     parseInt(cols[3]?.trim()) || 1
+    };
+  }).filter(r => r.zh && r.english);
+}
+
+// ── Load ────────────────────────────────────────────────────────────────
+async function loadSentences() {
+  try {
+    const res  = await fetch('sentences.csv');
+    const text = await res.text();
+    allSentences = parseCSV(text);
+    applyFilter();
+    document.getElementById('status').classList.add('hidden');
+    nextCard();
+  } catch (e) {
+    document.getElementById('statusMsg').textContent =
+      'Could not load sentences.csv\nMake sure it\'s in the same folder.';
+  }
+}
+
+// ── Filter & direction controls ─────────────────────────────────────────
+function setHSK(val) {
+  hskFilter = val;
+  document.querySelectorAll('.pill[data-hsk]').forEach(p => {
+    p.classList.toggle('active', p.dataset.hsk === val);
+  });
+  applyFilter();
+  nextCard();
+}
+
+function setDir(val) {
+  dirSetting = val;
+  document.querySelectorAll('.pill[data-dir]').forEach(p => {
+    p.classList.toggle('active', p.dataset.dir === val);
+  });
+}
+
+function applyFilter() {
+  filtered = hskFilter === 'all'
+    ? allSentences
+    : allSentences.filter(s => s.hsk === parseInt(hskFilter));
+  if (filtered.length === 0) filtered = allSentences; // fallback
+}
+
+// ── Card logic ──────────────────────────────────────────────────────────
+function pickRandom() {
+  let s;
+  do { s = filtered[Math.floor(Math.random() * filtered.length)]; }
+  while (s === current && filtered.length > 1);
+  return s;
+}
+
+function nextCard() {
+  revealed = false;
+  current  = pickRandom();
+  if      (dirSetting === 'zh')     mode = 'zh';
+  else if (dirSetting === 'en')     mode = 'en';
+  else                              mode = Math.random() < 0.5 ? 'zh' : 'en';
+  render();
+}
+
+function render() {
+  const badge      = document.getElementById('dirBadge');
+  const frontLabel = document.getElementById('frontLabel');
+  const hskTag     = document.getElementById('hskTag');
+  const frontBlock = document.getElementById('frontBlock');
+  const tapHint    = document.getElementById('tapHint');
+  const revealBlock= document.getElementById('revealBlock');
+  const btnReveal  = document.getElementById('btnReveal');
+
+  revealBlock.classList.add('hidden');
+  tapHint.classList.remove('hidden');
+  btnReveal.classList.remove('hidden');
+
+  // HSK tag
+  hskTag.textContent  = `HSK ${current.hsk}`;
+  hskTag.className    = `hsk-tag h${current.hsk}`;
+
+  if (mode === 'zh') {
+    badge.textContent   = '中 → EN';
+    badge.className     = 'direction-badge zh';
+    frontLabel.textContent = 'Chinese → English';
+    frontBlock.innerHTML   = `<div class="zh-big">${current.zh}</div>`;
+    revealBlock.innerHTML  = `
+      <div class="py-reveal">${current.pinyin}</div>
+      <div class="en-reveal">${current.english}</div>`;
+  } else {
+    badge.textContent   = 'EN → 中';
+    badge.className     = 'direction-badge en';
+    frontLabel.textContent = 'English → Chinese';
+    frontBlock.innerHTML   = `<div class="en-big">${current.english}</div>`;
+    revealBlock.innerHTML  = `
+      <div class="zh-reveal">${current.zh}</div>
+      <div class="py-reveal">${current.pinyin}</div>`;
+  }
+}
+
+function revealCard() {
+  if (revealed) return;
+  revealed = true;
+  document.getElementById('revealBlock').classList.remove('hidden');
+  document.getElementById('tapHint').classList.add('hidden');
+  document.getElementById('btnReveal').classList.add('hidden');
+}
+
+loadSentences();
+</script>
+</body>
+</html>
