@@ -239,18 +239,23 @@
 
   .hidden { display: none !important; }
 
-  /* ── Timer bar ── */
-  .timer-bar {
+  /* ── Timer ── */
+  .timer-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 6px 16px;
     flex-shrink: 0;
     height: 36px;
-    transition: opacity 0.3s;
+    gap: 8px;
+    padding: 0 16px;
   }
-  .timer-bar.timer-hidden { opacity: 0; pointer-events: none; }
+  .timer-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.25s;
+  }
+  .timer-bar.timer-hidden { opacity: 0; pointer-events: none; width: 0; overflow: hidden; }
 
   .timer-display {
     font-size: 13px;
@@ -282,16 +287,21 @@
   .timer-btn.pause-active { color: var(--accent); border-color: var(--accent); }
 
   .timer-toggle {
-    font-size: 11px;
-    color: var(--border);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--muted);
     cursor: pointer;
-    padding: 2px 4px;
-    border: none;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
     background: none;
-    transition: color 0.2s;
-    line-height: 1;
+    font-family: 'Noto Sans', sans-serif;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
-  .timer-toggle:active { color: var(--muted); }
+  .timer-toggle:active { transform: scale(0.93); }
 
   /* ── Controls ── */
   .controls {
@@ -338,7 +348,7 @@
 </div>
 
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.4</span></div>
+  <div class="logo">汉字 <span class="version">v1.4.1</span></div>
   <div class="direction-badge" id="dirBadge">—</div>
 </div>
 
@@ -369,12 +379,14 @@
   </div>
 </div>
 
-<!-- Timer bar -->
-<div class="timer-bar" id="timerBar">
-  <button class="timer-btn" id="btnPause" onclick="togglePause()">Pause</button>
-  <span class="timer-display" id="timerDisplay">00:00</span>
-  <button class="timer-btn" onclick="resetTimer()">Reset</button>
-  <button class="timer-toggle" id="timerToggle" onclick="toggleTimerVisible()" title="Hide timer">◎</button>
+<!-- Timer -->
+<div class="timer-wrapper">
+  <div class="timer-bar" id="timerBar">
+    <button class="timer-btn" id="btnPause" onclick="togglePause()">Pause</button>
+    <span class="timer-display" id="timerDisplay">00:00</span>
+    <button class="timer-btn" onclick="resetTimer()">Reset</button>
+  </div>
+  <button class="timer-toggle" id="timerToggle" onclick="toggleTimerVisible()">◎ hide</button>
 </div>
 
 <div class="controls">
@@ -612,13 +624,7 @@ function toggleTimerVisible() {
   const bar    = document.getElementById('timerBar');
   const toggle = document.getElementById('timerToggle');
   bar.classList.toggle('timer-hidden', !timerVisible);
-  // Keep the toggle button itself visible even when bar is hidden
-  // by moving it outside — simpler: just show a small dot in corner
-  toggle.title = timerVisible ? 'Hide timer' : 'Show timer';
-  toggle.textContent = timerVisible ? '◎' : '◉';
-  // When hidden, still show a tiny toggle button
-  bar.style.pointerEvents = timerVisible ? '' : 'none';
-  toggle.style.pointerEvents = 'auto';
+  toggle.textContent = timerVisible ? '◎ hide' : 'timer ◉';
 }
 
 startTimer();
