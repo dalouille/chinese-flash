@@ -108,6 +108,8 @@
     transition: all 0.15s;
   }
   .pill:active { transform: scale(0.95); }
+
+  /* HSK multi-select — each level has its own color when active */
   .pill.hsk-all.active { color: var(--accent); border-color: var(--accent); background: #c8a96e18; }
   .pill.hsk-1.active   { color: var(--hsk1);   border-color: var(--hsk1);  background: #4caf7d18; }
   .pill.hsk-2.active   { color: var(--hsk2);   border-color: var(--hsk2);  background: #5b9bd518; }
@@ -125,7 +127,6 @@
     position: relative;
   }
 
-  /* ghost card underneath for deck feel */
   .card-shadow {
     position: absolute;
     width: calc(100% - 64px);
@@ -137,7 +138,6 @@
     transform: translateY(12px) scale(0.95);
     z-index: 1;
     pointer-events: none;
-    transition: transform 0.28s ease;
   }
 
   .card {
@@ -156,13 +156,8 @@
     z-index: 2;
   }
 
-  /* ── Swipe animations ── */
-  @keyframes swipeLeft {
-    to { transform: translateX(-140%) rotate(-12deg); opacity: 0; }
-  }
-  @keyframes swipeRight {
-    to { transform: translateX(140%) rotate(12deg); opacity: 0; }
-  }
+  @keyframes swipeLeft  { to { transform: translateX(-140%) rotate(-12deg); opacity: 0; } }
+  @keyframes swipeRight { to { transform: translateX(140%)  rotate(12deg);  opacity: 0; } }
   @keyframes shadowRise {
     from { transform: translateY(12px) scale(0.95); }
     to   { transform: translateY(0px)  scale(1); }
@@ -221,10 +216,8 @@
     color: var(--muted);
     animation: pulse 2.2s infinite;
   }
-  @keyframes pulse {
-    0%,100% { opacity: 0.4; }
-    50%      { opacity: 1; }
-  }
+  @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
   .reveal-block {
     width: 100%;
     border-top: 1px solid var(--border);
@@ -246,9 +239,63 @@
 
   .hidden { display: none !important; }
 
+  /* ── Timer bar ── */
+  .timer-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 6px 16px;
+    flex-shrink: 0;
+    height: 36px;
+    transition: opacity 0.3s;
+  }
+  .timer-bar.timer-hidden { opacity: 0; pointer-events: none; }
+
+  .timer-display {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--muted);
+    min-width: 48px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    transition: color 0.3s;
+  }
+  .timer-display.paused { color: #554e3e; }
+
+  .timer-btn {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 20px;
+    padding: 3px 9px;
+    cursor: pointer;
+    font-family: 'Noto Sans', sans-serif;
+    transition: all 0.15s;
+  }
+  .timer-btn:active { transform: scale(0.93); }
+  .timer-btn.pause-active { color: var(--accent); border-color: var(--accent); }
+
+  .timer-toggle {
+    font-size: 11px;
+    color: var(--border);
+    cursor: pointer;
+    padding: 2px 4px;
+    border: none;
+    background: none;
+    transition: color 0.2s;
+    line-height: 1;
+  }
+  .timer-toggle:active { color: var(--muted); }
+
   /* ── Controls ── */
   .controls {
-    padding: 10px 16px 28px;
+    padding: 6px 16px 28px;
     display: flex;
     justify-content: center;
     gap: 12px;
@@ -291,17 +338,19 @@
 </div>
 
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.3</span></div>
+  <div class="logo">汉字 <span class="version">v1.4</span></div>
   <div class="direction-badge" id="dirBadge">—</div>
 </div>
 
+<!-- HSK multi-select -->
 <div class="settings">
   <span class="settings-label">HSK</span>
-  <button class="pill hsk-all active" data-hsk="all" onclick="setHSK('all')">All</button>
-  <button class="pill hsk-1"          data-hsk="1"   onclick="setHSK('1')">HSK 1</button>
-  <button class="pill hsk-2"          data-hsk="2"   onclick="setHSK('2')">HSK 2</button>
-  <button class="pill hsk-3"          data-hsk="3"   onclick="setHSK('3')">HSK 3</button>
+  <button class="pill hsk-all active" data-hsk="all" onclick="toggleHSK('all')">All</button>
+  <button class="pill hsk-1"          data-hsk="1"   onclick="toggleHSK('1')">HSK 1</button>
+  <button class="pill hsk-2"          data-hsk="2"   onclick="toggleHSK('2')">HSK 2</button>
+  <button class="pill hsk-3"          data-hsk="3"   onclick="toggleHSK('3')">HSK 3</button>
 </div>
+<!-- Direction -->
 <div class="settings">
   <span class="settings-label">Direction</span>
   <button class="pill dir active" data-dir="random" onclick="setDir('random')">Random</button>
@@ -320,21 +369,35 @@
   </div>
 </div>
 
+<!-- Timer bar -->
+<div class="timer-bar" id="timerBar">
+  <button class="timer-btn" id="btnPause" onclick="togglePause()">Pause</button>
+  <span class="timer-display" id="timerDisplay">00:00</span>
+  <button class="timer-btn" onclick="resetTimer()">Reset</button>
+  <button class="timer-toggle" id="timerToggle" onclick="toggleTimerVisible()" title="Hide timer">◎</button>
+</div>
+
 <div class="controls">
   <button class="btn btn-reveal" id="btnReveal" onclick="revealCard()">Reveal</button>
   <button class="btn btn-next"   id="btnNext"   onclick="nextCard()">Next →</button>
 </div>
 
 <script>
-let allSentences = [];
-let filtered     = [];
-let current      = null;
-let mode         = null;
-let revealed     = false;
-let hskFilter    = 'all';
-let dirSetting   = 'random';
-let animating    = false;
+// ── State ──────────────────────────────────────────────────────────────
+let allSentences  = [];
+let filtered      = [];
+let current       = null;
+let mode          = null;
+let revealed      = false;
+let animating     = false;
 
+// HSK multi-select: set of active levels, or 'all'
+let hskActive = new Set(['all']); // 'all' means no filter
+
+// Direction
+let dirSetting = 'random';
+
+// ── CSV parser ─────────────────────────────────────────────────────────
 function parseCSV(text) {
   const lines = text.trim().split('\n').slice(1);
   return lines.map(line => {
@@ -362,27 +425,47 @@ async function loadSentences() {
   }
 }
 
-function setHSK(val) {
-  hskFilter = val;
-  document.querySelectorAll('.pill[data-hsk]').forEach(p =>
-    p.classList.toggle('active', p.dataset.hsk === val));
+// ── HSK multi-select ───────────────────────────────────────────────────
+function toggleHSK(val) {
+  if (val === 'all') {
+    // All clears individual selections
+    hskActive = new Set(['all']);
+  } else {
+    hskActive.delete('all');
+    if (hskActive.has(val)) {
+      hskActive.delete(val);
+      // If nothing left, fall back to all
+      if (hskActive.size === 0) hskActive = new Set(['all']);
+    } else {
+      hskActive.add(val);
+    }
+  }
+  // Update pill states
+  document.querySelectorAll('.pill[data-hsk]').forEach(p => {
+    p.classList.toggle('active', hskActive.has(p.dataset.hsk));
+  });
   applyFilter();
   nextCard();
 }
 
+function applyFilter() {
+  if (hskActive.has('all')) {
+    filtered = allSentences;
+  } else {
+    const levels = [...hskActive].map(Number);
+    filtered = allSentences.filter(s => levels.includes(s.hsk));
+  }
+  if (filtered.length === 0) filtered = allSentences;
+}
+
+// ── Direction ──────────────────────────────────────────────────────────
 function setDir(val) {
   dirSetting = val;
   document.querySelectorAll('.pill[data-dir]').forEach(p =>
     p.classList.toggle('active', p.dataset.dir === val));
 }
 
-function applyFilter() {
-  filtered = hskFilter === 'all'
-    ? allSentences
-    : allSentences.filter(s => s.hsk === parseInt(hskFilter));
-  if (filtered.length === 0) filtered = allSentences;
-}
-
+// ── Card logic ─────────────────────────────────────────────────────────
 function pickRandom() {
   let s;
   do { s = filtered[Math.floor(Math.random() * filtered.length)]; }
@@ -398,13 +481,13 @@ function nextCard() {
 }
 
 function render() {
-  const badge      = document.getElementById('dirBadge');
-  const frontLabel = document.getElementById('frontLabel');
-  const hskTag     = document.getElementById('hskTag');
-  const frontBlock = document.getElementById('frontBlock');
-  const tapHint    = document.getElementById('tapHint');
-  const revealBlock= document.getElementById('revealBlock');
-  const btnReveal  = document.getElementById('btnReveal');
+  const badge       = document.getElementById('dirBadge');
+  const frontLabel  = document.getElementById('frontLabel');
+  const hskTag      = document.getElementById('hskTag');
+  const frontBlock  = document.getElementById('frontBlock');
+  const tapHint     = document.getElementById('tapHint');
+  const revealBlock = document.getElementById('revealBlock');
+  const btnReveal   = document.getElementById('btnReveal');
 
   revealBlock.classList.add('hidden');
   tapHint.classList.remove('hidden');
@@ -441,14 +524,10 @@ function revealCard() {
 function animateSwipe(dir) {
   if (animating) return;
   animating = true;
-
   const card   = document.getElementById('card');
   const shadow = document.getElementById('cardShadow');
-
-  // shadow rises while top card flies away
   shadow.classList.add('shadow-rise');
   card.classList.add(dir === 'left' ? 'swiping-left' : 'swiping-right');
-
   setTimeout(() => {
     card.classList.remove('swiping-left', 'swiping-right');
     shadow.classList.remove('shadow-rise');
@@ -457,23 +536,20 @@ function animateSwipe(dir) {
   }, 260);
 }
 
-// ── Touch / swipe ──────────────────────────────────────────────────────
+// ── Swipe gestures ─────────────────────────────────────────────────────
 (function() {
   const card = document.getElementById('card');
   let startX = 0, startY = 0, isSwiping = false;
-
   card.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
     isSwiping = false;
   }, { passive: true });
-
   card.addEventListener('touchmove', e => {
     const dx = e.touches[0].clientX - startX;
     const dy = e.touches[0].clientY - startY;
     if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) isSwiping = true;
   }, { passive: true });
-
   card.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - startX;
     const dy = e.changedTouches[0].clientY - startY;
@@ -484,13 +560,68 @@ function animateSwipe(dir) {
     }
     isSwiping = false;
   }, { passive: true });
-
   card.onclick = null;
 })();
 
-// Next button also animates
 document.getElementById('btnNext').addEventListener('click', () => animateSwipe('left'));
 
+// ── Timer ──────────────────────────────────────────────────────────────
+let timerSeconds  = 0;
+let timerPaused   = false;
+let timerVisible  = true;
+let timerInterval = null;
+
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function updateTimerDisplay() {
+  const m = Math.floor(timerSeconds / 60);
+  const s = timerSeconds % 60;
+  document.getElementById('timerDisplay').textContent = `${pad(m)}:${pad(s)}`;
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    if (!timerPaused) {
+      timerSeconds++;
+      updateTimerDisplay();
+    }
+  }, 1000);
+}
+
+function togglePause() {
+  timerPaused = !timerPaused;
+  const btn     = document.getElementById('btnPause');
+  const display = document.getElementById('timerDisplay');
+  btn.textContent = timerPaused ? 'Resume' : 'Pause';
+  btn.classList.toggle('pause-active', timerPaused);
+  display.classList.toggle('paused', timerPaused);
+}
+
+function resetTimer() {
+  timerSeconds = 0;
+  timerPaused  = false;
+  const btn = document.getElementById('btnPause');
+  btn.textContent = 'Pause';
+  btn.classList.remove('pause-active');
+  document.getElementById('timerDisplay').classList.remove('paused');
+  updateTimerDisplay();
+}
+
+function toggleTimerVisible() {
+  timerVisible = !timerVisible;
+  const bar    = document.getElementById('timerBar');
+  const toggle = document.getElementById('timerToggle');
+  bar.classList.toggle('timer-hidden', !timerVisible);
+  // Keep the toggle button itself visible even when bar is hidden
+  // by moving it outside — simpler: just show a small dot in corner
+  toggle.title = timerVisible ? 'Hide timer' : 'Show timer';
+  toggle.textContent = timerVisible ? '◎' : '◉';
+  // When hidden, still show a tiny toggle button
+  bar.style.pointerEvents = timerVisible ? '' : 'none';
+  toggle.style.pointerEvents = 'auto';
+}
+
+startTimer();
 loadSentences();
 </script>
 </body>
