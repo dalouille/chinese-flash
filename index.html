@@ -58,22 +58,6 @@
     letter-spacing: 1px;
     color: var(--muted);
   }
-
-  /* ── Swipe animations ── */
-  @keyframes swipeLeft {
-    to { transform: translateX(-130%) rotate(-8deg); opacity: 0; }
-  }
-  @keyframes swipeRight {
-    to { transform: translateX(130%) rotate(8deg); opacity: 0; }
-  }
-  @keyframes cardEnter {
-    from { transform: translateX(50px); opacity: 0; }
-    to   { transform: translateX(0);    opacity: 1; }
-  }
-  .swiping-left  { animation: swipeLeft  0.25s ease-in  forwards; pointer-events: none; }
-  .swiping-right { animation: swipeRight 0.25s ease-in  forwards; pointer-events: none; }
-  .card-enter    { animation: cardEnter  0.28s ease-out; }
-
   .direction-badge {
     font-size: 11px;
     font-weight: 600;
@@ -86,7 +70,7 @@
     transition: color 0.3s, border-color 0.3s;
   }
   .direction-badge.zh { color: var(--accent); border-color: var(--accent); }
-  .direction-badge.en { color: #7ab8d4;      border-color: #7ab8d4; }
+  .direction-badge.en { color: #7ab8d4;       border-color: #7ab8d4; }
 
   /* ── Settings bars ── */
   .settings {
@@ -100,7 +84,6 @@
     scrollbar-width: none;
   }
   .settings::-webkit-scrollbar { display: none; }
-
   .settings-label {
     font-size: 10px;
     letter-spacing: 1.5px;
@@ -109,7 +92,6 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
-
   .pill {
     font-size: 12px;
     font-weight: 600;
@@ -126,17 +108,11 @@
     transition: all 0.15s;
   }
   .pill:active { transform: scale(0.95); }
-
-  /* HSK filter pills */
-  .pill.hsk-all.active  { color: var(--accent);  border-color: var(--accent);  background: #c8a96e18; }
-  .pill.hsk-1.active   { color: var(--hsk1);    border-color: var(--hsk1);   background: #4caf7d18; }
-  .pill.hsk-2.active   { color: var(--hsk2);    border-color: var(--hsk2);   background: #5b9bd518; }
-  .pill.hsk-3.active   { color: var(--hsk3);    border-color: var(--hsk3);   background: #b07fd418; }
-
-  .divider { display: none; }
-
-  /* Direction pills */
-  .pill.dir.active { color: var(--text); border-color: var(--soft); background: #a0908018; }
+  .pill.hsk-all.active { color: var(--accent); border-color: var(--accent); background: #c8a96e18; }
+  .pill.hsk-1.active   { color: var(--hsk1);   border-color: var(--hsk1);  background: #4caf7d18; }
+  .pill.hsk-2.active   { color: var(--hsk2);   border-color: var(--hsk2);  background: #5b9bd518; }
+  .pill.hsk-3.active   { color: var(--hsk3);   border-color: var(--hsk3);  background: #b07fd418; }
+  .pill.dir.active     { color: var(--text);   border-color: var(--soft);  background: #a0908018; }
 
   /* ── Card area ── */
   .card-area {
@@ -146,10 +122,26 @@
     justify-content: center;
     padding: 16px;
     overflow: hidden;
+    position: relative;
+  }
+
+  /* ghost card underneath for deck feel */
+  .card-shadow {
+    position: absolute;
+    width: calc(100% - 64px);
+    max-width: 388px;
+    height: 60px;
+    background: var(--surface2);
+    border: 1px solid #252118;
+    border-radius: 20px;
+    transform: translateY(12px) scale(0.95);
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.28s ease;
   }
 
   .card {
-    width: 100%;
+    width: calc(100% - 32px);
     max-width: 420px;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -161,9 +153,23 @@
     position: relative;
     cursor: pointer;
     user-select: none;
-    transition: transform 0.12s ease;
+    z-index: 2;
   }
-  .card:active { transform: scale(0.985); }
+
+  /* ── Swipe animations ── */
+  @keyframes swipeLeft {
+    to { transform: translateX(-140%) rotate(-12deg); opacity: 0; }
+  }
+  @keyframes swipeRight {
+    to { transform: translateX(140%) rotate(12deg); opacity: 0; }
+  }
+  @keyframes shadowRise {
+    from { transform: translateY(12px) scale(0.95); }
+    to   { transform: translateY(0px)  scale(1); }
+  }
+  .swiping-left  { animation: swipeLeft  0.26s ease-in  forwards; pointer-events: none; }
+  .swiping-right { animation: swipeRight 0.26s ease-in  forwards; pointer-events: none; }
+  .shadow-rise   { animation: shadowRise 0.26s ease-out forwards; }
 
   .front-label {
     position: absolute;
@@ -173,7 +179,6 @@
     text-transform: uppercase;
     color: var(--muted);
   }
-
   .hsk-tag {
     position: absolute;
     top: 14px; right: 18px;
@@ -196,7 +201,6 @@
     min-height: 110px;
     margin-top: 8px;
   }
-
   .zh-big {
     font-family: 'Noto Serif SC', serif;
     font-size: clamp(36px, 10vw, 56px);
@@ -209,7 +213,6 @@
     text-align: center;
     line-height: 1.5;
   }
-
   .tap-hint {
     margin-top: 20px;
     font-size: 11px;
@@ -222,7 +225,6 @@
     0%,100% { opacity: 0.4; }
     50%      { opacity: 1; }
   }
-
   .reveal-block {
     width: 100%;
     border-top: 1px solid var(--border);
@@ -238,7 +240,6 @@
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
   .zh-reveal { font-family: 'Noto Serif SC', serif; font-size: clamp(26px,7vw,42px); text-align: center; }
   .py-reveal  { font-size: clamp(14px,3.8vw,19px); color: var(--soft); text-align: center; letter-spacing: 0.5px; }
   .en-reveal  { font-size: clamp(14px,3.8vw,18px); font-weight: 300; color: var(--soft); text-align: center; }
@@ -267,7 +268,6 @@
   .btn:active { transform: scale(0.96); }
   .btn-reveal { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
   .btn-next   { background: var(--accent); color: #0f0e0c; }
-  .btn-next:disabled { opacity: 0.35; cursor: default; }
 
   /* ── Status overlay ── */
   #status {
@@ -291,11 +291,10 @@
 </div>
 
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.2</span></div>
+  <div class="logo">汉字 <span class="version">v1.3</span></div>
   <div class="direction-badge" id="dirBadge">—</div>
 </div>
 
-<!-- Row 1: HSK filter -->
 <div class="settings">
   <span class="settings-label">HSK</span>
   <button class="pill hsk-all active" data-hsk="all" onclick="setHSK('all')">All</button>
@@ -303,7 +302,6 @@
   <button class="pill hsk-2"          data-hsk="2"   onclick="setHSK('2')">HSK 2</button>
   <button class="pill hsk-3"          data-hsk="3"   onclick="setHSK('3')">HSK 3</button>
 </div>
-<!-- Row 2: Direction toggle -->
 <div class="settings">
   <span class="settings-label">Direction</span>
   <button class="pill dir active" data-dir="random" onclick="setDir('random')">Random</button>
@@ -312,7 +310,8 @@
 </div>
 
 <div class="card-area">
-  <div class="card" id="card" onclick="revealCard()">
+  <div class="card-shadow" id="cardShadow"></div>
+  <div class="card" id="card">
     <div class="front-label" id="frontLabel"></div>
     <div class="hsk-tag"     id="hskTag"></div>
     <div class="front-block" id="frontBlock"></div>
@@ -330,12 +329,12 @@
 let allSentences = [];
 let filtered     = [];
 let current      = null;
-let mode         = null;   // 'zh' | 'en'
+let mode         = null;
 let revealed     = false;
-let hskFilter    = 'all';  // 'all' | '1' | '2' | '3'
-let dirSetting   = 'random'; // 'random' | 'zh' | 'en'
+let hskFilter    = 'all';
+let dirSetting   = 'random';
+let animating    = false;
 
-// ── CSV parser ──────────────────────────────────────────────────────────
 function parseCSV(text) {
   const lines = text.trim().split('\n').slice(1);
   return lines.map(line => {
@@ -349,7 +348,6 @@ function parseCSV(text) {
   }).filter(r => r.zh && r.english);
 }
 
-// ── Load ────────────────────────────────────────────────────────────────
 async function loadSentences() {
   try {
     const res  = await fetch('sentences.csv');
@@ -360,35 +358,31 @@ async function loadSentences() {
     nextCard();
   } catch (e) {
     document.getElementById('statusMsg').textContent =
-      'Could not load sentences.csv\nMake sure it\'s in the same folder.';
+      "Could not load sentences.csv — make sure it's in the same folder.";
   }
 }
 
-// ── Filter & direction controls ─────────────────────────────────────────
 function setHSK(val) {
   hskFilter = val;
-  document.querySelectorAll('.pill[data-hsk]').forEach(p => {
-    p.classList.toggle('active', p.dataset.hsk === val);
-  });
+  document.querySelectorAll('.pill[data-hsk]').forEach(p =>
+    p.classList.toggle('active', p.dataset.hsk === val));
   applyFilter();
   nextCard();
 }
 
 function setDir(val) {
   dirSetting = val;
-  document.querySelectorAll('.pill[data-dir]').forEach(p => {
-    p.classList.toggle('active', p.dataset.dir === val);
-  });
+  document.querySelectorAll('.pill[data-dir]').forEach(p =>
+    p.classList.toggle('active', p.dataset.dir === val));
 }
 
 function applyFilter() {
   filtered = hskFilter === 'all'
     ? allSentences
     : allSentences.filter(s => s.hsk === parseInt(hskFilter));
-  if (filtered.length === 0) filtered = allSentences; // fallback
+  if (filtered.length === 0) filtered = allSentences;
 }
 
-// ── Card logic ──────────────────────────────────────────────────────────
 function pickRandom() {
   let s;
   do { s = filtered[Math.floor(Math.random() * filtered.length)]; }
@@ -399,9 +393,7 @@ function pickRandom() {
 function nextCard() {
   revealed = false;
   current  = pickRandom();
-  if      (dirSetting === 'zh')     mode = 'zh';
-  else if (dirSetting === 'en')     mode = 'en';
-  else                              mode = Math.random() < 0.5 ? 'zh' : 'en';
+  mode = dirSetting === 'zh' ? 'zh' : dirSetting === 'en' ? 'en' : (Math.random() < 0.5 ? 'zh' : 'en');
   render();
 }
 
@@ -418,26 +410,23 @@ function render() {
   tapHint.classList.remove('hidden');
   btnReveal.classList.remove('hidden');
 
-  // HSK tag
-  hskTag.textContent  = `HSK ${current.hsk}`;
-  hskTag.className    = `hsk-tag h${current.hsk}`;
+  hskTag.textContent = `HSK ${current.hsk}`;
+  hskTag.className   = `hsk-tag h${current.hsk}`;
 
   if (mode === 'zh') {
-    badge.textContent   = '中 → EN';
-    badge.className     = 'direction-badge zh';
+    badge.textContent      = '中 → EN';
+    badge.className        = 'direction-badge zh';
     frontLabel.textContent = 'Chinese → English';
     frontBlock.innerHTML   = `<div class="zh-big">${current.zh}</div>`;
-    revealBlock.innerHTML  = `
-      <div class="py-reveal">${current.pinyin}</div>
-      <div class="en-reveal">${current.english}</div>`;
+    revealBlock.innerHTML  = `<div class="py-reveal">${current.pinyin}</div>
+                               <div class="en-reveal">${current.english}</div>`;
   } else {
-    badge.textContent   = 'EN → 中';
-    badge.className     = 'direction-badge en';
+    badge.textContent      = 'EN → 中';
+    badge.className        = 'direction-badge en';
     frontLabel.textContent = 'English → Chinese';
     frontBlock.innerHTML   = `<div class="en-big">${current.english}</div>`;
-    revealBlock.innerHTML  = `
-      <div class="zh-reveal">${current.zh}</div>
-      <div class="py-reveal">${current.pinyin}</div>`;
+    revealBlock.innerHTML  = `<div class="zh-reveal">${current.zh}</div>
+                               <div class="py-reveal">${current.pinyin}</div>`;
   }
 }
 
@@ -449,7 +438,26 @@ function revealCard() {
   document.getElementById('btnReveal').classList.add('hidden');
 }
 
-// ── Swipe to next ───────────────────────────────────────────────────────
+function animateSwipe(dir) {
+  if (animating) return;
+  animating = true;
+
+  const card   = document.getElementById('card');
+  const shadow = document.getElementById('cardShadow');
+
+  // shadow rises while top card flies away
+  shadow.classList.add('shadow-rise');
+  card.classList.add(dir === 'left' ? 'swiping-left' : 'swiping-right');
+
+  setTimeout(() => {
+    card.classList.remove('swiping-left', 'swiping-right');
+    shadow.classList.remove('shadow-rise');
+    nextCard();
+    animating = false;
+  }, 260);
+}
+
+// ── Touch / swipe ──────────────────────────────────────────────────────
 (function() {
   const card = document.getElementById('card');
   let startX = 0, startY = 0, isSwiping = false;
@@ -463,23 +471,14 @@ function revealCard() {
   card.addEventListener('touchmove', e => {
     const dx = e.touches[0].clientX - startX;
     const dy = e.touches[0].clientY - startY;
-    if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
-      isSwiping = true;
-    }
+    if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) isSwiping = true;
   }, { passive: true });
 
   card.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - startX;
     const dy = e.changedTouches[0].clientY - startY;
     if (isSwiping && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-      // Animate out, then load next
-      card.classList.add(dx < 0 ? 'swiping-left' : 'swiping-right');
-      setTimeout(() => {
-        card.classList.remove('swiping-left', 'swiping-right');
-        nextCard();
-        card.classList.add('card-enter');
-        setTimeout(() => card.classList.remove('card-enter'), 300);
-      }, 250);
+      animateSwipe(dx < 0 ? 'left' : 'right');
     } else if (!isSwiping) {
       revealCard();
     }
@@ -488,6 +487,9 @@ function revealCard() {
 
   card.onclick = null;
 })();
+
+// Next button also animates
+document.getElementById('btnNext').addEventListener('click', () => animateSwipe('left'));
 
 loadSentences();
 </script>
