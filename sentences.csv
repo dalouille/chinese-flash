@@ -1,36 +1,1416 @@
 zh,pinyin,english,hsk
-我叫李明。,wǒ jiào lǐ míng,My name is Li Ming.,1
-你好！,nǐ hǎo,Hello!,1
-谢谢你。,xiè xie nǐ,Thank you.,1
-不客气。,bù kè qi,You're welcome.,1
-我喜欢喝水。,wǒ xǐ huān hē shuǐ,I like drinking water.,1
-今天天气很好。,jīn tiān tiān qì hěn hǎo,The weather is very nice today.,1
-我有一个苹果。,wǒ yǒu yī gè píng guǒ,I have an apple.,1
-他是我的老师。,tā shì wǒ de lǎo shī,He is my teacher.,1
-我不喝咖啡。,wǒ bù hē kā fēi,I don't drink coffee.,2
-这个多少钱？,zhè gè duō shǎo qián,How much is this?,1
-我家有三口人。,wǒ jiā yǒu sān kǒu rén,There are three people in my family.,1
-她在哪里？,tā zài nǎ lǐ,Where is she?,1
-我想吃米饭。,wǒ xiǎng chī mǐ fàn,I want to eat rice.,1
-现在几点？,xiàn zài jǐ diǎn,What time is it now?,1
-我去学校。,wǒ qù xué xiào,I'm going to school.,1
-你吃饭了吗？,nǐ chī fàn le ma,Have you eaten yet?,1
-他们是朋友。,tā men shì péng yǒu,They are friends.,1
-我有一点儿累。,wǒ yǒu yī diǎnr lèi,I'm a little tired.,2
-这是什么？,zhè shì shén me,What is this?,1
-我爱我的家人。,wǒ ài wǒ de jiā rén,I love my family.,1
-明天见！,míng tiān jiàn,See you tomorrow!,1
-你叫什么名字？,nǐ jiào shén me míng zi,What is your name?,1
-我不知道。,wǒ bù zhī dào,I don't know.,1
-请坐！,qǐng zuò,Please sit down!,1
-我每天学习汉语。,wǒ měi tiān xué xí hàn yǔ,I study Chinese every day.,2
-你住在哪里？,nǐ zhù zài nǎ lǐ,Where do you live?,2
-我想喝茶。,wǒ xiǎng hē chá,I want to drink tea.,1
-他很高兴。,tā hěn gāo xìng,He is very happy.,2
-我们一起去吧。,wǒ men yī qǐ qù ba,Let's go together.,2
-这本书很好看。,zhè běn shū hěn hǎo kàn,This book is very good.,2
-我的手机在桌子上。,wǒ de shǒu jī zài zhuō zi shàng,My phone is on the table.,2
-你会说汉语吗？,nǐ huì shuō hàn yǔ ma,Can you speak Chinese?,2
-我喜欢看电影。,wǒ xǐ huān kàn diàn yǐng,I like watching movies.,2
-外面很冷。,wài miàn hěn lěng,It's very cold outside.,2
-我们明天见。,wǒ men míng tiān jiàn,We'll meet tomorrow.,1
+你好。,nǐ hǎo,Hi.,1
+谢谢！,xiè xiè,Thanks!,1
+回家。,huí jiā,Go home.,1
+再见！,zài jiàn,Goodbye!,1
+是我。,shì wǒ,It's me.,1
+我冷。,wǒ lěng,I'm cold.,1
+请坐。,qǐng zuò,Sit down.,1
+谢谢。,xiè xiè,Thank you.,1
+再见。,zài jiàn,See you later.,1
+她吃。,tā chī,She is eating.,1
+上马。,shàng mǎ,Get on the horse.,1
+他来了。,tā lái le,He came.,1
+没关系。,méi guān xi,It's OK.,1
+我很好。,wǒ hěn hǎo,I'm fine.,1
+狗会叫。,gǒu huì jiào,Dogs bark.,1
+对不起。,duì bù qǐ,Excuse me.,1
+是你吗？,shì nǐ ma,Is it you?,1
+是我的。,shì wǒ de,It's mine.,1
+爱谁谁。,ài shuí shuí,Who cares?,1
+她是谁？,tā shì shuí,Who's she?,1
+我想你。,wǒ xiǎng nǐ,I miss you.,1
+我买了。,wǒ mǎi le,I'm buying.,1
+看那里。,kàn nà lǐ,Look there.,1
+我在家。,wǒ zài jiā,I'm at home.,1
+你是谁？,nǐ shì shuí,Who are you?,1
+那是谁？,nà shì shuí,Who is that?,1
+我有钱。,wǒ yǒu qián,I have money.,1
+下雨了。,xià yǔ le,It's raining.,1
+在下雨。,zài xià yǔ,It's raining.,1
+你很好。,nǐ hěn hǎo,You are good.,1
+你在吗？,nǐ zài ma,Are you there?,1
+你写吗?,nǐ xiě ma,Did you write?,1
+那你呢?,nà nǐ ne,How about you?,1
+我很冷。,wǒ hěn lěng,I was so cold.,1
+谁爱谁？,shuí ài shuí,Who loved who?,1
+你二了。,nǐ èr le,You're stupid.,1
+下午好。,xià wǔ hǎo,Good afternoon.,1
+听这个！,tīng zhè gè,Listen to this!,1
+开电视。,kāi diàn shì,Turn on the TV.,1
+这不好。,zhè bù hǎo,This isn't good.,1
+几点了？,jǐ diǎn le,What time is it?,1
+怎么了？,zěn me le,What's happened?,1
+你是人。,nǐ shì rén,You're a person.,1
+那不好。,nà bù hǎo,That wasn't nice.,1
+你想想。,nǐ xiǎng xiǎng,Think about this.,1
+我想读。,wǒ xiǎng dú,I want to read it.,1
+我能说。,wǒ néng shuō,I'm able to speak.,1
+这很好。,zhè hěn hǎo,This is very good.,1
+请回来。,qǐng huí lái,"Turn back, please.",1
+狗在叫。,gǒu zài jiào,The dog is barking.,1
+来看看！,lái kàn kàn,Come and take a look.,1
+我回来了！,wǒ huí lái le,I'm back.,1
+好好学习。,hǎo hǎo xué xí,Study hard.,1
+你能看吗？,nǐ néng kàn ma,Can you see?,1
+请看一看。,qǐng kàn yī kàn,Have a look.,1
+我不能说。,wǒ bù néng shuō,I can't say.,1
+我在读书。,wǒ zài dú shū,I'm reading.,1
+那是我的。,nà shì wǒ de,That's mine.,1
+那是什么？,nà shì shén me,What's that?,1
+这是谁的？,zhè shì shuí de,Whose is it?,1
+你是我的。,nǐ shì wǒ de,You're mine.,1
+她认识我。,tā rèn shí wǒ,She knows me.,1
+有人来了。,yǒu rén lái le,Someone came.,1
+这是我的。,zhè shì wǒ de,This is mine.,1
+我们是人。,wǒ men shì rén,We're humans.,1
+他不在家。,tā bù zài jiā,He's not home.,1
+不是我的。,bù shì wǒ de,It's not mine.,1
+你在哪儿?,nǐ zài nǎ ér,Where are you?,1
+你不是我。,nǐ bù shì wǒ,You're not me.,1
+你会来吗？,nǐ huì lái ma,Are you coming?,1
+你不热吗？,nǐ bù rè ma,Aren't you hot?,1
+你们有吗?,nǐ men yǒu ma,Do you have it?,1
+你爱我吗？,nǐ ài wǒ ma,Do you love me?,1
+你想我了？,nǐ xiǎng wǒ le,Do you miss me?,1
+你想我吗？,nǐ xiǎng wǒ ma,Do you miss me?,1
+这个几块？,zhè gè jǐ kuài,How much is it?,1
+我不高兴。,wǒ bù gāo xìng,I am not happy.,1
+我去学校。,wǒ qù xué xiào,I go to school.,1
+看这本书。,kàn zhè běn shū,Read this book.,1
+你不冷吗？,nǐ bù lěng ma,Aren't you cold?,1
+回去工作。,huí qù gōng zuò,Go back to work.,1
+他是老师。,tā shì lǎo shī,He is a teacher.,1
+我家很大。,wǒ jiā hěn dà,My house is big.,1
+请坐一下。,qǐng zuò yī xià,Please sit down.,1
+这不是爱。,zhè bù shì ài,This isn't love.,1
+现在几点？,xiàn zài jǐ diǎn,What time is it?,1
+你怎么了？,nǐ zěn me le,What's with you?,1
+狗叫了吗？,gǒu jiào le ma,Did the dog bark?,1
+不在下雨。,bù zài xià yǔ,It isn't raining.,1
+说来听听。,shuō lái tīng tīng,Tell me about it.,1
+那是他家。,nà shì tā jiā,That's his house.,1
+这不是钱。,zhè bù shì qián,This isn't money.,1
+你叫什么？,nǐ jiào shén me,What's your name?,1
+你妈妈呢？,nǐ mā mā ne,Where's your mom?,1
+人人都好。,rén rén dōu hǎo,Everybody is fine.,1
+我很想家。,wǒ hěn xiǎng jiā,I was so homesick.,1
+我没有猫。,wǒ méi yǒu māo,I don't have a cat.,1
+我没有狗。,wǒ méi yǒu gǒu,I don't have a dog.,1
+今天下雨。,jīn tiān xià yǔ,It's raining today.,1
+这本书小。,zhè běn shū xiǎo,This book is small.,1
+这是医院。,zhè shì yī yuàn,This is a hospital.,1
+今天很热。,jīn tiān hěn rè,Today is very warm.,1
+我不想吃。,wǒ bù xiǎng chī,I don't want to eat.,1
+你去哪儿？,nǐ qù nǎ ér,Where are you going?,1
+谁喝了水？,shuí hē le shuǐ,Who drank the water?,1
+我不回去。,wǒ bù huí qù,I'm not turning back.,1
+请吃点菜。,qǐng chī diǎn cài,Please eat something.,1
+那不太好。,nà bù tài hǎo,That wasn't very good.,1
+有零钱吗？,yǒu líng qián ma,Do you have any change?,1
+你在看谁？,nǐ zài kàn shuí,Who are you looking at?,1
+有很多水。,yǒu hěn duō shuǐ,There's plenty of water.,1
+有很多人。,yǒu hěn duō rén,There were lots of people.,1
+我有些钱。,wǒ yǒu xiē qián,I have a certain amount of money on me.,1
+请坐一会。,qǐng zuò yī huì,Please remain seated for a few minutes.,1
+打电话回家！,dǎ diàn huà huí jiā,Call home!,1
+工作怎么样？,gōng zuò zěn me yàng,How's work?,1
+我十二岁了。,wǒ shí èr suì le,I'm twelve.,1
+下一个是谁？,xià yī gè shì shuí,Who's next?,1
+这是你的吗？,zhè shì nǐ de ma,Is it yours?,1
+没有人来了。,méi yǒu rén lái le,No one came.,1
+学校怎么样？,xué xiào zěn me yàng,How's school?,1
+我吃苹果了。,wǒ chī píng guǒ le,I ate apples.,1
+我太高兴了。,wǒ tài gāo xìng le,I'm so happy.,1
+我认识你吗？,wǒ rèn shí nǐ ma,Do I know you?,1
+他是我的菜!,tā shì wǒ de cài,He is my type!,1
+我是日本人。,wǒ shì rì běn rén,I am Japanese.,1
+我有一个家。,wǒ yǒu yī gè jiā,I have a home.,1
+我是个学生。,wǒ shì gè xué shēng,I'm a student.,1
+那是我的钱。,nà shì wǒ de qián,It's my money.,1
+现在读这个。,xiàn zài dú zhè gè,Read this now.,1
+她是我的菜。,tā shì wǒ de cài,She's my type.,1
+那是我的猫。,nà shì wǒ de māo,That's my cat.,1
+我们是朋友。,wǒ men shì péng yǒu,We're friends.,1
+你认识我吗？,nǐ rèn shí wǒ ma,Do you know me?,1
+这个多少钱？,zhè gè duō shǎo qián,How much is it?,1
+我会回来的。,wǒ huì huí lái de,I'll come back.,1
+我叫Tom。,wǒ jiào,I'm called Tom.,1
+这个能吃吗？,zhè gè néng chī ma,Is this edible?,1
+没有人高兴。,méi yǒu rén gāo xìng,Nobody's happy.,1
+这是一本书。,zhè shì yī běn shū,This is a book.,1
+我们去哪儿？,wǒ men qù nǎ ér,Where do we go?,1
+你在家里吗？,nǐ zài jiā lǐ ma,Are you at home?,1
+你们是朋友？,nǐ men shì péng yǒu,Are you friends?,1
+你认识他吗?,nǐ rèn shí tā ma,Do you know him?,1
+你认识他吗？,nǐ rèn shí tā ma,Do you know him?,1
+你多吃苹果。,nǐ duō chī píng guǒ,Eat more apples.,1
+我在吃米饭。,wǒ zài chī mǐ fàn,I'm eating rice.,1
+我在看电视。,wǒ zài kàn diàn shì,I'm watching TV.,1
+我是你爸爸。,wǒ shì nǐ bà bà,I'm your father.,1
+那是我的吗？,nà shì wǒ de ma,Isn't that mine?,1
+她十七岁了。,tā shí qī suì le,She's seventeen.,1
+那是很大的。,nà shì hěn dà de,That's very big.,1
+这是我的书。,zhè shì wǒ de shū,This is my book.,1
+他说了什么？,tā shuō le shén me,What did he say?,1
+现在几点了？,xiàn zài jǐ diǎn le,What time is it?,1
+你是医生吗？,nǐ shì yī shēng ma,Are you a doctor?,1
+你有电视吗？,nǐ yǒu diàn shì ma,Do you have a TV?,1
+我在打电话。,wǒ zài dǎ diàn huà,I'm on the phone.,1
+他们都爱我。,tā men dōu ài wǒ,They all love me.,1
+这是我的马。,zhè shì wǒ de mǎ,This is my horse.,1
+这是你的狗。,zhè shì nǐ de gǒu,This is your dog.,1
+我们是同学。,wǒ men shì tóng xué,We're classmates.,1
+她说了什么？,tā shuō le shén me,What did she say?,1
+你是老师吗？,nǐ shì lǎo shī ma,Are you a teacher?,1
+你们在听吗？,nǐ men zài tīng ma,Are you listening?,1
+他在看电视。,tā zài kàn diàn shì,He is watching TV.,1
+他会回来的。,tā huì huí lái de,He will come back.,1
+我没有朋友。,wǒ méi yǒu péng yǒu,I have no friends.,1
+她是我女儿。,tā shì wǒ nǚ ér,She's my daughter.,1
+那太多了吗？,nà tài duō le ma,Was that too much?,1
+你爸爸在哪？,nǐ bà bà zài nǎ,Where is your dad?,1
+你在回家吗？,nǐ zài huí jiā ma,Are you going home?,1
+他是个好人。,tā shì gè hǎo rén,He's a good fellow.,1
+明天怎么样？,míng tiān zěn me yàng,How about tomorrow?,1
+我们想听听。,wǒ men xiǎng tīng tīng,We want to hear it.,1
+在吃什么呢？,zài chī shén me ne,What're you eating?,1
+他住在哪里？,tā zhù zài nǎ lǐ,Where does he live?,1
+她家在哪儿？,tā jiā zài nǎ ér,Where is her house?,1
+你们去哪里？,nǐ men qù nǎ lǐ,Where're you going?,1
+这个人是谁？,zhè gè rén shì shuí,Who is this person?,1
+他今天在家。,tā jīn tiān zài jiā,He is at home today.,1
+我明天能来。,wǒ míng tiān néng lái,I can come tomorrow.,1
+我十点回来。,wǒ shí diǎn huí lái,I'll be back at ten.,1
+我去学校了。,wǒ qù xué xiào le,I'm going to school.,1
+昨天下雨了。,zuó tiān xià yǔ le,It rained yesterday.,1
+这是他们家。,zhè shì tā men jiā,This is their house.,1
+你在看什么？,nǐ zài kàn shén me,What're you reading?,1
+你们去哪里?,nǐ men qù nǎ lǐ,Where are you going?,1
+谁是你老师？,shuí shì nǐ lǎo shī,Who is your teacher?,1
+你太漂亮了！,nǐ tài piào liàng le,You're so beautiful!,1
+他有很多钱。,tā yǒu hěn duō qián,He has lots of money.,1
+他读很多书。,tā dú hěn duō shū,He reads a good deal.,1
+他去了商店。,tā qù le shāng diàn,He went to the store.,1
+我有很多狗。,wǒ yǒu hěn duō gǒu,I have a lot of cats.,1
+我不想回去。,wǒ bù xiǎng huí qù,I don't wanna go back.,1
+这个叫什么？,zhè gè jiào shén me,What do you call this?,1
+今天是几号？,jīn tiān shì jǐ hào,What's the date today?,1
+零在一前面。,líng zài yī qián miàn,Zero comes before one.,1
+你们认识吗？,nǐ men rèn shí ma,Do you know each other?,1
+我16岁了。,wǒ suì le,I am sixteen years old.,1
+我想去学校。,wǒ xiǎng qù xué xiào,I want to go to school.,1
+我去了医院。,wǒ qù le yī yuàn,I went to the hospital.,1
+今天不下雨。,jīn tiān bù xià yǔ,It's not raining today.,1
+她有一点钱。,tā yǒu yī diǎn qián,She had a little money.,1
+她有很多钱。,tā yǒu hěn duō qián,She has a lot of money.,1
+有人在叫你。,yǒu rén zài jiào nǐ,Someone is calling you.,1
+你在说我吗？,nǐ zài shuō wǒ ma,Are you referring to me?,1
+你有朋友吗？,nǐ yǒu péng yǒu ma,Do you have any friends?,1
+你有多爱我？,nǐ yǒu duō ài wǒ,How much do you love me?,1
+我爱上了她。,wǒ ài shàng le tā,I fell in love with her.,1
+我爱上了你。,wǒ ài shàng le nǐ,I fell in love with you.,1
+你在看他吗?,nǐ zài kàn tā ma,Were you looking at him?,1
+你想吃什么？,nǐ xiǎng chī shén me,What do you want to eat?,1
+今天有点冷。,jīn tiān yǒu diǎn lěng,It's a little cold today.,1
+你几点回家？,nǐ jǐ diǎn huí jiā,What time do you go home?,1
+那里人好多。,nà lǐ rén hǎo duō,There were so many people.,1
+有人在那里。,yǒu rén zài nà lǐ,There's somebody in there.,1
+你有多少钱？,nǐ yǒu duō shǎo qián,How much money do you have?,1
+我昨天喝多了,wǒ zuó tiān hē duō le,I drank too much yesterday.,1
+他没有朋友。,tā méi yǒu péng yǒu,He doesn't have any friends.,1
+杯子里有水。,bēi zi lǐ yǒu shuǐ,There is water in the glass.,1
+你想喝什么？,nǐ xiǎng hē shén me,What would you like to drink?,1
+请看这本书。,qǐng kàn zhè běn shū,Please have a look at this book.,1
+他说九点了。,tā shuō jiǔ diǎn le,He said that it was nine o'clock.,1
+那个是我爸爸。,nà gè shì wǒ bà bà,That's my dad.,1
+我们有一个吗？,wǒ men yǒu yī gè ma,Do we have one?,1
+他是医生来的。,tā shì yī shēng lái de,He is a doctor.,1
+我是一个好人。,wǒ shì yī gè hǎo rén,I'm a good guy.,1
+他是日本人吗？,tā shì rì běn rén ma,Is he Japanese?,1
+你们是朋友吗？,nǐ men shì péng yǒu ma,Are you friends?,1
+我能去你那吗？,wǒ néng qù nǐ nà ma,Can I come over?,1
+我认识你儿子。,wǒ rèn shí nǐ ér zi,I know your son.,1
+家里有没有人？,jiā lǐ yǒu méi yǒu rén,Is anybody home?,1
+今天天气很好。,jīn tiān tiān qì hěn hǎo,It's fine today.,1
+你是不是医生？,nǐ shì bù shì yī shēng,Are you a doctor?,1
+他是你的朋友。,tā shì nǐ de péng yǒu,He's your friend.,1
+你太太怎么样？,nǐ tài tài zěn me yàng,How is your wife?,1
+你叫什么名字？,nǐ jiào shén me míng zì,What's your name?,1
+你的狗在哪里？,nǐ de gǒu zài nǎ lǐ,Where's your dog?,1
+你是不是老师？,nǐ shì bù shì lǎo shī,Are you a teacher?,1
+你现在高兴吗？,nǐ xiàn zài gāo xìng ma,Are you happy now?,1
+他有三个儿子。,tā yǒu sān gè ér zi,He has three sons.,1
+我有一个女儿。,wǒ yǒu yī gè nǚ ér,I have a daughter.,1
+我在学校读书。,wǒ zài xué xiào dú shū,I study at school.,1
+我写了这本书。,wǒ xiě le zhè běn shū,I wrote this book.,1
+这是我的妈妈。,zhè shì wǒ de mā mā,This is my mother.,1
+今天是星期四。,jīn tiān shì xīng qī sì,Today is Thursday.,1
+那本书在哪儿？,nà běn shū zài nǎ ér,Where is the book?,1
+你的狗在哪儿？,nǐ de gǒu zài nǎ ér,Where is your dog?,1
+这是谁的杯子？,zhè shì shuí de bēi zi,Whose cup is this?,1
+你会在那里吗？,nǐ huì zài nà lǐ ma,Will you be there?,1
+他六点回来了。,tā liù diǎn huí lái le,He returned at six.,1
+有人在吃东西。,yǒu rén zài chī dōng xi,Somebody is eating.,1
+这些是我的书。,zhè xiē shì wǒ de shū,These are my books.,1
+那些狗都很大。,nà xiē gǒu dōu hěn dà,Those dogs are big.,1
+你在说什么呢？,nǐ zài shuō shén me ne,What're you saying?,1
+你在哪里读书？,nǐ zài nǎ lǐ dú shū,Where do you study?,1
+哪本是你的书？,nǎ běn shì nǐ de shū,Which is your book?,1
+你看上去很好。,nǐ kàn shàng qù hěn hǎo,You look very good.,1
+你女儿怎么了？,nǐ nǚ ér zěn me le,How's your daughter?,1
+我一点都不好。,wǒ yī diǎn dōu bù hǎo,I'm not well at all.,1
+我们在吃苹果。,wǒ men zài chī píng guǒ,We're eating apples.,1
+桌子上有什么？,zhuō zi shàng yǒu shén me,What is on the desk?,1
+你在哪里学习？,nǐ zài nǎ lǐ xué xí,Where did you study?,1
+哪本书是你的？,nǎ běn shū shì nǐ de,Which book is yours?,1
+你在吃东西吗？,nǐ zài chī dōng xi ma,Have you been eating?,1
+我和他是朋友。,wǒ hé tā shì péng yǒu,He and I are friends.,1
+他有两个女儿。,tā yǒu liǎng gè nǚ ér,He has two daughters.,1
+他认识很多人。,tā rèn shí hěn duō rén,He knows many people.,1
+这本书多少钱？,zhè běn shū duō shǎo qián,How much is this book?,1
+我是个大学生。,wǒ shì gè dà xué shēng,I'm a college student.,1
+这是他们的书。,zhè shì tā men de shū,Those are their books.,1
+我们喝了很多。,wǒ men hē le hěn duō,We had a lot to drink.,1
+他明天会来吗？,tā míng tiān huì lái ma,Will he come tomorrow?,1
+明天会下雨吗？,míng tiān huì xià yǔ ma,Will it rain tomorrow?,1
+有什么喝的吗？,yǒu shén me hē de ma,Do you have any drinks?,1
+我现在没有钱。,wǒ xiàn zài méi yǒu qián,I don't have money now.,1
+我有一些朋友。,wǒ yǒu yī xiē péng yǒu,I've got a few friends.,1
+那有什么不好？,nà yǒu shén me bù hǎo,What's wrong with that?,1
+你今天怎么样？,nǐ jīn tiān zěn me yàng,How are you doing today?,1
+你怎么去学校？,nǐ zěn me qù xué xiào,How do you go to school?,1
+我很好。你呢？,wǒ hěn hǎo nǐ ne,I'm fine. How about you?,1
+我儿子十岁了。,wǒ ér zi shí suì le,My son is ten years old.,1
+我能去你家吗？,wǒ néng qù nǐ jiā ma,Can I come to your place?,1
+明天来看看我。,míng tiān lái kàn kàn wǒ,Come and see me tomorrow.,1
+他写了两本书。,tā xiě le liǎng běn shū,He has written two books.,1
+我们明天回来。,wǒ men míng tiān huí lái,We'll come back tomorrow.,1
+你是大学生吗？,nǐ shì dà xué shēng ma,Are you a college student?,1
+我想吃点东西。,wǒ xiǎng chī diǎn dōng xi,I'd like something to eat.,1
+这些苹果很大。,zhè xiē píng guǒ hěn dà,These apples are very big.,1
+你在读哪本书？,nǐ zài dú nǎ běn shū,What book are you reading?,1
+我昨天去学校。,wǒ zuó tiān qù xué xiào,I went to school yesterday.,1
+学生们回来了。,xué shēng men huí lái le,The students have returned.,1
+你说的是什么？,nǐ shuō de shì shén me,What are you talking about?,1
+你们想吃什么？,nǐ men xiǎng chī shén me,What would you like to eat?,1
+你有东西吃吗？,nǐ yǒu dōng xi chī ma,Do you have anything to eat?,1
+你在听我说吗？,nǐ zài tīng wǒ shuō ma,Do you hear what I'm saying?,1
+他明天会在家。,tā míng tiān huì zài jiā,He will be at home tomorrow.,1
+我想喝点什么。,wǒ xiǎng hē diǎn shén me,I'd like something to drink.,1
+他明天不回来。,tā míng tiān bù huí lái,He will not be back tomorrow.,1
+你有多少朋友？,nǐ yǒu duō shǎo péng yǒu,How many friends do you have?,1
+我不想去学校。,wǒ bù xiǎng qù xué xiào,I don't want to go to school.,1
+你们想喝什么？,nǐ men xiǎng hē shén me,What would you like to drink?,1
+你们有什么菜？,nǐ men yǒu shén me cài,What kind of food do you have?,1
+下午我不在家。,xià wǔ wǒ bù zài jiā,I won't be home this afternoon.,1
+昨天不是很冷。,zuó tiān bù shì hěn lěng,It was not very cold yesterday.,1
+我家没有电脑。,wǒ jiā méi yǒu diàn nǎo,I don't have a computer at home.,1
+他明天能来吗？,tā míng tiān néng lái ma,Will he be able to come tomorrow?,1
+我现在30岁了。,wǒ xiàn zài suì le,I'm 30 now.,1
+我现在能去了吗？,wǒ xiàn zài néng qù le ma,May I go now?,1
+我能看看那个吗？,wǒ néng kàn kàn nà gè ma,Can I see that?,1
+这不是我的工作。,zhè bù shì wǒ de gōng zuò,That isn't my job.,1
+他们说了些什么？,tā men shuō le xiē shén me,What did they say?,1
+你的名字叫什么？,nǐ de míng zì jiào shén me,What is your name?,1
+你的爱好是什么？,nǐ de ài hǎo shì shén me,What's your hobby?,1
+你现在在哪里呢？,nǐ xiàn zài zài nǎ lǐ ne,Where are you now?,1
+那是我们的学校。,nà shì wǒ men de xué xiào,That is our school.,1
+哪个是你的杯子？,nǎ gè shì nǐ de bēi zi,Which cup is yours?,1
+哪个杯子是你的？,nǎ gè bēi zi shì nǐ de,Which cup is yours?,1
+这是你的家人吗？,zhè shì nǐ de jiā rén ma,Is this your family?,1
+昨天的天气很热。,zuó tiān de tiān qì hěn rè,It was hot yesterday.,1
+你什么时候睡觉？,nǐ shén me shí hòu shuì jiào,When is your bedtime?,1
+你现在是大人了。,nǐ xiàn zài shì dà rén le,You are now an adult.,1
+我们有两个女儿。,wǒ men yǒu liǎng gè nǚ ér,We have two daughters.,1
+你现在住在哪里？,nǐ xiàn zài zhù zài nǎ lǐ,Where do you live now?,1
+你看上去不太好。,nǐ kàn shàng qù bù tài hǎo,You don't look so hot.,1
+他们吃很多米饭。,tā men chī hěn duō mǐ fàn,They eat a lot of rice.,1
+他们有很多朋友。,tā men yǒu hěn duō péng yǒu,They have many friends.,1
+我不会再见他了。,wǒ bù huì zài jiàn tā le,I won't see him anymore.,1
+她不会读书写字。,tā bù huì dú shū xiě zì,She can't write or read.,1
+这是一家好医院。,zhè shì yī jiā hǎo yī yuàn,This is a good hospital.,1
+她现在住在哪儿？,tā xiàn zài zhù zài nǎ ér,Where does she live now?,1
+你看来不大高兴。,nǐ kàn lái bù dà gāo xìng,You don't look so happy.,1
+你有很多朋友吗？,nǐ yǒu hěn duō péng yǒu ma,Do you have many friends?,1
+昨天他喝了很多。,zuó tiān tā hē le hěn duō,He drank a lot yesterday.,1
+今天你吃的什么？,jīn tiān nǐ chī de shén me,What have you eaten today?,1
+你怎么不睡觉呢？,nǐ zěn me bù shuì jiào ne,Why don't you go to sleep?,1
+我昨天去了学校。,wǒ zuó tiān qù le xué xiào,I went to school yesterday.,1
+你和我是好朋友。,nǐ hé wǒ shì hǎo péng yǒu,You and I are good friends.,1
+这些书都是我的。,zhè xiē shū dōu shì wǒ de,All of these books are mine.,1
+你们在听我说吗？,nǐ men zài tīng wǒ shuō ma,Are you all listening to me?,1
+你昨天喝茶了吗？,nǐ zuó tiān hē chá le ma,Did you drink tea yesterday?,1
+他们都是好老师。,tā men dōu shì hǎo lǎo shī,All of them are good teachers.,1
+我不高兴看电视。,wǒ bù gāo xìng kàn diàn shì,I don't feel like watching TV.,1
+今天天气怎么样？,jīn tiān tiān qì zěn me yàng,What's the weather like today?,1
+我什么都不想喝。,wǒ shén me dōu bù xiǎng hē,I don't want anything to drink.,1
+我不想读这本书。,wǒ bù xiǎng dú zhè běn shū,I don't want to read this book.,1
+我认识她两年了。,wǒ rèn shí tā liǎng nián le,I have known her for two years.,1
+我昨天住在他家。,wǒ zuó tiān zhù zài tā jiā,I stayed at his place yesterday.,1
+猫在椅子上睡觉。,māo zài yǐ zi shàng shuì jiào,The cat is sleeping on the chair.,1
+你明天想去那里？,nǐ míng tiān xiǎng qù nà lǐ,Where do you want to go tomorrow?,1
+我想吃点好吃的。,wǒ xiǎng chī diǎn hǎo chī de,I want to eat something delicious.,1
+有什么想吃的吗？,yǒu shén me xiǎng chī de ma,Is there anything you want to eat?,1
+她想在医院工作。,tā xiǎng zài yī yuàn gōng zuò,She wants to work at the hospital.,1
+他是一个 DJ 。,tā shì yī gè,He's a DJ.,1
+那个时候，我在家。,nà gè shí hòu wǒ zài jiā,I was at home then.,1
+你现在在哪里工作？,nǐ xiàn zài zài nǎ lǐ gōng zuò,Where do you work now?,1
+我很高兴你回来了。,wǒ hěn gāo xìng nǐ huí lái le,I'm glad you came over.,1
+我的猫会爱上这个。,wǒ de māo huì ài shàng zhè gè,My cats will love this.,1
+那里的天气怎么样？,nà lǐ de tiān qì zěn me yàng,How's the weather there?,1
+这些东西不是我的！,zhè xiē dōng xi bù shì wǒ de,These things aren't mine!,1
+我很高兴你们都在。,wǒ hěn gāo xìng nǐ men dōu zài,I'm glad you guys are here.,1
+他有时候会来看我。,tā yǒu shí hòu huì lái kàn wǒ,He sometimes drops in on me.,1
+你是怎么认识他的？,nǐ shì zěn me rèn shí tā de,How did you get to know him?,1
+这本书我昨天买了。,zhè běn shū wǒ zuó tiān mǎi le,I bought the book yesterday.,1
+我们三个都是学生。,wǒ men sān gè dōu shì xué shēng,All three of us are students.,1
+他一个朋友都没有。,tā yī gè péng yǒu dōu méi yǒu,He does not have any friends.,1
+他说，“九点了”。,tā shuō jiǔ diǎn le,"He said, ""It's nine o'clock.""",1
+她一个朋友都没有。,tā yī gè péng yǒu dōu méi yǒu,She doesn't have any friends.,1
+那不是猫。那是狗。,nà bù shì māo nà shì gǒu,That's not a cat. It's a dog.,1
+他们说天气会很热。,tā men shuō tiān qì huì hěn rè,They say it will be very hot.,1
+我在星期日不工作。,wǒ zài xīng qī rì bù gōng zuò,Sunday is not a workday for me.,1
+昨天你没有去学校。,zuó tiān nǐ méi yǒu qù xué xiào,You were absent from school yesterday.,1
+我会在七八点回家。,wǒ huì zài qī bā diǎn huí jiā,I'll be back by seven or eight o'clock.,1
+我今天不想吃东西。,wǒ jīn tiān bù xiǎng chī dōng xi,I don't feel like eating anything today.,1
+我很高兴你今天来了。,wǒ hěn gāo xìng nǐ jīn tiān lái le,I'm glad you came today.,1
+Tom昨天看了电视。,zuó tiān kàn le diàn shì,Tom watched TV yesterday.,1
+有多少人在那里工作？,yǒu duō shǎo rén zài nà lǐ gōng zuò,How many people work there?,1
+现在的天气怎么样了？,xiàn zài de tiān qì zěn me yàng le,What's the weather like now?,1
+你什么时候能来我家？,nǐ shén me shí hòu néng lái wǒ jiā,When can you come to my home?,1
+我是这个学校的学生。,wǒ shì zhè gè xué xiào de xué shēng,I am a student of this school.,1
+这个学校有很多学生。,zhè gè xué xiào yǒu hěn duō xué shēng,This school has many students.,1
+我们能在哪儿打电话？,wǒ men néng zài nǎ ér dǎ diàn huà,Where can we make a phone call?,1
+这是你的狗。我的呢？,zhè shì nǐ de gǒu wǒ de ne,Here is your dog. Where is mine?,1
+我们认识有好些年了。,wǒ men rèn shí yǒu hǎo xiē nián le,We've known each other for years.,1
+你今天下午会在家吗？,nǐ jīn tiān xià wǔ huì zài jiā ma,Will you be at home this afternoon?,1
+你朋友的女儿怎么了？,nǐ péng yǒu de nǚ ér zěn me le,What happened to your friend's daughter?,1
+你们学校有多少学生？,nǐ men xué xiào yǒu duō shǎo xué shēng,How many students are there in your school?,1
+我在想你今天会不会来。,wǒ zài xiǎng nǐ jīn tiān huì bù huì lái,I was wondering if you were going to show up today.,1
+他是我太太认识的一个人。,tā shì wǒ tài tài rèn shí de yī gè rén,He is acquainted with my wife.,1
+她在5年里写了5本小说。,tā zài nián lǐ xiě le běn xiǎo shuō,She wrote 5 novels in 5 years.,1
+“是谁？”“是你妈妈。”,shì shuí shì nǐ mā mā,"""Who is it?"" ""It's your mother.""",1
+她有一个儿子和两个女儿。,tā yǒu yī gè ér zi hé liǎng gè nǚ ér,She has a son and two daughters.,1
+他们的苹果没有我们的好吃。,tā men de píng guǒ méi yǒu wǒ men de hǎo chī,Their apples aren't as tasty as ours.,1
+“她有狗吗？” “没有。”,tā yǒu gǒu ma méi yǒu,"""Does she have a dog?"" ""No, she doesn't.""",1
+他在20岁的时候写了这本书。,tā zài suì de shí hòu xiě le zhè běn shū,He wrote this book at the age of twenty.,1
+“你怎么样？”“我很好，谢谢。”,nǐ zěn me yàng wǒ hěn hǎo xiè xiè,"""How are you?"" ""I'm fine, thank you.""",1
+“你在哪里？” “我在一个朋友家。”,nǐ zài nǎ lǐ wǒ zài yī gè péng yǒu jiā,"""Where were you?"" ""I was at a friend's house.""",1
+我星期二和星期四下午 2:30 回家。,wǒ xīng qī èr hé xīng qī sì xià wǔ huí jiā,I come home at 2:30 on Tuesdays and Thursdays.,1
+住手！,zhù shǒu,Stop!,2
+听着。,tīng zhe,Listen.,2
+出去！,chū qù,Get out!,2
+欢迎。,huān yíng,Welcome.,2
+快点！,kuài diǎn,Hurry up.,2
+快点。,kuài diǎn,Hurry up.,2
+走吧。,zǒu ba,Let's go!,2
+看着我,kàn zhe wǒ,Watch me.,2
+您好。,nín hǎo,Greetings.,2
+住手。,zhù shǒu,Stop that!,2
+不对。,bù duì,It's wrong.,2
+让开。,ràng kāi,Step aside.,2
+还回去,hái huí qù,Give it back.,2
+我懂。,wǒ dǒng,I understand.,2
+您呢？,nín ne,How about you?,2
+不会吧。,bù huì ba,Oh no!,2
+懂了吗？,dǒng le ma,Got it?,2
+我知道。,wǒ zhī dào,I know.,2
+不可能！,bù kě néng,No way!,2
+回家吧。,huí jiā ba,Go home.,2
+告诉我！,gào sù wǒ,Tell me.,2
+我很忙。,wǒ hěn máng,I'm busy.,2
+回答我。,huí dá wǒ,Answer me.,2
+他很忙。,tā hěn máng,He's busy.,2
+我很累。,wǒ hěn lèi,I'm tired.,2
+谁知道？,shuí zhī dào,Who knows?,2
+我爱您。,wǒ ài nín,I love you.,2
+让我来。,ràng wǒ lái,Let me try.,2
+再一次。,zài yī cì,Once again.,2
+他对吗？,tā duì ma,Is he right?,2
+请来吧。,qǐng lái ba,Please come.,2
+请唱歌。,qǐng chàng gē,Please sing.,2
+放开他。,fàng kāi tā,Release him.,2
+晚上好。,wǎn shàng hǎo,Good evening.,2
+晚上好！,wǎn shàng hǎo,Good evening.,2
+早上好！,zǎo shàng hǎo,Good morning.,2
+我好累。,wǒ hǎo lèi,I'm so tired!,2
+大家好！,dà jiā hǎo,"Hi, everybody.",2
+它很大。,tā hěn dà,It's very big.,2
+太快了。,tài kuài le,That was fast.,2
+我不懂。,wǒ bù dǒng,I don't get it.,2
+我卖花。,wǒ mài huā,I sell flowers.,2
+非常冷。,fēi cháng lěng,It's very cold.,2
+我不要.,wǒ bù yào,I don't want it.,2
+我走了。,wǒ zǒu le,I'm out of here.,2
+你做吗?,nǐ zuò ma,Have you done it?,2
+她卖花。,tā mài huā,She sells flowers.,2
+都给我。,dōu gěi wǒ,Give me everything.,2
+这里有人,zhè lǐ yǒu rén,Somebody's in here.,2
+你不懂。,nǐ bù dǒng,You don't understand.,2
+请开门。,qǐng kāi mén,"Open the door, please.",2
+太贵了！,tài guì le,This is too expensive!,2
+你懂了吗？,nǐ dǒng le ma,Got it?,2
+我生病了。,wǒ shēng bìng le,I'm ill.,2
+我们知道。,wǒ men zhī dào,We know.,2
+为什么不？,wèi shén me bù,Why not?,2
+我做到了！,wǒ zuò dào le,I did it.,2
+我要游泳。,wǒ yào yóu yǒng,I'll swim.,2
+我是第一。,wǒ shì dì yī,I'm first.,2
+让我进去。,ràng wǒ jìn qù,Let me in.,2
+时间到了。,shí jiān dào le,Time's up.,2
+去洗洗吧。,qù xǐ xǐ ba,Go wash up.,2
+我不能走。,wǒ bù néng zǒu,I can't go.,2
+我走不了。,wǒ zǒu bù le,I can't go.,2
+我需要你。,wǒ xū yào nǐ,I need you.,2
+我想要你。,wǒ xiǎng yào nǐ,I want you.,2
+是晚上了。,shì wǎn shàng le,It's night.,2
+它是什么？,tā shì shén me,What is it?,2
+我也去了。,wǒ yě qù le,I also went.,2
+我有时间。,wǒ yǒu shí jiān,I have time.,2
+我想错了。,wǒ xiǎng cuò le,I was wrong.,2
+这不可能！,zhè bù kě néng,It can't be!,2
+她打了他。,tā dǎ le tā,She hit him.,2
+我错了吗？,wǒ cuò le ma,Was I wrong?,2
+你做到了。,nǐ zuò dào le,You made it.,2
+你在这里。,nǐ zài zhè lǐ,You're here.,2
+您在忙吗？,nín zài máng ma,Are you busy?,2
+我爱音乐。,wǒ ài yīn yuè,I love music.,2
+它太大了。,tā tài dà le,It's too big.,2
+欢迎回来。,huān yíng huí lái,Welcome back.,2
+欢迎回家。,huān yíng huí jiā,Welcome home.,2
+谁想要它？,shuí xiǎng yào tā,Who wants it?,2
+我做不到。,wǒ zuò bù dào,I can't do it.,2
+坐我旁边。,zuò wǒ páng biān,Sit beside me.,2
+你最好去。,nǐ zuì hǎo qù,You should go.,2
+我信过你。,wǒ xìn guò nǐ,I believed you.,2
+我想知道。,wǒ xiǎng zhī dào,I want to know.,2
+我想去玩。,wǒ xiǎng qù wán,I want to play.,2
+我想要去。,wǒ xiǎng yào qù,I'd like to go.,2
+我今天忙。,wǒ jīn tiān máng,I'm busy today.,2
+我很快乐。,wǒ hěn kuài yuè,I'm very happy.,2
+让我去做。,ràng wǒ qù zuò,Let me do that.,2
+我也能去。,wǒ yě néng qù,"I can come, too.",2
+我踢足球。,wǒ tī zú qiú,I play football.,2
+我快好了。,wǒ kuài hǎo le,I'm about ready.,2
+你最好走。,nǐ zuì hǎo zǒu,You'd better go.,2
+你最好了。,nǐ zuì hǎo le,You're the best.,2
+你长大了。,nǐ cháng dà le,You've grown up.,2
+您学习吗？,nín xué xí ma,Are you studying?,2
+我不要你。,wǒ bù yào nǐ,I don't want you.,2
+我也喝茶。,wǒ yě hē chá,"I drink tea, too.",2
+我要你去。,wǒ yào nǐ qù,I want you to go.,2
+我想游泳。,wǒ xiǎng yóu yǒng,I wanted to swim.,2
+不可能的。,bù kě néng de,That can't be it.,2
+您有什么？,nín yǒu shén me,What do you have?,2
+门在哪里？,mén zài nǎ lǐ,Where's the door?,2
+你非常快。,nǐ fēi cháng kuài,You're very fast.,2
+你们懂吗？,nǐ men dǒng ma,Do you understand?,2
+这是找零。,zhè shì zhǎo líng,Here's the change.,2
+我要回家。,wǒ yào huí jiā,I want to go home.,2
+我洗手了。,wǒ xǐ shǒu le,I washed my hands.,2
+这不可能。,zhè bù kě néng,That's impossible.,2
+你还冷吗？,nǐ hái lěng ma,Are you still cold?,2
+别吃太多。,bié chī tài duō,Don't eat too much.,2
+他到了吗?,tā dào le ma,Has he arrived yet?,2
+这太贵了。,zhè tài guì le,It's too expensive.,2
+他不知道。,tā bù zhī dào,He didn't know that.,2
+我在找你。,wǒ zài zhǎo nǐ,I'm looking for you.,2
+它很好玩。,tā hěn hǎo wán,It was a lot of fun.,2
+我家很远。,wǒ jiā hěn yuǎn,My home is far away.,2
+他会游泳。,tā huì yóu yǒng,He knows how to swim.,2
+我放不下。,wǒ fàng bù xià,I couldn't let it go.,2
+是我错了。,shì wǒ cuò le,It's me that's wrong.,2
+谁的生日？,shuí de shēng rì,Whose birthday is it?,2
+来我家吧。,lái wǒ jiā ba,Come over to my house.,2
+他要多少?,tā yào duō shǎo,How many does he want?,2
+不太可能。,bù tài kě néng,It may not be possible.,2
+我问问路。,wǒ wèn wèn lù,I'll ask for directions.,2
+我要坐下。,wǒ yào zuò xià,I'm going to go sit down.,2
+让我想想。,ràng wǒ xiǎng xiǎng,Let me think for a minute.,2
+现在有票。,xiàn zài yǒu piào,Tickets are available now.,2
+他写长信。,tā xiě cháng xìn,He's writing a long letter.,2
+谁会信呢？,shuí huì xìn ne,Who's going to believe that?,2
+猫看着鱼。,māo kàn zhe yú,The cat is watching the fish.,2
+知道了没有？,zhī dào le méi yǒu,Got it?,2
+为什么是我？,wèi shén me shì wǒ,Why me?,2
+Tom游泳。,yóu yǒng,Tom swam.,2
+我是个男人。,wǒ shì gè nán rén,I'm a man.,2
+他们离开了。,tā men lí kāi le,They left.,2
+让我想一想。,ràng wǒ xiǎng yī xiǎng,Let me see.,2
+我们走走吧。,wǒ men zǒu zǒu ba,Let's walk.,2
+您可以走了。,nín kě yǐ zǒu le,You can go.,2
+你可以去了。,nǐ kě yǐ qù le,You can go.,2
+我住在这里。,wǒ zhù zài zhè lǐ,I live here.,2
+我需要帮助。,wǒ xū yào bāng zhù,I need help.,2
+我身体很好。,wǒ shēn tǐ hěn hǎo,I'm healthy.,2
+您会唱歌吗？,nín huì chàng gē ma,Can you sing?,2
+我是服务员。,wǒ shì fú wù yuán,I'm a waiter.,2
+我是最好的。,wǒ shì zuì hǎo de,I'm the best.,2
+这是我的错。,zhè shì wǒ de cuò,I'm to blame.,2
+谁也不知道。,shuí yě bù zhī dào,No one knows.,2
+不要说话了。,bù yào shuō huà le,Stop talking.,2
+他们是孩子。,tā men shì hái zi,They're kids.,2
+她们是孩子。,tā men shì hái zi,They're kids.,2
+谁来了这里？,shuí lái le zhè lǐ,Who was here?,2
+还有别的吗？,hái yǒu bié de ma,Anything else?,2
+可以给我吗？,kě yǐ gěi wǒ ma,Can I have it?,2
+不要告诉我。,bù yào gào sù wǒ,Don't tell me.,2
+吃吧，喝吧。,chī ba hē ba,Eat and drink.,2
+他走路很快。,tā zǒu lù hěn kuài,He walks fast.,2
+我想我可以。,wǒ xiǎng wǒ kě yǐ,I think I can.,2
+我想要本书。,wǒ xiǎng yào běn shū,I want a book.,2
+我也在这里。,wǒ yě zài zhè lǐ,"I'm here, too.",2
+我这就上路。,wǒ zhè jiù shàng lù,I'm on my way.,2
+可能会下雨。,kě néng huì xià yǔ,It might rain.,2
+这需要时间。,zhè xū yào shí jiān,It takes time.,2
+他们都知道。,tā men dōu zhī dào,They all knew.,2
+他们在这里。,tā men zài zhè lǐ,They are here.,2
+你给我下来！,nǐ gěi wǒ xià lái,Come down here!,2
+我需要知道。,wǒ xū yào zhī dào,I need to know.,2
+我要回来了。,wǒ yào huí lái le,I'll come back.,2
+我爸爸很忙。,wǒ bà bà hěn máng,My dad is busy.,2
+这不是新的。,zhè bù shì xīn de,This isn't new.,2
+你是对的吗？,nǐ shì duì de ma,Were you right?,2
+那男人是谁？,nà nán rén shì shuí,Who's that man?,2
+你能来就来!,nǐ néng lái jiù lái,Come if you can.,2
+您看电视吗？,nín kàn diàn shì ma,Do you watch TV?,2
+我有两只猫。,wǒ yǒu liǎng zhǐ māo,I have two cats.,2
+我需要医生。,wǒ xū yào yī shēng,I need a doctor.,2
+我希望你去。,wǒ xī wàng nǐ qù,I wish you'd go.,2
+我有点累了。,wǒ yǒu diǎn lèi le,I'm a bit tired.,2
+我在找工作。,wǒ zài zhǎo gōng zuò,I'm job hunting.,2
+你可以走了。,nǐ kě yǐ zǒu le,It's okay to go.,2
+我爸爸走路。,wǒ bà bà zǒu lù,My father walks.,2
+出租车到了。,chū zū chē dào le,The taxi's here.,2
+你做了什么？,nǐ zuò le shén me,What did you do?,2
+你没有希望。,nǐ méi yǒu xī wàng,You're hopeless.,2
+现在你忙吗？,xiàn zài nǐ máng ma,Are you busy now?,2
+我非常想你。,wǒ fēi cháng xiǎng nǐ,I miss you badly.,2
+我要多很多。,wǒ yào duō hěn duō,I want much more.,2
+这个卖不卖？,zhè gè mài bù mài,Is that for sale?,2
+这是最好的。,zhè shì zuì hǎo de,This is the best.,2
+在我前面走。,zài wǒ qián miàn zǒu,Walk ahead of me.,2
+你想要什么？,nǐ xiǎng yào shén me,What do you want?,2
+您是学生吗？,nín shì xué shēng ma,Are you a student?,2
+你爱音乐吗？,nǐ ài yīn yuè ma,Do you like music?,2
+他不能游泳。,tā bù néng yóu yǒng,He could not swim.,2
+我看了日出。,wǒ kàn le rì chū,I saw the sunrise.,2
+我想要点钱。,wǒ xiǎng yào diǎn qián,I want some money.,2
+我想要跳舞。,wǒ xiǎng yào tiào wǔ,I'd like to dance.,2
+我在喝牛奶。,wǒ zài hē niú nǎi,I'm drinking milk.,2
+我还在读书。,wǒ hái zài dú shū,I'm still reading.,2
+都是我的错。,dōu shì wǒ de cuò,It's all my fault.,2
+不是我的错。,bù shì wǒ de cuò,It's not my fault.,2
+去踢足球吧。,qù tī zú qiú ba,Let's play soccer.,2
+她没有走远。,tā méi yǒu zǒu yuǎn,She didn't go far.,2
+你会做什么？,nǐ huì zuò shén me,What could you do?,2
+我要买什么？,wǒ yào mǎi shén me,What should I buy?,2
+您住在哪里？,nín zhù zài nǎ lǐ,Where do you live?,2
+这谁给你的？,zhè shuí gěi nǐ de,Who gave you this?,2
+你做了很多。,nǐ zuò le hěn duō,You've done a lot.,2
+你今天忙吗？,nǐ jīn tiān máng ma,Are you busy today?,2
+我知道问题。,wǒ zhī dào wèn tí,I know the problem.,2
+我妻子在家。,wǒ qī zi zài jiā,My wife is at home.,2
+你最好快点。,nǐ zuì hǎo kuài diǎn,You'd better hurry.,2
+我明天再做。,wǒ míng tiān zài zuò,I'll do it tomorrow.,2
+我今天很忙。,wǒ jīn tiān hěn máng,I'm very busy today.,2
+都是你的错。,dōu shì nǐ de cuò,It's all your fault.,2
+您的家在哪？,nín de jiā zài nǎ,Where is your house?,2
+您有很多书。,nín yǒu hěn duō shū,You have many books.,2
+您不是医生。,nín bù shì yī shēng,You're not a doctor.,2
+别离开房间。,bié lí kāi fáng jiān,Don't leave the room.,2
+我不想游泳。,wǒ bù xiǎng yóu yǒng,I don't want to swim.,2
+我只想睡觉。,wǒ zhǐ xiǎng shuì jiào,I just want to sleep.,2
+我想我懂了。,wǒ xiǎng wǒ dǒng le,I think I understand.,2
+她非常漂亮。,tā fēi cháng piào liàng,She's very beautiful.,2
+你最好回家。,nǐ zuì hǎo huí jiā,You'd better go home.,2
+到我家来吧。,dào wǒ jiā lái ba,Come over to my place.,2
+这要多少钱？,zhè yào duō shǎo qián,How much will it cost?,2
+我不想要了。,wǒ bù xiǎng yào le,I don't want any more.,2
+我明天有课。,wǒ míng tiān yǒu kè,I have class tomorrow.,2
+我想去游泳。,wǒ xiǎng qù yóu yǒng,I want to go swimming.,2
+这要花时间。,zhè yào huā shí jiān,This may take a while.,2
+我们要回家。,wǒ men yào huí jiā,We're going back home.,2
+我们在找他。,wǒ men zài zhǎo tā,We're looking for him.,2
+快一点好吗？,kuài yī diǎn hǎo ma,Can you hurry up a bit?,2
+您想听它吗？,nín xiǎng tīng tā ma,Do you want to hear it?,2
+给我一点钱。,gěi wǒ yī diǎn qián,Give me a little money.,2
+要多长时间？,yào duō cháng shí jiān,How long would it take?,2
+我时间不多。,wǒ shí jiān bù duō,I don't have much time.,2
+我想看看它。,wǒ xiǎng kàn kàn tā,I would like to see it.,2
+今天早上冷。,jīn tiān zǎo shàng lěng,It's cold this morning.,2
+请快点回信。,qǐng kuài diǎn huí xìn,Please write back soon.,2
+她进了房间。,tā jìn le fáng jiān,She came into the room.,2
+那不太可能。,nà bù tài kě néng,That would be unlikely.,2
+下一个给你。,xià yī gè gěi nǐ,The next one's for you.,2
+它从哪里来？,tā cóng nǎ lǐ lái,Where did it come from?,2
+你有问题吗？,nǐ yǒu wèn tí ma,Are you having problems?,2
+他是我弟弟。,tā shì wǒ dì dì,He's my younger brother.,2
+这是给你的票,zhè shì gěi nǐ de piào,Here's a ticket for you.,2
+我不打篮球。,wǒ bù dǎ lán qiú,I don't play basketball.,2
+我不想离开。,wǒ bù xiǎng lí kāi,I don't want to go away.,2
+我不想长大。,wǒ bù xiǎng cháng dà,I don't want to grow up.,2
+我知道他忙。,wǒ zhī dào tā máng,I know that he was busy.,2
+我昨天不忙。,wǒ zuó tiān bù máng,I wasn't busy yesterday.,2
+这我要三个。,zhè wǒ yào sān gè,I'd like three of these.,2
+我现在不累。,wǒ xiàn zài bù lèi,I'm not tired right now.,2
+请来我家吧。,qǐng lái wǒ jiā ba,Please come to my house.,2
+你要做什么？,nǐ yào zuò shén me,What're you going to do?,2
+您走太快了。,nín zǒu tài kuài le,You're walking too fast.,2
+你在写信吗？,nǐ zài xiě xìn ma,Are you writing a letter?,2
+大鱼吃小鱼。,dà yú chī xiǎo yú,Big fish eat little fish.,2
+这是你的信。,zhè shì nǐ de xìn,Here is a letter for you.,2
+我不懂音乐。,wǒ bù dǒng yīn yuè,I don't understand music.,2
+我只想到你。,wǒ zhǐ xiǎng dào nǐ,I'm only thinking of you.,2
+您有几只猫？,nín yǒu jǐ zhǐ māo,How many cats do you have?,2
+门票多少钱？,mén piào duō shǎo qián,How much is the admission?,2
+我没有孩子。,wǒ méi yǒu hái zi,I don't have any children.,2
+给我点喝的。,gěi wǒ diǎn hē de,Give me something to drink.,2
+你要多少钱？,nǐ yào duō shǎo qián,How much money do you need?,2
+请看看这里。,qǐng kàn kàn zhè lǐ,Please take a look at this.,2
+她听着音乐。,tā tīng zhe yīn yuè,She was listening to music.,2
+您想吃什么？,nín xiǎng chī shén me,What would you like to eat?,2
+做点什么吧！,zuò diǎn shén me ba,Why don't you do something?,2
+你问题太多了,nǐ wèn tí tài duō le,You ask too many questions.,2
+他不会游泳。,tā bù huì yóu yǒng,He doesn't know how to swim.,2
+我不看报纸。,wǒ bù kàn bào zhǐ,I don't read the newspapers.,2
+人要爱他人。,rén yào ài tā rén,People must love one another.,2
+您想喝什么？,nín xiǎng hē shén me,What would you like to drink?,2
+他要了水喝。,tā yào le shuǐ hē,He asked for a drink of water.,2
+您几点下课？,nín jǐ diǎn xià kè,What time does your class end?,2
+穿你想穿的。,chuān nǐ xiǎng chuān de,Wear whatever you want to wear.,2
+火车票贵吗？,huǒ chē piào guì ma,Are the train tickets expensive?,2
+离这里不远。,lí zhè lǐ bù yuǎn,It's not far from here to there.,2
+她看完信了。,tā kàn wán xìn le,She finished reading the letter.,2
+我也不想玩。,wǒ yě bù xiǎng wán,I don't feel like playing either.,2
+不做不知道。,bù zuò bù zhī dào,You'll never know unless you try.,2
+他来信了吗？,tā lái xìn le ma,Have you received a letter from him?,2
+只有你懂我。,zhǐ yǒu nǐ dǒng wǒ,You're the only one who understands me.,2
+你是新来的吗？,nǐ shì xīn lái de ma,Are you new?,2
+我也是17岁。,wǒ yě shì suì,"I'm 17, too.",2
+是的，我知道。,shì de wǒ zhī dào,"Yes, I know.",2
+他现在出去了。,tā xiàn zài chū qù le,He's out now.,2
+睡觉时间到了。,shuì jiào shí jiān dào le,It's bedtime.,2
+我们现在去吧。,wǒ men xiàn zài qù ba,Let's go now.,2
+您准备好了吗？,nín zhǔn bèi hǎo le ma,Are you ready?,2
+你准备好了吗？,nǐ zhǔn bèi hǎo le ma,Are you ready?,2
+可能要下雨了。,kě néng yào xià yǔ le,It might rain.,2
+让我们回家吧。,ràng wǒ men huí jiā ba,Let's go home.,2
+给我看下它吧。,gěi wǒ kàn xià tā ba,Show it to me.,2
+我能坐这里吗？,wǒ néng zuò zhè lǐ ma,Can I sit here?,2
+您看见它了吗？,nín kàn jiàn tā le ma,Did you see it?,2
+你还认识我吗？,nǐ hái rèn shí wǒ ma,Do you know me?,2
+我爱我的妻子。,wǒ ài wǒ de qī zi,I love my wife.,2
+我错过了很多。,wǒ cuò guò le hěn duō,I missed a lot.,2
+它花了几个月。,tā huā le jǐ gè yuè,It took months.,2
+这就要看您了。,zhè jiù yào kàn nín le,It's up to you.,2
+我们学习音乐。,wǒ men xué xí yīn yuè,We study music.,2
+请给我打电话。,qǐng gěi wǒ dǎ diàn huà,"Call me, please.",2
+我唱歌很好听。,wǒ chàng gē hěn hǎo tīng,I can sing well.,2
+我可能会说是。,wǒ kě néng huì shuō shì,I might say yes.,2
+我需要个朋友。,wǒ xū yào gè péng yǒu,I need a friend.,2
+我是你的妹妹。,wǒ shì nǐ de mèi mèi,I'm your sister.,2
+他是个好孩子。,tā shì gè hǎo hái zi,The boy is kind.,2
+这本书是新的。,zhè běn shū shì xīn de,This book's new.,2
+这是我的妻子。,zhè shì wǒ de qī zi,This is my wife.,2
+那个男人是谁？,nà gè nán rén shì shuí,Who is that man?,2
+你为什么工作？,nǐ wèi shén me gōng zuò,Why do you work?,2
+你能告诉我们。,nǐ néng gào sù wǒ men,You can tell us.,2
+你需要帮助吗？,nǐ xū yào bāng zhù ma,Do you need help?,2
+谁也不在那里。,shuí yě bù zài nà lǐ,No one was there.,2
+那本书在这里。,nà běn shū zài zhè lǐ,The book is here.,2
+我们只有茶水。,wǒ men zhǐ yǒu chá shuǐ,We only have tea.,2
+我们一起工作。,wǒ men yī qǐ gōng zuò,We work together.,2
+您叫什么名字？,nín jiào shén me míng zì,What's your name?,2
+你可能是对的。,nǐ kě néng shì duì de,You may be right.,2
+您的房间很大。,nín de fáng jiān hěn dà,Your room is big.,2
+你眼睛不好吗?,nǐ yǎn jīng bù hǎo ma,Are your eyes bad?,2
+来吧，快一点。,lái ba kuài yī diǎn,"Come on, hurry up.",2
+您会告诉我吗？,nín huì gào sù wǒ ma,Could you tell me?,2
+他说话太快了。,tā shuō huà tài kuài le,He talks too fast.,2
+你回答了什么？,nǐ huí dá le shén me,How did you reply?,2
+您回答了什么？,nín huí dá le shén me,How did you reply?,2
+您怎么回答的？,nín zěn me huí dá de,How did you reply?,2
+我有一台电脑。,wǒ yǒu yī tái diàn nǎo,I have a computer.,2
+我就是不知道。,wǒ jiù shì bù zhī dào,I just don't know.,2
+我什么都知道。,wǒ shén me dōu zhī dào,I know everything.,2
+我坐在他旁边。,wǒ zuò zài tā páng biān,I sat by his side.,2
+我不会离开你。,wǒ bù huì lí kāi nǐ,I won't leave you.,2
+这是我的问题。,zhè shì wǒ de wèn tí,That's my problem.,2
+这是我的妹妹。,zhè shì wǒ de mèi mèi,This is my sister.,2
+您听到什么了？,nín tīng dào shén me le,What did you hear?,2
+这是什么做的？,zhè shì shén me zuò de,What's it made of?,2
+您在哪里工作？,nín zài nǎ lǐ gōng zuò,Where do you work?,2
+给我你的手机。,gěi wǒ nǐ de shǒu jī,Give me your phone.,2
+他很快就好了。,tā hěn kuài jiù hǎo le,He'll be done soon.,2
+这是我的行李。,zhè shì wǒ de xíng lǐ,Here is my baggage.,2
+我不能喝牛奶。,wǒ bù néng hē niú nǎi,I can't drink milk.,2
+我知道他做了。,wǒ zhī dào tā zuò le,I know what he did.,2
+我会需要帮助。,wǒ huì xū yào bāng zhù,I'll get some help.,2
+我也会想你的。,wǒ yě huì xiǎng nǐ de,"I'll miss you, too.",2
+有什么不对吗？,yǒu shén me bù duì ma,Is something wrong?,2
+它不会太贵的。,tā bù huì tài guì de,It won't cost much.,2
+是时候离开了。,shì shí hòu lí kāi le,It's time to leave.,2
+她坐在我旁边。,tā zuò zài wǒ páng biān,She sat next to me.,2
+她很快就来了。,tā hěn kuài jiù lái le,She will come soon.,2
+飞机准备好了。,fēi jī zhǔn bèi hǎo le,The plane is ready.,2
+但是，我不要。,dàn shì wǒ bù yào,But I don't want to.,2
+他可能不高兴。,tā kě néng bù gāo xìng,He may not be happy.,2
+我们有多远了？,wǒ men yǒu duō yuǎn le,How far away are we?,2
+我谁也不需要。,wǒ shuí yě bù xū yào,I don't need anyone.,2
+我希望你能来。,wǒ xī wàng nǐ néng lái,I hope you can come.,2
+我想住在这里。,wǒ xiǎng zhù zài zhè lǐ,I want to live here.,2
+我昨天生病了。,wǒ zuó tiān shēng bìng le,I was ill yesterday.,2
+我错过了太多。,wǒ cuò guò le tài duō,I've missed so much.,2
+她唱歌非常好。,tā chàng gē fēi cháng hǎo,She sings very well.,2
+我们没有做好。,wǒ men méi yǒu zuò hǎo,We've not done well.,2
+你有什么问题？,nǐ yǒu shén me wèn tí,What's your problem?,2
+它什么时候到？,tā shén me shí hòu dào,When does it arrive?,2
+你和谁说话呢？,nǐ hé shuí shuō huà ne,Who did you talk to?,2
+你为什么不做？,nǐ wèi shén me bù zuò,Why don't you do it?,2
+你最好不要去。,nǐ zuì hǎo bù yào qù,You'd better not go.,2
+我会唱歌跳舞。,wǒ huì chàng gē tiào wǔ,I can sing and dance.,2
+我有你需要的。,wǒ yǒu nǐ xū yào de,I have what you need.,2
+我不再爱你了。,wǒ bù zài ài nǐ le,I no longer love you.,2
+我不会再说了。,wǒ bù huì zài shuō le,I won't say it again.,2
+我还是个新手。,wǒ hái shì gè xīn shǒu,I'm still a beginner.,2
+我家就是你家。,wǒ jiā jiù shì nǐ jiā,My home is your home.,2
+今天是我生日。,jīn tiān shì wǒ shēng rì,Today is my birthday.,2
+我们很不一样。,wǒ men hěn bù yī yàng,We're very different.,2
+你坐火车去吗？,nǐ zuò huǒ chē qù ma,Will you go by train?,2
+你不是音乐家？,nǐ bù shì yīn yuè jiā,Aren't you a musician?,2
+你还需要茶吗？,nǐ hái xū yào chá ma,Do you still need tea?,2
+大家都在跳舞。,dà jiā dōu zài tiào wǔ,Everybody was dancing.,2
+他有三个哥哥。,tā yǒu sān gè gē gē,He has three brothers.,2
+他都告诉我了。,tā dōu gào sù wǒ le,He told me everything.,2
+他是我的哥哥。,tā shì wǒ de gē gē,He's my older brother.,2
+我明天会很忙。,wǒ míng tiān huì hěn máng,I'll be busy tomorrow.,2
+房间里有人吗？,fáng jiān lǐ yǒu rén ma,Is anyone in the room?,2
+她是我的姐姐。,tā shì wǒ de jiě jiě,She's my older sister.,2
+洗手间在哪里？,xǐ shǒu jiān zài nǎ lǐ,Where is the bathroom?,2
+您可能找不到。,nín kě néng zhǎo bù dào,You might not find it.,2
+我现在不知道。,wǒ xiàn zài bù zhī dào,I don't know right now.,2
+我唱歌不太好。,wǒ chàng gē bù tài hǎo,I don't sing very well.,2
+我不想让你走。,wǒ bù xiǎng ràng nǐ zǒu,I don't want you to go.,2
+我就在你后面。,wǒ jiù zài nǐ hòu miàn,I was right behind you.,2
+下次我不做了。,xià cì wǒ bù zuò le,I will not do it again.,2
+我现在在机场。,wǒ xiàn zài zài jī chǎng,I'm at the airport now.,2
+我在找我的猫。,wǒ zài zhǎo wǒ de māo,I'm looking for my cat.,2
+它花了我三年。,tā huā le wǒ sān nián,It took me three years.,2
+让我去商店吧。,ràng wǒ qù shāng diàn ba,Let me go to the store.,2
+她爱她的孩子。,tā ài tā de hái zi,She loves her children.,2
+不是这个问题。,bù shì zhè gè wèn tí,That isn't the problem.,2
+那不对，对吧？,nà bù duì duì ba,"That isn't true, is it?",2
+鸡蛋也卖完了。,jī dàn yě mài wán le,We're also out of eggs.,2
+什么时候开门？,shén me shí hòu kāi mén,What time does it open?,2
+有什么问题吗？,yǒu shén me wèn tí ma,Are there any questions?,2
+他不需要工作。,tā bù xū yào gōng zuò,He doesn't need to work.,2
+想让他读这个。,xiǎng ràng tā dú zhè gè,I want him to read this.,2
+这本课本很好。,zhè běn kè běn hěn hǎo,This is a good textbook.,2
+明天是我生日。,míng tiān shì wǒ shēng rì,Tomorrow is my birthday.,2
+我们在看着你。,wǒ men zài kàn zhe nǐ,We've been watching you.,2
+你做什么工作？,nǐ zuò shén me gōng zuò,What is your occupation?,2
+哪些是最好的？,nǎ xiē shì zuì hǎo de,Which are the best ones?,2
+你要到那去吗？,nǐ yào dào nà qù ma,Are you going down there?,2
+你在找工作吗？,nǐ zài zhǎo gōng zuò ma,Are you looking for work?,2
+我和他一起走。,wǒ hé tā yī qǐ zǒu,He and I walked together.,2
+我非常想离开。,wǒ fēi cháng xiǎng lí kāi,I'd very much like to go.,2
+说你想要哪个。,shuō nǐ xiǎng yào nǎ gè,Say which you would like.,2
+让她中午过来。,ràng tā zhōng wǔ guò lái,Tell her to come at noon.,2
+这一次不一样。,zhè yī cì bù yī yàng,This time it's different.,2
+我们准备去做。,wǒ men zhǔn bèi qù zuò,We're preparing to do so.,2
+您昨天在哪儿？,nín zuó tiān zài nǎ ér,Where were you yesterday?,2
+你明天出去吗？,nǐ míng tiān chū qù ma,Will you go out tomorrow?,2
+你可能听说过。,nǐ kě néng tīng shuō guò,You might've heard of it.,2
+你花太多钱了。,nǐ huā tài duō qián le,You spend too much money.,2
+再给我五分钟。,zài gěi wǒ wǔ fēn zhōng,Give me five more minutes.,2
+他没有听音乐。,tā méi yǒu tīng yīn yuè,He didn't listen to music.,2
+他游泳比我好。,tā yóu yǒng bǐ wǒ hǎo,He swims better than I do.,2
+我就要离开了。,wǒ jiù yào lí kāi le,I was just about to leave.,2
+我去下洗手间。,wǒ qù xià xǐ shǒu jiān,I'm going to the bathroom.,2
+离这里还远吗？,lí zhè lǐ hái yuǎn ma,Is it still far from here?,2
+你什么时候走？,nǐ shén me shí hòu zǒu,What time are you leaving?,2
+有谁有铅笔吗？,yǒu shuí yǒu qiān bǐ ma,Does anybody have a pencil?,2
+他有三个姐姐。,tā yǒu sān gè jiě jiě,He has three older sisters.,2
+他也学习汉语。,tā yě xué xí hàn yǔ,He studies Chinese as well.,2
+认识您很高兴。,rèn shí nín hěn gāo xìng,I'm very happy to meet you.,2
+这是你要的吗？,zhè shì nǐ yào de ma,Is this something you want?,2
+你丈夫叫什么？,nǐ zhàng fū jiào shén me,What's your husband's name?,2
+你最好吃点东西,nǐ zuì hǎo chī diǎn dōng xi,You'd better eat something.,2
+到机场有多远？,dào jī chǎng yǒu duō yuǎn,How far away is the airport?,2
+有多少人能做？,yǒu duō shǎo rén néng zuò,How many people can do that?,2
+您明天回来吗？,nín míng tiān huí lái ma,Will you come back tomorrow?,2
+他比我大两岁。,tā bǐ wǒ dà liǎng suì,He's two years older than me.,2
+我不太看报纸。,wǒ bù tài kàn bào zhǐ,I don't read newspapers much.,2
+我不想再玩了。,wǒ bù xiǎng zài wán le,I don't want to play anymore.,2
+我要你想一想。,wǒ yào nǐ xiǎng yī xiǎng,I want you to think about it.,2
+一点也不好玩。,yī diǎn yě bù hǎo wán,It wasn't interesting at all.,2
+你在找什么吗？,nǐ zài zhǎo shén me ma,Are you looking for something?,2
+您在找什么吗？,nín zài zhǎo shén me ma,Are you looking for something?,2
+我不再写信了。,wǒ bù zài xiě xìn le,I don't write letters anymore.,2
+我想你快点好。,wǒ xiǎng nǐ kuài diǎn hǎo,I hope you'll get better soon.,2
+今天早上很冷。,jīn tiān zǎo shàng hěn lěng,It was very cold this morning.,2
+问题就在这里。,wèn tí jiù zài zhè lǐ,That's where the problem lies.,2
+你给了他什么？,nǐ gěi le tā shén me,What was it that you gave him?,2
+信是写给谁的？,xìn shì xiě gěi shuí de,Who was the letter written to?,2
+我在找地方坐。,wǒ zài zhǎo dì fāng zuò,I'm looking for a place to sit.,2
+你喂过马了吗？,nǐ wèi guò mǎ le ma,Have you already fed the horses?,2
+他就住在附近。,tā jiù zhù zài fù jìn,He lives just around the corner.,2
+他比她大三岁。,tā bǐ tā dà sān suì,He's three years older than her.,2
+茶比牛奶贵吗？,chá bǐ niú nǎi guì ma,Is tea more expensive than milk?,2
+昨天早上很冷。,zuó tiān zǎo shàng hěn lěng,It was very cold yesterday morning.,2
+你的姓怎么读？,nǐ de xìng zěn me dú,How do you pronounce your last name?,2
+和我们一起来吧。,hé wǒ men yī qǐ lái ba,Come with us.,2
+你们准备好了吗？,nǐ men zhǔn bèi hǎo le ma,Are you ready?,2
+我会打电话给你。,wǒ huì dǎ diàn huà gěi nǐ,I'll call you.,2
+还是要说谢谢的。,hái shì yào shuō xiè xiè de,Thanks anyway.,2
+我可以吃这个吗?,wǒ kě yǐ chī zhè gè ma,Can I eat this?,2
+我看见五个男人。,wǒ kàn jiàn wǔ gè nán rén,I saw five men.,2
+您知道为什么吗？,nín zhī dào wèi shén me ma,Do you know why?,2
+他不可能生病了。,tā bù kě néng shēng bìng le,He can't be ill.,2
+我需要他的帮助。,wǒ xū yào tā de bāng zhù,I need his help.,2
+我现在能走了吗？,wǒ xiàn zài néng zǒu le ma,May I leave now?,2
+明天打电话给我。,míng tiān dǎ diàn huà gěi wǒ,Call me tomorrow.,2
+每个人都在这里。,měi gè rén dōu zài zhè lǐ,Everybody's here.,2
+我看到他出去了。,wǒ kàn dào tā chū qù le,I saw him go out.,2
+他们对我说话了。,tā men duì wǒ shuō huà le,They spoke to me.,2
+我们有两个孩子。,wǒ men yǒu liǎng gè hái zi,We have two kids.,2
+你们的房间很大。,nǐ men de fáng jiān hěn dà,Your room is big.,2
+我给了你一本书。,wǒ gěi le nǐ yī běn shū,I gave you a book.,2
+我希望我可以去。,wǒ xī wàng wǒ kě yǐ qù,I wish I could go.,2
+我们去踢足球吧！,wǒ men qù tī zú qiú ba,Let's play soccer.,2
+什么问题都没有！,shén me wèn tí dōu méi yǒu,No problem at all!,2
+一点问题都没有！,yī diǎn wèn tí dōu méi yǒu,No problem at all!,2
+这只猫在吃东西。,zhè zhǐ māo zài chī dōng xi,The cat is eating.,2
+Tom是我哥哥。,shì wǒ gē gē,Tom is my brother.,2
+为什么您一个人？,wèi shén me nín yī gè rén,Why are you alone?,2
+你为什么一个人？,nǐ wèi shén me yī gè rén,Why are you alone?,2
+你会找到工作的。,nǐ huì zhǎo dào gōng zuò de,You'll find a job.,2
+你在这里高兴吗？,nǐ zài zhè lǐ gāo xìng ma,Are you happy here?,2
+我不可以喝牛奶。,wǒ bù kě yǐ hē niú nǎi,I can't drink milk.,2
+我想他会来的吧。,wǒ xiǎng tā huì lái de ba,I think he'll come.,2
+我太忙了不能去。,wǒ tài máng le bù néng qù,I'm too busy to go.,2
+这不是我的妻子。,zhè bù shì wǒ de qī zi,That isn't my wife.,2
+那就是我想要的。,nà jiù shì wǒ xiǎng yào de,That's what I want.,2
+这是我们的孩子。,zhè shì wǒ men de hái zi,These are our kids.,2
+他们在一起工作。,tā men zài yī qǐ gōng zuò,They work together.,2
+我们什么都知道。,wǒ men shén me dōu zhī dào,We know everything.,2
+那你是怎么做的？,nà nǐ shì zěn me zuò de,How did you do that?,2
+我知道她在哪里。,wǒ zhī dào tā zài nǎ lǐ,I know where she is.,2
+不会再有下次了。,bù huì zài yǒu xià cì le,I won't do it again.,2
+这就是我想要的。,zhè jiù shì wǒ xiǎng yào de,This is what I want.,2
+欢迎来到我们家。,huān yíng lái dào wǒ men jiā,Welcome to our home.,2
+你什么时候离开？,nǐ shén me shí hòu lí kāi,When will you leave?,2
+你为什么卖了它？,nǐ wèi shén me mài le tā,Why did you sell it?,2
+你看上去非常累。,nǐ kàn shàng qù fēi cháng lèi,You look very tired.,2
+你最好现在就走。,nǐ zuì hǎo xiàn zài jiù zǒu,You'd better go now.,2
+我能问个问题吗？,wǒ néng wèn gè wèn tí ma,Can I ask a question?,2
+我们能不打了吗？,wǒ men néng bù dǎ le ma,Can we stop fighting?,2
+不要打开你的书。,bù yào dǎ kāi nǐ de shū,Don't open your book.,2
+我快看不到你了。,wǒ kuài kàn bù dào nǐ le,I can barely see you.,2
+这些是我的铅笔。,zhè xiē shì wǒ de qiān bǐ,These are my pencils.,2
+今天是我的生日。,jīn tiān shì wǒ de shēng rì,Today is my birthday.,2
+您现在想要什么？,nín xiàn zài xiǎng yào shén me,What do you want now?,2
+你现在想要什么？,nǐ xiàn zài xiǎng yào shén me,What do you want now?,2
+你的哥哥在哪里?,nǐ de gē gē zài nǎ lǐ,Where's your brother?,2
+谁能做这件工作？,shuí néng zuò zhè jiàn gōng zuò,Who can do this work?,2
+你为什么会知道？,nǐ wèi shén me huì zhī dào,Why do you know that?,2
+你的回答是错的。,nǐ de huí dá shì cuò de,Your answer is wrong.,2
+你是在对我说吗？,nǐ shì zài duì wǒ shuō ma,Are you talking to me?,2
+你需要这本书吗？,nǐ xū yào zhè běn shū ma,Do you need this book?,2
+别再给我打电话。,bié zài gěi wǒ dǎ diàn huà,Don't call me anymore.,2
+他来了很多次了。,tā lái le hěn duō cì le,He came several times.,2
+他知道他们是谁。,tā zhī dào tā men shì shuí,He knows who they are.,2
+你的孩子多大了？,nǐ de hái zi duō dà le,How old are your kids?,2
+我什么都不知道。,wǒ shén me dōu bù zhī dào,I don't know anything.,2
+我什么都不需要。,wǒ shén me dōu bù xū yào,I don't need anything.,2
+我知道这是错的。,wǒ zhī dào zhè shì cuò de,I knew this was wrong.,2
+我知道他住哪儿。,wǒ zhī dào tā zhù nǎ ér,I know where he lives.,2
+我告诉过你出去。,wǒ gào sù guò nǐ chū qù,I told you to get out.,2
+我想和你一起去。,wǒ xiǎng hé nǐ yī qǐ qù,I want to go with you.,2
+我想和你一起走。,wǒ xiǎng hé nǐ yī qǐ zǒu,I want to go with you.,2
+我希望你能长大。,wǒ xī wàng nǐ néng cháng dà,I want you to grow up.,2
+我想知道谁来了。,wǒ xiǎng zhī dào shuí lái le,I wonder who has come.,2
+我还是你的朋友。,wǒ hái shì nǐ de péng yǒu,I'm still your friend.,2
+请你不要说这个。,qǐng nǐ bù yào shuō zhè gè,Please don't say that.,2
+我的报纸在哪里？,wǒ de bào zhǐ zài nǎ lǐ,Where is my newspaper?,2
+哪个是你的行李？,nǎ gè shì nǐ de xíng lǐ,Which is your luggage?,2
+你和我都是男人。,nǐ hé wǒ dōu shì nán rén,Both you and I are men.,2
+他可能不会来了。,tā kě néng bù huì lái le,He probably won't come.,2
+我找不到我的票。,wǒ zhǎo bù dào wǒ de piào,I can't find my ticket.,2
+我不知道他是谁。,wǒ bù zhī dào tā shì shuí,I don't know who he is.,2
+我知道你多大了。,wǒ zhī dào nǐ duō dà le,I know how old you are.,2
+我爱这里的人们。,wǒ ài zhè lǐ de rén men,I love the people here.,2
+我要花很长时间。,wǒ yào huā hěn cháng shí jiān,It'll take a long time.,2
+我们去看电影吧！,wǒ men qù kàn diàn yǐng ba,Let's go to the movies.,2
+我的妹妹是老师。,wǒ de mèi mèi shì lǎo shī,My sister is a teacher.,2
+这只苹果非常红。,zhè zhǐ píng guǒ fēi cháng hóng,This apple is very red.,2
+你和谁一起去那？,nǐ hé shuí yī qǐ qù nà,Who are you going with?,2
+你今天为什么忙？,nǐ jīn tiān wèi shén me máng,Why are you busy today?,2
+你要买点东西吗？,nǐ yào mǎi diǎn dōng xi ma,Will you buy something?,2
+他从中国回来了。,tā cóng zhōng guó huí lái le,He came back from China.,2
+我再也不想要了。,wǒ zài yě bù xiǎng yào le,I don't want it anymore.,2
+我只是想要你来。,wǒ zhǐ shì xiǎng yào nǐ lái,I just want you to come.,2
+我知道他会画画。,wǒ zhī dào tā huì huà huà,I know that he can draw.,2
+我明天需要知道。,wǒ míng tiān xū yào zhī dào,I need to know tomorrow.,2
+我想让他读这个。,wǒ xiǎng ràng tā dú zhè gè,I want him to read this.,2
+我想让你穿这件。,wǒ xiǎng ràng nǐ chuān zhè jiàn,I want you to wear this.,2
+明天我会问他的。,míng tiān wǒ huì wèn tā de,I will ask him tomorrow.,2
+这个给我来三个。,zhè gè gěi wǒ lái sān gè,I'd like three of these.,2
+很高兴你是对的。,hěn gāo xìng nǐ shì duì de,I'm glad you were right.,2
+对我来说都一样。,duì wǒ lái shuō dōu yī yàng,It's all the same to me.,2
+我的哥哥是老师。,wǒ de gē gē shì lǎo shī,My brother is a teacher.,2
+那你会给我什么？,nà nǐ huì gěi wǒ shén me,"So, what'll you give me?",2
+对不起，我错了。,duì bù qǐ wǒ cuò le,"Sorry, I made a mistake.",2
+告诉我你多大了。,gào sù wǒ nǐ duō dà le,Tell me how old you are.,2
+你什么时候上班？,nǐ shén me shí hòu shàng bān,When did you go to work?,2
+您不知道我是谁。,nín bù zhī dào wǒ shì shuí,You don't know who I am.,2
+你是在找工作吗？,nǐ shì zài zhǎo gōng zuò ma,Are you looking for work?,2
+你有时间再做吧。,nǐ yǒu shí jiān zài zuò ba,Do it when you have time.,2
+你知道我住哪吗？,nǐ zhī dào wǒ zhù nǎ ma,Do you know where I live?,2
+我不知道说什么。,wǒ bù zhī dào shuō shén me,I don't know what to say.,2
+我不再需要你了。,wǒ bù zài xū yào nǐ le,I don't need you anymore.,2
+我看到他进房间。,wǒ kàn dào tā jìn fáng jiān,I saw him enter the room.,2
+请再给我一些水。,qǐng zài gěi wǒ yī xiē shuǐ,I'd like some more water.,2
+很高兴再见到您。,hěn gāo xìng zài jiàn dào nín,I'm glad to see you back.,2
+很高兴再见到你。,hěn gāo xìng zài jiàn dào nǐ,I'm glad to see you back.,2
+她看着我的眼睛。,tā kàn zhe wǒ de yǎn jīng,She looked me in the eye.,2
+我们一起去学校。,wǒ men yī qǐ qù xué xiào,We go to school together.,2
+他们想到哪儿去？,tā men xiǎng dào nǎ ér qù,Where do they want to go?,2
+它从哪里离开的？,tā cóng nǎ lǐ lí kāi de,Where does it leave from?,2
+为什么电视开着？,wèi shén me diàn shì kāi zhe,Why is the television on?,2
+你累了，不是吗？,nǐ lèi le bù shì ma,"You're tired, aren't you?",2
+您想再来点茶吗？,nín xiǎng zài lái diǎn chá ma,Do you want some more tea?,2
+你想不想一起去？,nǐ xiǎng bù xiǎng yī qǐ qù,Do you want to come along?,2
+一打鸡蛋多少钱？,yī dǎ jī dàn duō shǎo qián,How much are a dozen eggs?,2
+我找不到他的家。,wǒ zhǎo bù dào tā de jiā,I couldn't find his house.,2
+我不知道她是谁。,wǒ bù zhī dào tā shì shuí,I have no idea who she is.,2
+我弟弟在看电视。,wǒ dì dì zài kàn diàn shì,My brother is watching TV.,2
+请回答我的问题。,qǐng huí dá wǒ de wèn tí,Please answer my question.,2
+她叫了我很多次。,tā jiào le wǒ hěn duō cì,She called me many a time.,2
+我们都非常想你。,wǒ men dōu fēi cháng xiǎng nǐ,We all miss you very much.,2
+我们时间不多了。,wǒ men shí jiān bù duō le,We don't have enough time.,2
+我们最好快点走。,wǒ men zuì hǎo kuài diǎn zǒu,We'd better get a move on.,2
+你明天在这里吗？,nǐ míng tiān zài zhè lǐ ma,Will you be here tomorrow?,2
+昨天是我的生日。,zuó tiān shì wǒ de shēng rì,Yesterday was my birthday.,2
+你喝很多牛奶吗？,nǐ hē hěn duō niú nǎi ma,Do you drink a lot of milk?,2
+你知道怎么做吗？,nǐ zhī dào zěn me zuò ma,Do you know how to do that?,2
+他去过很多地方。,tā qù guò hěn duō dì fāng,He has been to many places.,2
+我问了他忙不忙。,wǒ wèn le tā máng bù máng,I asked him if he was busy.,2
+你要我们做什么？,nǐ yào wǒ men zuò shén me,What did you want us to do?,2
+你的生日是几号？,nǐ de shēng rì shì jǐ hào,What is your date of birth?,2
+你还在找工作吗？,nǐ hái zài zhǎo gōng zuò ma,Aren't you looking for work?,2
+你在家吃过了吗？,nǐ zài jiā chī guò le ma,Did you already eat at home?,2
+您想吃点什么吗？,nín xiǎng chī diǎn shén me ma,Do you want anything to eat?,2
+他很快就会回来。,tā hěn kuài jiù huì huí lái,He will be back in a second.,2
+昨天他写好了信。,zuó tiān tā xiě hǎo le xìn,He wrote a letter yesterday.,2
+你的学校有多远？,nǐ de xué xiào yǒu duō yuǎn,How far away is your school?,2
+今天我要去看他。,jīn tiān wǒ yào qù kàn tā,I am going to see him today.,2
+我知道我做错了。,wǒ zhī dào wǒ zuò cuò le,I know what I did was wrong.,2
+桌子上有只猫吗？,zhuō zi shàng yǒu zhǐ māo ma,Is there a cat on the table?,2
+她给了他很多钱。,tā gěi le tā hěn duō qián,She gave him a lot of money.,2
+你想对我说什么？,nǐ xiǎng duì wǒ shuō shén me,What do you want to tell me?,2
+您想告诉我什么？,nín xiǎng gào sù wǒ shén me,What do you want to tell me?,2
+那些人从哪来的？,nà xiē rén cóng nǎ lái de,Where are those people from?,2
+你只要问就好了。,nǐ zhǐ yào wèn jiù hǎo le,You have only to ask for it.,2
+您可以回答问题。,nín kě yǐ huí dá wèn tí,You may answer the question.,2
+去年他换了学校。,qù nián tā huàn le xué xiào,He changed schools last year.,2
+你怎么会不知道？,nǐ zěn me huì bù zhī dào,How come you don't know this?,2
+请问你的名字是？,qǐng wèn nǐ de míng zì shì,"May I have your name, please?",2
+我丈夫也是老师。,wǒ zhàng fū yě shì lǎo shī,"My husband is a teacher, too.",2
+明天是星期一吧？,míng tiān shì xīng qī yī ba,"Tomorrow is Monday, isn't it?",2
+你去年住在哪儿？,nǐ qù nián zhù zài nǎ ér,Where did you live last year?,2
+请问鸡蛋在哪里？,qǐng wèn jī dàn zài nǎ lǐ,"Excuse me, where are the eggs?",2
+他问我买了什么。,tā wèn wǒ mǎi le shén me,He asked me what I had bought.,2
+我明天不想上班。,wǒ míng tiān bù xiǎng shàng bān,I don't want to work tomorrow.,2
+很快就要下雨了。,hěn kuài jiù yào xià yǔ le,It is going to rain very soon.,2
+您在哪儿看电视？,nín zài nǎ ér kàn diàn shì,Where do you watch television?,2
+我看完了这本书。,wǒ kàn wán le zhè běn shū,I've finished reading the book.,2
+他在信上说什么？,tā zài xìn shàng shuō shén me,What does he say in his letter?,2
+您能开一下门吗？,nín néng kāi yī xià mén ma,"Could you open the door, please?",2
+到的有我的信吗？,dào de yǒu wǒ de xìn ma,Have any letters arrived for me?,2
+下个月他会很忙。,xià gè yuè tā huì hěn máng,He will be very busy next month.,2
+我今天不想上班。,wǒ jīn tiān bù xiǎng shàng bān,I don't feel like working today.,2
+今天不可能下雨。,jīn tiān bù kě néng xià yǔ,There's no chance of rain today.,2
+昨天是谁过生日？,zuó tiān shì shuí guò shēng rì,Whose birthday was it yesterday?,2
+我不会再回来了。,wǒ bù huì zài huí lái le,I'm never coming back here again.,2
+她问这怎么可能。,tā wèn zhè zěn me kě néng,She's asking how that's possible.,2
+你能让我看看吗？,nǐ néng ràng wǒ kàn kàn ma,Would you like me to take a look?,2
+你什么也做不了。,nǐ shén me yě zuò bù le,You can't do anything about that.,2
+不去做就不知道。,bù qù zuò jiù bù zhī dào,You'll never know unless you try.,2
+学生们在教室里。,xué shēng men zài jiào shì lǐ,The students are in the classroom.,2
+我不是很想出去。,wǒ bù shì hěn xiǎng chū qù,I didn't really feel like going out.,2
+这是你要找的书。,zhè shì nǐ yào zhǎo de shū,This is the book you're looking for.,2
+她说她有点累了。,tā shuō tā yǒu diǎn lèi le,She said that she was a little tired.,2
+昨天天气非常好。,zuó tiān tiān qì fēi cháng hǎo,"Yesterday, the weather was very nice.",2
+你不想去就别去。,nǐ bù xiǎng qù jiù bié qù,You don't have to go unless you want to.,2
+我只想要一件东西。,wǒ zhǐ xiǎng yào yī jiàn dōng xi,I only want one.,2
+为什么现在做那个？,wèi shén me xiàn zài zuò nà gè,Why do that now?,2
+问他一下他的名字。,wèn tā yī xià tā de míng zì,Ask him his name.,2
+这是要卖的东西吗？,zhè shì yào mài de dōng xi ma,Is this for sale?,2
+这是839号房间。,zhè shì hào fáng jiān,This is Room 839.,2
+来吧，我们一起去。,lái ba wǒ men yī qǐ qù,"Come on, let's go.",2
+我们什么都做不了。,wǒ men shén me dōu zuò bù le,We can do nothing.,2
+你家里人都还好吗？,nǐ jiā lǐ rén dōu hái hǎo ma,How is your family?,2
+她是Tom的姐姐。,tā shì de jiě jiě,She's Tom's sister.,2
+我们需要的只有水。,wǒ men xū yào de zhǐ yǒu shuǐ,We just need water.,2
+他是最年长的儿子。,tā shì zuì nián cháng de ér zi,He's the oldest son.,2
+我一点也不会游泳。,wǒ yī diǎn yě bù huì yóu yǒng,I can't swim at all.,2
+我看不出为什么不。,wǒ kàn bù chū wèi shén me bù,I don't see why not.,2
+这只铅笔是你的吗？,zhè zhǐ qiān bǐ shì nǐ de ma,Is this your pencil?,2
+这个男孩子在跑步。,zhè gè nán hái zi zài pǎo bù,That boy is running.,2
+为什么我还在这里？,wèi shén me wǒ hái zài zhè lǐ,Why am I still here?,2
+他很快就会回来的。,tā hěn kuài jiù huì huí lái de,He will be back soon.,2
+我说了可能要下雨。,wǒ shuō le kě néng yào xià yǔ,I said it might rain.,2
+我就是你要找的人。,wǒ jiù shì nǐ yào zhǎo de rén,I'm the one you want.,2
+她是出租车司机吗？,tā shì chū zū chē sī jī ma,Is she a taxi driver?,2
+她是我最好的朋友。,tā shì wǒ zuì hǎo de péng yǒu,She's my best friend.,2
+我们需要的是帮助。,wǒ men xū yào de shì bāng zhù,What we need is help.,2
+谁给了你这些东西？,shuí gěi le nǐ zhè xiē dōng xi,Who gave them to you?,2
+我为什么找不到你？,wǒ wèi shén me zhǎo bù dào nǐ,Why can't I find you?,2
+他们都是一样的吗？,tā men dōu shì yī yàng de ma,Are they all the same?,2
+我知道我在做什么。,wǒ zhī dào wǒ zài zuò shén me,I know what I'm doing.,2
+我知道他们在哪里。,wǒ zhī dào tā men zài nǎ lǐ,I know where they are.,2
+我的生日就快到了。,wǒ de shēng rì jiù kuài dào le,It's my birthday soon.,2
+这还有什么能做的？,zhè hái yǒu shén me néng zuò de,What else can this do?,2
+我的房间号是多少？,wǒ de fáng jiān hào shì duō shǎo,What's my room number?,2
+你在哪儿看到了她？,nǐ zài nǎ ér kàn dào le tā,Where did you see her?,2
+你为什么不回家呢？,nǐ wèi shén me bù huí jiā ne,Why don't you go home?,2
+你为什么长不大呢？,nǐ wèi shén me cháng bù dà ne,Why don't you grow up?,2
+你是我最好的朋友。,nǐ shì wǒ zuì hǎo de péng yǒu,You're my best friend.,2
+我现在不能回答你。,wǒ xiàn zài bù néng huí dá nǐ,I can't answer you now.,2
+不要说话，好不好？,bù yào shuō huà hǎo bù hǎo,"Quit talking, will you?",2
+这是对的，不是吗？,zhè shì duì de bù shì ma,"That's right, isn't it?",2
+你告诉了他们什么？,nǐ gào sù le tā men shén me,What did you tell them?,2
+不要往我房间里看。,bù yào wǎng wǒ fáng jiān lǐ kàn,Don't look into my room.,2
+我知道，您也很忙。,wǒ zhī dào nín yě hěn máng,"I know you're busy, too.",2
+我只知道他的名字。,wǒ zhǐ zhī dào tā de míng zì,I only know him by name.,2
+我上星期在这里玩。,wǒ shàng xīng qī zài zhè lǐ wán,I played here last week.,2
+我想要的就是这个。,wǒ xiǎng yào de jiù shì zhè gè,It's just what I wanted.,2
+我能找到的都在那。,wǒ néng zhǎo dào de dōu zài nà,That's all I could find.,2
+你在那里做什么呢？,nǐ zài nà lǐ zuò shén me ne,What're you doing there?,2
+你从来没有快乐过。,nǐ cóng lái méi yǒu kuài yuè guò,You've never been happy.,2
+我知道你在做什么。,wǒ zhī dào nǐ zài zuò shén me,I know what you're doing.,2
+我想给家人打电话。,wǒ xiǎng gěi jiā rén dǎ diàn huà,I want to call my family.,2
+这是谁的你知道吗？,zhè shì shuí de nǐ zhī dào ma,Do you know whose this is?,2
+你知道这是谁的吗？,nǐ zhī dào zhè shì shuí de ma,Do you know whose this is?,2
+我能问一些问题吗？,wǒ néng wèn yī xiē wèn tí ma,May I ask a few questions?,2
+他们可能有点什么。,tā men kě néng yǒu diǎn shén me,Maybe they have something.,2
+他们有12个孩子。,tā men yǒu gè hái zi,They have twelve children.,2
+今天也是我的生日。,jīn tiān yě shì wǒ de shēng rì,"Today is my birthday, too.",2
+你今天最好不要去。,nǐ jīn tiān zuì hǎo bù yào qù,You'd better not go today.,2
+出来，我需要帮助。,chū lái wǒ xū yào bāng zhù,Come out here. I need help.,2
+你去看过医生了吗？,nǐ qù kàn guò yī shēng le ma,Did you go to see a doctor?,2
+你家人还在那里吗？,nǐ jiā rén hái zài nà lǐ ma,Is your family still there?,2
+很有可能还会下雨。,hěn yǒu kě néng hái huì xià yǔ,It is likely to rain again.,2
+它不是猫。它是狗。,tā bù shì māo tā shì gǒu,It's not a cat. It's a dog.,2
+我给你再买一个吧。,wǒ gěi nǐ zài mǎi yī gè ba,Let me buy you another one.,2
+他不知道说什么好。,tā bù zhī dào shuō shén me hǎo,He did not know what to say.,2
+他可能很快就到了。,tā kě néng hěn kuài jiù dào le,He is likely to arrive soon.,2
+我很希望你会再来。,wǒ hěn xī wàng nǐ huì zài lái,I do hope you'll come again.,2
+我会给点你好东西。,wǒ huì gěi diǎn nǐ hǎo dōng xi,I'll get you something nice.,2
+在我看来，你错了。,zài wǒ kàn lái nǐ cuò le,"In my opinion, you're wrong.",2
+我的家离学校很近。,wǒ de jiā lí xué xiào hěn jìn,My house is near the school.,2
+我们的教室非常小。,wǒ men de jiào shì fēi cháng xiǎo,Our classroom is very small.,2
+他可能错过了火车。,tā kě néng cuò guò le huǒ chē,Perhaps he missed the train.,2
+这给了我新的希望。,zhè gěi le wǒ xīn de xī wàng,This gives me renewed hopes.,2
+我们没有太多时间。,wǒ men méi yǒu tài duō shí jiān,We don't have too much time.,2
+你为什么还在学校？,nǐ wèi shén me hái zài xué xiào,Why are you still at school?,2
+我能和老师说话吗？,wǒ néng hé lǎo shī shuō huà ma,Can I speak with the teacher?,2
+我有些东西要给你。,wǒ yǒu xiē dōng xi yào gěi nǐ,I have something to give you.,2
+我想让你读这本书。,wǒ xiǎng ràng nǐ dú zhè běn shū,I want you to read this book.,2
+今天天气好像不错。,jīn tiān tiān qì hǎo xiàng bù cuò,The weather looks good today.,2
+您不想再喝点茶吗？,nín bù xiǎng zài hē diǎn chá ma,Won't you have some more tea?,2
+还有什么想要的吗？,hái yǒu shén me xiǎng yào de ma,Would you like anything else?,2
+你想去哪里都可以。,nǐ xiǎng qù nǎ lǐ dōu kě yǐ,You can go wherever you want.,2
+请问，你在做什么？,qǐng wèn nǐ zài zuò shén me,"Excuse me, what are you doing?",2
+他是我哥哥的朋友。,tā shì wǒ gē gē de péng yǒu,He's a friend of my brother's.,2
+我想知道他们在哪。,wǒ xiǎng zhī dào tā men zài nǎ,I want to know where they are.,2
+我想知道她的名字。,wǒ xiǎng zhī dào tā de míng zì,I would like to know her name.,2
+我问你你在想什么。,wǒ wèn nǐ nǐ zài xiǎng shén me,I'm asking you what you think.,2
+她会是他的好妻子。,tā huì shì tā de hǎo qī zi,She will make him a good wife.,2
+你想要什么喝的吗？,nǐ xiǎng yào shén me hē de ma,Do you want something to drink?,2
+我没有朋友一起玩。,wǒ méi yǒu péng yǒu yī qǐ wán,I have no friends to play with.,2
+去年她离开了日本。,qù nián tā lí kāi le rì běn,She was out of Japan last year.,2
+你听懂他说的了吗？,nǐ tīng dǒng tā shuō de le ma,Did you understand what he said?,2
+他回答说他不知道。,tā huí dá shuō tā bù zhī dào,He replied that he did not know.,2
+我只能给你十分钟。,wǒ zhǐ néng gěi nǐ shí fēn zhōng,I can only give you ten minutes.,2
+你怎么花的那些钱？,nǐ zěn me huā de nà xiē qián,What did you do with that money?,2
+你想让我再说什么？,nǐ xiǎng ràng wǒ zài shuō shén me,What else do you want me to say?,2
+你知道问题在哪里。,nǐ zhī dào wèn tí zài nǎ lǐ,You know where the problem lies.,2
+水果对身体非常好。,shuǐ guǒ duì shēn tǐ fēi cháng hǎo,Fruit is very good for your body.,2
+我没有别的问题了。,wǒ méi yǒu bié de wèn tí le,I don't have any other questions.,2
+她和男人一起工作。,tā hé nán rén yī qǐ gōng zuò,She worked side by side with men.,2
+我不知道你要去哪。,wǒ bù zhī dào nǐ yào qù nǎ,I don't know where you want to go.,2
+非常谢谢你的礼物。,fēi cháng xiè xiè nǐ de lǐ wù,Thank you very much for your gift.,2
+你也是学生不是吗？,nǐ yě shì xué shēng bù shì ma,"You're a student, too, aren't you?",2
+我想听日本的音乐。,wǒ xiǎng tīng rì běn de yīn yuè,I want to listen to Japanese music.,2
+我姐姐比我哥哥大。,wǒ jiě jiě bǐ wǒ gē gē dà,My sister is older than my brother.,2
+桌子上只有一本书。,zhuō zi shàng zhǐ yǒu yī běn shū,There is only one book on the desk.,2
+你读完那本书了吗？,nǐ dú wán nà běn shū le ma,Have you finished reading that book?,2
+能再告诉我一点吗？,néng zài gào sù wǒ yī diǎn ma,Can you tell us a bit more about that?,2
+我今天不想买报纸。,wǒ jīn tiān bù xiǎng mǎi bào zhǐ,I don't want to buy a newspaper today.,2
+她给她妈妈打电话。,tā gěi tā mā mā dǎ diàn huà,She called up her mother on the phone.,2
+音乐会上有很多人。,yīn yuè huì shàng yǒu hěn duō rén,There were many people at the concert.,2
+那我明天会问他的。,nà wǒ míng tiān huì wèn tā de,"I will ask him about it tomorrow, then.",2
+你能再给我点茶吗？,nǐ néng zài gěi wǒ diǎn chá ma,Would you please give me some more tea?,2
+你的手表比我的贵。,nǐ de shǒu biǎo bǐ wǒ de guì,Your watch is more expensive than mine.,2
+孩子们早上去学校。,hái zi men zǎo shàng qù xué xiào,The children go to school in the morning.,2
+离下课还有十分钟。,lí xià kè hái yǒu shí fēn zhōng,Ten minutes remained until the end of the lesson.,2
+你想怎么做就怎么做。,nǐ xiǎng zěn me zuò jiù zěn me zuò,Do as you like.,2
+你想走的时候就走吧。,nǐ xiǎng zǒu de shí hòu jiù zǒu ba,Go when you want.,2
+我们能在这里游泳吗？,wǒ men néng zài zhè lǐ yóu yǒng ma,May we swim here?,2
+是谁给你说那个的呢？,shì shuí gěi nǐ shuō nà gè de ne,Who told you that?,2
+可以给我一些茶水吗？,kě yǐ gěi wǒ yī xiē chá shuǐ ma,Can I have some tea?,2
+她一看就是生病了的。,tā yī kàn jiù shì shēng bìng le de,She's evidently sick.,2
+请问我们现在能走吗？,qǐng wèn wǒ men xiàn zài néng zǒu ma,"Can we go now, please?",2
+他给了它一个新名字。,tā gěi le tā yī gè xīn míng zì,He gave it a new name.,2
+这什么时候能准备好？,zhè shén me shí hòu néng zhǔn bèi hǎo,When will it be ready?,2
+我就是那个生病的人。,wǒ jiù shì nà gè shēng bìng de rén,I'm the one who's sick.,2
+妈妈，我能去游泳吗？,mā mā wǒ néng qù yóu yǒng ma,"Mom, can I go swimming?",2
+告诉他们我们要来了。,gào sù tā men wǒ men yào lái le,Tell them we're coming.,2
+我知道他叫什么名字。,wǒ zhī dào tā jiào shén me míng zì,I know what his name is.,2
+我知道你为什么高兴。,wǒ zhī dào nǐ wèi shén me gāo xìng,I know why you're happy.,2
+我可以问你个问题吗？,wǒ kě yǐ wèn nǐ gè wèn tí ma,Can I ask you a question?,2
+我能问您一个问题吗？,wǒ néng wèn nín yī gè wèn tí ma,Can I ask you a question?,2
+别问我这是什么东西！,bié wèn wǒ zhè shì shén me dōng xi,Don't ask me what it was.,2
+我看见他穿过了马路。,wǒ kàn jiàn tā chuān guò le mǎ lù,I saw him cross the road.,2
+帮助你是我们的工作。,bāng zhù nǐ shì wǒ men de gōng zuò,It's our job to help you.,2
+现在他们有三个孩子。,xiàn zài tā men yǒu sān gè hái zi,They now have three kids.,2
+你的问题和我的一样。,nǐ de wèn tí hé wǒ de yī yàng,We have the same problem.,2
+回来的路上买点牛奶。,huí lái de lù shàng mǎi diǎn niú nǎi,Buy milk on your way home.,2
+我在报纸上看到了它。,wǒ zài bào zhǐ shàng kàn dào le tā,I saw it in the newspaper.,2
+我今天早上看了电视。,wǒ jīn tiān zǎo shàng kàn le diàn shì,I watched TV this morning.,2
+你们要在这里唱歌吗？,nǐ men yào zài zhè lǐ chàng gē ma,Are you going to sing here?,2
+我可以多来点牛奶吗？,wǒ kě yǐ duō lái diǎn niú nǎi ma,Can I have a bit more milk?,2
+你不想知道为什么吗？,nǐ bù xiǎng zhī dào wèi shén me ma,Don't you want to know why?,2
+要是能去日本就好了。,yào shì néng qù rì běn jiù hǎo le,I wish I could go to Japan.,2
+我们的饭店是最好的。,wǒ men de fàn diàn shì zuì hǎo de,Our restaurant is the best.,2
+她有一只狗和六只猫。,tā yǒu yī zhǐ gǒu hé liù zhǐ māo,She has a dog and six cats.,2
+她是个非常好的老师。,tā shì gè fēi cháng hǎo de lǎo shī,She is a very good teacher.,2
+这些是你从哪里买的？,zhè xiē shì nǐ cóng nǎ lǐ mǎi de,Where did you buy all this?,2
+你有什么需要买的吗？,nǐ yǒu shén me xū yào mǎi de ma,Do you need to buy anything?,2
+我不知道我能不能做。,wǒ bù zhī dào wǒ néng bù néng zuò,I don't know if I can do it.,2
+为什么你不来看我们？,wèi shén me nǐ bù lái kàn wǒ men,Why don't you come visit us?,2
+他叫那个男人帮助他。,tā jiào nà gè nán rén bāng zhù tā,He asked the man to help him.,2
+我去不了，也不想去。,wǒ qù bù le yě bù xiǎng qù,"I can't go, nor do I want to.",2
+我在哪儿都找不到她。,wǒ zài nǎ ér dōu zhǎo bù dào tā,I couldn't find her anywhere.,2
+我不知道有没有时间。,wǒ bù zhī dào yǒu méi yǒu shí jiān,I don't know if there's time.,2
+这只是时间上的问题。,zhè zhǐ shì shí jiān shàng de wèn tí,It was just a matter of time.,2
+我们现在就去医院吧。,wǒ men xiàn zài jiù qù yī yuàn ba,Let's go to the hospital now.,2
+不知道他什么时候来。,bù zhī dào tā shén me shí hòu lái,I don't know when he's coming.,2
+我不想错过我的火车。,wǒ bù xiǎng cuò guò wǒ de huǒ chē,I don't want to miss my train.,2
+我希望你弟弟好点了。,wǒ xī wàng nǐ dì dì hǎo diǎn le,I hope your brother is better.,2
+我想知道她去哪儿了。,wǒ xiǎng zhī dào tā qù nǎ ér le,I want to know where she went.,2
+我想知道他们在哪里。,wǒ xiǎng zhī dào tā men zài nǎ lǐ,I want to know where they are.,2
+我爸爸告诉我去哪儿。,wǒ bà bà gào sù wǒ qù nǎ ér,My father told me where to go.,2
+最不一样的的是什么？,zuì bù yī yàng de de shì shén me,What's the biggest difference?,2
+您是老师，还是学生？,nín shì lǎo shī hái shì xué shēng,Are you a teacher or a student?,2
+我想他会很快回来的。,wǒ xiǎng tā huì hěn kuài huí lái de,I suppose he will be back soon.,2
+我有东西想给你看看。,wǒ yǒu dōng xi xiǎng gěi nǐ kàn kàn,I'd like to show you something.,2
+John比我大两岁。,bǐ wǒ dà liǎng suì,John's two years older than me.,2
+你什么时候做完工作？,nǐ shén me shí hòu zuò wán gōng zuò,When will you finish your work?,2
+你们为什么想今天走？,nǐ men wèi shén me xiǎng jīn tiān zǒu,Why do you want to leave today?,2
+你很清楚我想要什么。,nǐ hěn qīng chu wǒ xiǎng yào shén me,You know very well what I want.,2
+问问她什么时候回来。,wèn wèn tā shén me shí hòu huí lái,Ask her when she will come back.,2
+我不知道我还有没有。,wǒ bù zhī dào wǒ hái yǒu méi yǒu,I don't know if I still have it.,2
+我知道他们要做什么。,wǒ zhī dào tā men yào zuò shén me,I know what they're going to do.,2
+他让我做，我就做了。,tā ràng wǒ zuò wǒ jiù zuò le,"He told me to do it, so I did it.",2
+明天晚上九点怎么样？,míng tiān wǎn shàng jiǔ diǎn zěn me yàng,How about tomorrow night at nine?,2
+我知道你知道我知道。,wǒ zhī dào nǐ zhī dào wǒ zhī dào,I know that you know that I know.,2
+写字台下是一只苹果。,xiě zì tái xià shì yī zhǐ píng guǒ,There is an apple under the desk.,2
+今天早上你在做什么？,jīn tiān zǎo shàng nǐ zài zuò shén me,What were you doing this morning?,2
+我问题的回答是什么？,wǒ wèn tí de huí dá shì shén me,What's the answer to my question?,2
+你为什么给我这些钱？,nǐ wèi shén me gěi wǒ zhè xiē qián,Why are you giving me this money?,2
+您为什么想买这本书？,nín wèi shén me xiǎng mǎi zhè běn shū,Why do you want to buy this book?,2
+大家都想坐在她旁边。,dà jiā dōu xiǎng zuò zài tā páng biān,Everybody wants to sit beside her.,2
+我不知道他是日本人。,wǒ bù zhī dào tā shì rì běn rén,I didn't know that he was Japanese.,2
+我想去你要去的地方。,wǒ xiǎng qù nǐ yào qù de dì fāng,I want to go wherever you're going.,2
+告诉我你手里有什么。,gào sù wǒ nǐ shǒu lǐ yǒu shén me,Tell me what you have in your hand.,2
+我希望住在你家附近。,wǒ xī wàng zhù zài nǐ jiā fù jìn,I wish I could live near your house.,2
+你读完那本小说了吗？,nǐ dú wán nà běn xiǎo shuō le ma,Have you finished reading that novel?,2
+有件事情我要对你说。,yǒu jiàn shì qíng wǒ yào duì nǐ shuō,There's something I want to tell you.,2
+你知道这是谁的字吗？,nǐ zhī dào zhè shì shuí de zì ma,Do you know whose handwriting this is?,2
+我就要读完这本书了。,wǒ jiù yào dú wán zhè běn shū le,I'm almost finished reading this book.,2
+你的电脑有什么问题？,nǐ de diàn nǎo yǒu shén me wèn tí,What's the problem with your computer?,2
+请问您有多少件行李？,qǐng wèn nín yǒu duō shǎo jiàn xíng lǐ,How many pieces of baggage do you have?,2
+明天的课我能不来吗？,míng tiān de kè wǒ néng bù lái ma,May I be excused from tomorrow's class?,2
+我家旁边有几家商店。,wǒ jiā páng biān yǒu jǐ jiā shāng diàn,There are a few shops next to my house.,2
+这一家人一起看电影。,zhè yī jiā rén yī qǐ kàn diàn yǐng,The family is watching a movie together.,2
+很多人不知道怎么做。,hěn duō rén bù zhī dào zěn me zuò,A lot of people don't know how to do that.,2
+有个问题你没有想到。,yǒu gè wèn tí nǐ méi yǒu xiǎng dào,There's a problem there that you don't see.,2
+想吃什么就吃什么吧。,xiǎng chī shén me jiù chī shén me ba,Help yourself to anything you'd like to eat.,2
+你在这里的工作是什么？,nǐ zài zhè lǐ de gōng zuò shì shén me,What's your job here?,2
+我为什么不给你打电话？,wǒ wèi shén me bù gěi nǐ dǎ diàn huà,Why don't I call you?,2
+什么时候想来就过来吧。,shén me shí hòu xiǎng lái jiù guò lái ba,Come whenever you want.,2
+明天九点打电话给我吧。,míng tiān jiǔ diǎn dǎ diàn huà gěi wǒ ba,Call me at 9:00 tomorrow.,2
+要是我是你，我就会去。,yào shì wǒ shì nǐ wǒ jiù huì qù,I would go if I were you.,2
+我们还没有准备好离开。,wǒ men hái méi yǒu zhǔn bèi hǎo lí kāi,We're not ready to leave.,2
+我是在报纸上看到它的。,wǒ shì zài bào zhǐ shàng kàn dào tā de,I saw it in the newspaper.,2
+我们还是在这里坐下吧。,wǒ men hái shì zài zhè lǐ zuò xià ba,We'd better sit down here.,2
+你现在还爱你的妻子吗？,nǐ xiàn zài hái ài nǐ de qī zi ma,Do you still love your wife?,2
+我不知道，也不想知道。,wǒ bù zhī dào yě bù xiǎng zhī dào,"I don't know, nor do I care.",2
+你能告诉我这是什么吗？,nǐ néng gào sù wǒ zhè shì shén me ma,Can you tell me what this is?,2
+我不知道他什么时候来。,wǒ bù zhī dào tā shén me shí hòu lái,I don't know when he'll come.,2
+我们为什么不离开这里？,wǒ men wèi shén me bù lí kāi zhè lǐ,Why don't we get out of here?,2
+她一个月写一次信给我。,tā yī gè yuè xiě yī cì xìn gěi wǒ,She writes to me once a month.,2
+明天我去买需要的东西。,míng tiān wǒ qù mǎi xū yào de dōng xi,Tomorrow I'll buy what I need.,2
+你回来的时候我们再说。,nǐ huí lái de shí hòu wǒ men zài shuō,We can talk when you get back.,2
+你不想让我们看见什么？,nǐ bù xiǎng ràng wǒ men kàn jiàn shén me,What don't you want us to see?,2
+你不再只是一个孩子了。,nǐ bù zài zhǐ shì yī gè hái zi le,You're no longer a mere child.,2
+我不知道我不知道什么。,wǒ bù zhī dào wǒ bù zhī dào shén me,I don't know what I don't know.,2
+只有你回答了这个问题。,zhǐ yǒu nǐ huí dá le zhè gè wèn tí,Only you answered the question.,2
+她问了我们好几个问题。,tā wèn le wǒ men hǎo jǐ gè wèn tí,She asked us several questions.,2
+他们告诉我这是你的错。,tā men gào sù wǒ zhè shì nǐ de cuò,They told me it was your fault.,2
+你不和我一起喝点茶吗？,nǐ bù hé wǒ yī qǐ hē diǎn chá ma,Won't you have some tea with me?,2
+我不知道，他也不知道。,wǒ bù zhī dào tā yě bù zhī dào,I don't know and neither does he.,2
+你今天早上喂过狗了吗？,nǐ jīn tiān zǎo shàng wèi guò gǒu le ma,Did you feed the dog this morning?,2
+我就是想让你看看这个。,wǒ jiù shì xiǎng ràng nǐ kàn kàn zhè gè,I just wanted you to look at this.,2
+你一准备好，我们就走。,nǐ yī zhǔn bèi hǎo wǒ men jiù zǒu,We'll leave as soon as you're ready.,2
+有什么你想让我买的吗？,yǒu shén me nǐ xiǎng ràng wǒ mǎi de ma,Is there anything you want me to buy?,2
+你想让我买多少个苹果？,nǐ xiǎng ràng wǒ mǎi duō shǎo gè píng guǒ,How many apples do you want me to buy?,2
+我告诉你，你也不会信。,wǒ gào sù nǐ nǐ yě bù huì xìn,You wouldn't believe me if I told you.,2
+她今天比昨天要好很多。,tā jīn tiān bǐ zuó tiān yào hǎo hěn duō,She is far better today than yesterday.,2
+昨天我只是不想去工作。,zuó tiān wǒ zhǐ shì bù xiǎng qù gōng zuò,I just didn't want to go to work yesterday.,2
+我想和你一起去音乐会。,wǒ xiǎng hé nǐ yī qǐ qù yīn yuè huì,I would like to go to the concert with you.,2
+你们两个人都准备好了吗？,nǐ men liǎng gè rén dōu zhǔn bèi hǎo le ma,Are you two ready?,2
+我在回家的路上遇到了他。,wǒ zài huí jiā de lù shàng yù dào le tā,I met him on my way home.,2
+请问可以在哪里买到票呢？,qǐng wèn kě yǐ zài nǎ lǐ mǎi dào piào ne,Where can I buy a ticket?,2
+对我来说这就不是个问题。,duì wǒ lái shuō zhè jiù bù shì gè wèn tí,"For me, this isn't a problem.",2
+他看到我的时候和我说话。,tā kàn dào wǒ de shí hòu hé wǒ shuō huà,He spoke to me when he saw me.,2
+你为什么不和我们一起来？,nǐ wèi shén me bù hé wǒ men yī qǐ lái,Why aren't you coming with us?,2
+你想知道我看见什么了吗？,nǐ xiǎng zhī dào wǒ kàn jiàn shén me le ma,Do you want to know what I see?,2
+我不知道他什么时候会来。,wǒ bù zhī dào tā shén me shí hòu huì lái,I don't know when he will come.,2
+我有一只黑狗和一只白狗。,wǒ yǒu yī zhǐ hēi gǒu hé yī zhǐ bái gǒu,I have a black and a white dog.,2
+明天早上6点给我打电话。,míng tiān zǎo shàng diǎn gěi wǒ dǎ diàn huà,Call me at six tomorrow morning.,2
+他是我哥哥，不是我爸爸。,tā shì wǒ gē gē bù shì wǒ bà bà,"He is my brother, not my father.",2
+Tom 不想让Mary走,bù xiǎng ràng zǒu,Tom doesn't want to let Mary go.,2
+你怎么从你的房间里出来？,nǐ zěn me cóng nǐ de fáng jiān lǐ chū lái,How did you get out of your room?,2
+我不知道它是从哪里来的。,wǒ bù zhī dào tā shì cóng nǎ lǐ lái de,I didn't know where it came from.,2
+你知道他们什么时候到吗？,nǐ zhī dào tā men shén me shí hòu dào ma,Do you know when they will arrive?,2
+我只是想有个人来帮助我。,wǒ zhǐ shì xiǎng yǒu gè rén lái bāng zhù wǒ,I just wanted somebody to help me.,2
+上个月我买了一台新电脑。,shàng gè yuè wǒ mǎi le yī tái xīn diàn nǎo,I bought a new computer last month.,2
+我不认识她，也不想认识。,wǒ bù rèn shí tā yě bù xiǎng rèn shí,"I don't know her, nor do I want to.",2
+我知道你可能需要一些帮助,wǒ zhī dào nǐ kě néng xū yào yī xiē bāng zhù,I know you probably need some help.,2
+我给你介绍介绍我的朋友。,wǒ gěi nǐ jiè shào jiè shào wǒ de péng yǒu,Let me introduce my friends to you.,2
+他们说他再也不会回来了。,tā men shuō tā zài yě bù huì huí lái le,They say that he will never return.,2
+我今天没有时间去那里了。,wǒ jīn tiān méi yǒu shí jiān qù nà lǐ le,I don't have time to go there today.,2
+这件事情不是你告诉我的。,zhè jiàn shì qíng bù shì nǐ gào sù wǒ de,It wasn't you who told me about this.,2
+今天是我一个朋友的生日。,jīn tiān shì wǒ yī gè péng yǒu de shēng rì,Today is one of my friends' birthday.,2
+来吧。我想让你看点东西。,lái ba wǒ xiǎng ràng nǐ kàn diǎn dōng xi,Come on. I want to show you something.,2
+我不知道，我也不想知道。,wǒ bù zhī dào wǒ yě bù xiǎng zhī dào,I don't know and I don't want to know.,2
+他会是我妹妹的好丈夫的。,tā huì shì wǒ mèi mèi de hǎo zhàng fū de,He will be a good husband to my sister.,2
+希望我可以不再想Tom。,xī wàng wǒ kě yǐ bù zài xiǎng,I wish I could stop thinking about Tom.,2
+我要去给她生日买点东西。,wǒ yào qù gěi tā shēng rì mǎi diǎn dōng xi,I will do the shopping for her birthday.,2
+因为下雨，我们不能出去。,yīn wèi xià yǔ wǒ men bù néng chū qù,We can't go outside because it's raining.,2
+你的一个朋友在我们这里。,nǐ de yī gè péng yǒu zài wǒ men zhè lǐ,We have one of your friends here with us.,2
+我不知道明天会不会下雨。,wǒ bù zhī dào míng tiān huì bù huì xià yǔ,I wonder whether or not it'll rain tomorrow.,2
+我一回到家就打电话给你。,wǒ yī huí dào jiā jiù dǎ diàn huà gěi nǐ,I will give you a call as soon as I get home.,2
+我们的饭店比那家饭店好。,wǒ men de fàn diàn bǐ nà jiā fàn diàn hǎo,Our restaurant is better than that restaurant.,2
+每次他来这里点一样的菜。,měi cì tā lái zhè lǐ diǎn yī yàng de cài,"Every time he comes here, he orders the same dish.",2
+她告诉我她妈妈买给她了。,tā gào sù wǒ tā mā mā mǎi gěi tā le,She told me that her mother had bought it for her.,2
+我和她的男朋友在一起上班。,wǒ hé tā de nán péng yǒu zài yī qǐ shàng bān,I work with her boyfriend.,2
+我给她打电话的时候她不在。,wǒ gěi tā dǎ diàn huà de shí hòu tā bù zài,She was out when I called.,2
+我不知道我能不能再做一次。,wǒ bù zhī dào wǒ néng bù néng zài zuò yī cì,I wonder if I can do it again.,2
+您想知道为什么我要离开吗？,nín xiǎng zhī dào wèi shén me wǒ yào lí kāi ma,Do you want to know why I quit?,2
+我走路10分钟能到学校 。,wǒ zǒu lù fēn zhōng néng dào xué xiào,I can walk to school in 10 minutes.,2
+我不知道什么时候要在那里。,wǒ bù zhī dào shén me shí hòu yào zài nà lǐ,I don't know when I should be there.,2
+我告诉过你不要再来这里了。,wǒ gào sù guò nǐ bù yào zài lái zhè lǐ le,I told you never to come here again.,2
+我买了几个鸡蛋和一点牛奶。,wǒ mǎi le jǐ gè jī dàn hé yī diǎn niú nǎi,I bought a few eggs and a little milk.,2
+我不知道她什么时候会回来。,wǒ bù zhī dào tā shén me shí hòu huì huí lái,I do not know when she will come back.,2
+你找到你要找的东西了吗 ?,nǐ zhǎo dào nǐ yào zhǎo de dōng xi le ma,Did you find what you were looking for?,2
+不知道明天天气会怎么样呢？,bù zhī dào míng tiān tiān qì huì zěn me yàng ne,I wonder what the weather will be tomorrow.,2
+她十三岁的时候离家出走了。,tā shí sān suì de shí hòu lí jiā chū zǒu le,"When she was thirteen, she ran away from home.",2
+给我说说你去过的一些地方。,gěi wǒ shuō shuō nǐ qù guò de yī xiē dì fāng,Tell me about some of the places you've visited.,2
+我每次去他家，他都不在家。,wǒ měi cì qù tā jiā tā dōu bù zài jiā,"Every time I went to his house, he was not at home.",2
+我妹妹21岁，是个大学生。,wǒ mèi mèi suì shì gè dà xué shēng,My sister is twenty-one years old and a college student.,2
+不知道为什么没有人告诉过我。,bù zhī dào wèi shén me méi yǒu rén gào sù guò wǒ,I wonder why nobody told me.,2
+我不知道她想不想和我一起去。,wǒ bù zhī dào tā xiǎng bù xiǎng hé wǒ yī qǐ qù,I don't know if she wants to go with me.,2
+Tom没有找到他要找到东西。,méi yǒu zhǎo dào tā yào zhǎo dào dōng xi,Tom didn't find what he was looking for.,2
+你明天这个时候会是在做什么？,nǐ míng tiān zhè gè shí hòu huì shì zài zuò shén me,What'll you be doing at this time tomorrow?,2
+你们今天下午在学校做些什么？,nǐ men jīn tiān xià wǔ zài xué xiào zuò xiē shén me,What are you doing at school this afternoon?,2
+你还有什么事情需要我去做的吗？,nǐ hái yǒu shén me shì qíng xū yào wǒ qù zuò de ma,Is there anything else you want me to do?,2
+有什么你想要但是没有的东西吗？,yǒu shén me nǐ xiǎng yào dàn shì méi yǒu de dōng xi ma,Is there anything you want that you don't have?,2
+她问他他是不是这个学校的学生。,tā wèn tā tā shì bù shì zhè gè xué xiào de xué shēng,She asked him if he was a student at this school.,2
+我说过让你离我的电脑远一点的。,wǒ shuō guò ràng nǐ lí wǒ de diàn nǎo yuǎn yī diǎn de,I thought I told you to stay away from my computer.,2
+“这是谁的椅子？”“它是我的。”,zhè shì shuí de yǐ zi tā shì wǒ de,"""Whose chair is this?"" ""It is mine.""",2
+你想知道为什么我对Tom说话吗？,nǐ xiǎng zhī dào wèi shén me wǒ duì shuō huà ma,Do you want to know why I lied to Tom?,2
+这里一个人都没有。大家都去哪了?,zhè lǐ yī gè rén dōu méi yǒu dà jiā dōu qù nǎ le,There's no one here. Where is everyone?,2
+那个是我的。我不知道你的在哪里。,nà gè shì wǒ de wǒ bù zhī dào nǐ de zài nǎ lǐ,That's mine. I don't know where yours is.,2
+我不能和你们一起去，因为我很忙。,wǒ bù néng hé nǐ men yī qǐ qù yīn wèi wǒ hěn máng,I can't go with you because I'm very busy.,2
+我想和你一起去，但是我没有时间。,wǒ xiǎng hé nǐ yī qǐ qù dàn shì wǒ méi yǒu shí jiān,"I would have liked to come with you, but I didn't have time.",2
+“为什么你不来？”“因为我不想。”,wèi shén me nǐ bù lái yīn wèi wǒ bù xiǎng,"""Why aren't you going?"" ""Because I don't want to.""",2
+"""你为什么不去？""""因为我不想去。""",nǐ wèi shén me bù qù yīn wèi wǒ bù xiǎng qù,"""Why aren't you going?"" ""Because I don't want to.""",2
+“你什么时候回来？”“这都要看天气。”,nǐ shén me shí hòu huí lái zhè dōu yào kàn tiān qì,"""When will you be back?"" ""It all depends on the weather.""",2
+进来,jìn lái,Come in.,3
+进来。,jìn lái,Come in.,3
+我好饿。,wǒ hǎo è,I'm very hungry.,3
+我很饿。,wǒ hěn è,I was very hungry.,3
+不明白。,bù míng bái,I don't understand.,3
+让他进来。,ràng tā jìn lái,Let him in.,3
+我明白了。,wǒ míng bái le,I understand.,3
+我们明白。,wǒ men míng bái,We understand.,3
+这很方便。,zhè hěn fāng pián,That's very handy.,3
+她很可爱。,tā hěn kě ài,She is very pretty.,3
+你不明白。,nǐ bù míng bái,You don't understand.,3
+我运气很好。,wǒ yùn qì hěn hǎo,I'm lucky.,3
+我还饿着呢。,wǒ hái è zhe ne,I'm still hungry.,3
+别让狗进来。,bié ràng gǒu jìn lái,Keep the dog out.,3
+机会错过了。,jī huì cuò guò le,The chance is gone.,3
+旅馆在哪里？,lǚ guǎn zài nǎ lǐ,Where is the hotel?,3
+你记日记吗？,nǐ jì rì jì ma,Do you keep a diary?,3
+我马上过去!,wǒ mǎ shàng guò qù,I'll be right there.,3
+小猫想进来。,xiǎo māo xiǎng jìn lái,The kitten wanted in.,3
+你想进来吗？,nǐ xiǎng jìn lái ma,Do you want to come in?,3
+我最近很忙。,wǒ zuì jìn hěn máng,I'm very busy these days.,3
+多少年过去了。,duō shǎo nián guò qù le,Years passed.,3
+那是为了什么？,nà shì wèi le shén me,What was it for?,3
+进来，门开着。,jìn lái mén kāi zhe,"Come in, it's open.",3
+我认为它错了。,wǒ rèn wèi tā cuò le,I think it was wrong.,3
+你最好马上走。,nǐ zuì hǎo mǎ shàng zǒu,You'd better leave now.,3
+我马上就回来。,wǒ mǎ shàng jiù huí lái,I'll be back in a jiffy.,3
+打的去旅馆吧。,dǎ de qù lǚ guǎn ba,Take a taxi to the hotel.,3
+我马上就到了。,wǒ mǎ shàng jiù dào le,I'll be there in a minute.,3
+我想您马上来。,wǒ xiǎng nín mǎ shàng lái,I want you to come at once.,3
+你认为她多大？,nǐ rèn wèi tā duō dà,How old do you think she is?,3
+我以为你在听。,wǒ yǐ wèi nǐ zài tīng,I thought you were listening.,3
+马上！我就来！,mǎ shàng wǒ jiù lái,Coming! I'll be there in a minute!,3
+他不过是个孩子。,tā bù guò shì gè hái zi,He is but a child.,3
+我们在哪里见面？,wǒ men zài nǎ lǐ jiàn miàn,Where are we meeting?,3
+我认为他不会来。,wǒ rèn wèi tā bù huì lái,I think he won't come.,3
+你们怎么进来的？,nǐ men zěn me jìn lái de,How did you guys get in?,3
+我知道她很可爱。,wǒ zhī dào tā hěn kě ài,I know that she is cute.,3
+我以为他会来的。,wǒ yǐ wèi tā huì lái de,I thought he would come.,3
+你认为我们是谁？,nǐ rèn wèi wǒ men shì shuí,Who do you think we are?,3
+我要去方便一下。,wǒ yào qù fāng pián yī xià,I need to go to the toilet.,3
+你认为他们是谁？,nǐ rèn wèi tā men shì shuí,Who do you think they were?,3
+你什么时候方便？,nǐ shén me shí hòu fāng pián,When is it convenient for you?,3
+你认为这是什么？,nǐ rèn wèi zhè shì shén me,What do you suppose this could be?,3
+我认为我能做好。,wǒ rèn wèi wǒ néng zuò hǎo,I think I'll be able to deal with that.,3
+他做这个是为了钱。,tā zuò zhè gè shì wèi le qián,He did it for money.,3
+这只狗看上去饿了。,zhè zhǐ gǒu kàn shàng qù è le,The dog looks hungry.,3
+你知道这家旅馆吗？,nǐ zhī dào zhè jiā lǚ guǎn ma,Do you know that hotel?,3
+我买了很多笔记本。,wǒ mǎi le hěn duō bǐ jì běn,I bought many notebooks.,3
+我们只有一次机会。,wǒ men zhǐ yǒu yī cì jī huì,We have only one chance.,3
+这什么都说明不了！,zhè shén me dōu shuō míng bù le,It doesn't mean anything.,3
+让我们在一点见面。,ràng wǒ men zài yī diǎn jiàn miàn,Let's meet at one o'clock.,3
+我不认为是你做的。,wǒ bù rèn wèi shì nǐ zuò de,I don't think you did this.,3
+我以为他是我弟弟。,wǒ yǐ wèi tā shì wǒ dì dì,I thought he was my brother.,3
+他以为什么都知道。,tā yǐ wèi shén me dōu zhī dào,He thinks he knows everything.,3
+你最好马上去睡觉。,nǐ zuì hǎo mǎ shàng qù shuì jiào,You'd better go to bed at once.,3
+他在日本也很有名。,tā zài rì běn yě hěn yǒu míng,He is also very famous in Japan.,3
+他认为我非常的累。,tā rèn wèi wǒ fēi cháng de lèi,He thought that I was very tired.,3
+你一共花了多少钱？,nǐ yī gòng huā le duō shǎo qián,What is the total amount of money you spent?,3
+我不能让你进来这里。,wǒ bù néng ràng nǐ jìn lái zhè lǐ,I can't let you in here.,3
+我以为你是我的朋友。,wǒ yǐ wèi nǐ shì wǒ de péng yǒu,I thought you were my friend.,3
+我不明白他想要什么。,wǒ bù míng bái tā xiǎng yào shén me,I can't make out what he wants.,3
+我认为我们准备好了。,wǒ rèn wèi wǒ men zhǔn bèi hǎo le,I think we're ready to do that.,3
+他叫我对别人好一点。,tā jiào wǒ duì bié rén hǎo yī diǎn,He told me to be kind to others.,3
+我不太明白他说什么。,wǒ bù tài míng bái tā shuō shén me,I don't quite understand what he says.,3
+我不明白您想说什么。,wǒ bù míng bái nín xiǎng shuō shén me,I don't understand what you're trying to say.,3
+你怎么认为我做不了？,nǐ zěn me rèn wèi wǒ zuò bù le,What makes you think I won't be able to do it?,3
+最近看了什么电影没有？,zuì jìn kàn le shén me diàn yǐng méi yǒu,Have you seen any movies lately?,3
+我最近有很多事情要做。,wǒ zuì jìn yǒu hěn duō shì qíng yào zuò,I've had a lot of work to do lately.,3
+你为什么会认为我在想你？,nǐ wèi shén me huì rèn wèi wǒ zài xiǎng nǐ,Why do you think I'm thinking about you?,3
+你认为我们会遇到好天气吗？,nǐ rèn wèi wǒ men huì yù dào hǎo tiān qì ma,Do you think we'll have good weather?,3
