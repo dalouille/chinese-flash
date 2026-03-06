@@ -384,7 +384,7 @@
 </div>
 
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.5</span></div>
+  <div class="logo">汉字 <span class="version">v1.5.1</span></div>
   <div class="direction-badge" id="dirBadge">—</div>
 </div>
 
@@ -415,9 +415,9 @@
 
 <!-- History nav -->
 <div class="history-nav">
-  <button class="hist-btn" id="btnBack"    onclick="historyBack()"    disabled>← Back</button>
+  <button class="hist-btn" id="btnBack"    onclick="historyBack()"    disabled>←</button>
   <div class="hist-dots" id="histDots"></div>
-  <button class="hist-btn" id="btnForward" onclick="historyForward()" disabled>Fwd →</button>
+  <button class="hist-btn" id="btnForward" onclick="historyForward()" disabled>→</button>
 </div>
 
 <!-- Timer -->
@@ -446,7 +446,7 @@ let dirSetting   = 'random';
 
 // ── History ────────────────────────────────────────────────────────────
 // Each entry: { sentence, mode }
-const HIST_MAX   = 6;
+const HIST_MAX   = 3;
 let history      = [];   // oldest → newest
 let historyPos   = -1;   // index of currently shown card
 
