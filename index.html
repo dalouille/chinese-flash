@@ -108,8 +108,6 @@
     transition: all 0.15s;
   }
   .pill:active { transform: scale(0.95); }
-
-  /* HSK multi-select — each level has its own color when active */
   .pill.hsk-all.active { color: var(--accent); border-color: var(--accent); background: #c8a96e18; }
   .pill.hsk-1.active   { color: var(--hsk1);   border-color: var(--hsk1);  background: #4caf7d18; }
   .pill.hsk-2.active   { color: var(--hsk2);   border-color: var(--hsk2);  background: #5b9bd518; }
@@ -126,7 +124,6 @@
     overflow: hidden;
     position: relative;
   }
-
   .card-shadow {
     position: absolute;
     width: calc(100% - 64px);
@@ -139,7 +136,6 @@
     z-index: 1;
     pointer-events: none;
   }
-
   .card {
     width: calc(100% - 32px);
     max-width: 420px;
@@ -239,13 +235,56 @@
 
   .hidden { display: none !important; }
 
+  /* ── History nav ── */
+  .history-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 16px 2px;
+    flex-shrink: 0;
+  }
+  .hist-btn {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 16px;
+    padding: 4px 11px;
+    cursor: pointer;
+    font-family: 'Noto Sans', sans-serif;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .hist-btn:active { transform: scale(0.93); }
+  .hist-btn:disabled { opacity: 0.2; cursor: default; transform: none; }
+  .hist-btn.hist-current { color: var(--accent); border-color: var(--accent); background: #c8a96e12; }
+
+  .hist-dots {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  .hist-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .hist-dot.current { background: var(--accent); transform: scale(1.3); }
+  .hist-dot.visited { background: var(--muted); }
+
   /* ── Timer ── */
   .timer-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    height: 36px;
+    height: 32px;
     gap: 8px;
     padding: 0 16px;
   }
@@ -256,7 +295,6 @@
     transition: opacity 0.25s;
   }
   .timer-bar.timer-hidden { opacity: 0; pointer-events: none; width: 0; overflow: hidden; }
-
   .timer-display {
     font-size: 13px;
     font-weight: 600;
@@ -268,7 +306,6 @@
     transition: color 0.3s;
   }
   .timer-display.paused { color: #554e3e; }
-
   .timer-btn {
     font-size: 10px;
     font-weight: 600;
@@ -285,7 +322,6 @@
   }
   .timer-btn:active { transform: scale(0.93); }
   .timer-btn.pause-active { color: var(--accent); border-color: var(--accent); }
-
   .timer-toggle {
     font-size: 10px;
     font-weight: 600;
@@ -348,11 +384,10 @@
 </div>
 
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.4.1</span></div>
+  <div class="logo">汉字 <span class="version">v1.5</span></div>
   <div class="direction-badge" id="dirBadge">—</div>
 </div>
 
-<!-- HSK multi-select -->
 <div class="settings">
   <span class="settings-label">HSK</span>
   <button class="pill hsk-all active" data-hsk="all" onclick="toggleHSK('all')">All</button>
@@ -360,7 +395,6 @@
   <button class="pill hsk-2"          data-hsk="2"   onclick="toggleHSK('2')">HSK 2</button>
   <button class="pill hsk-3"          data-hsk="3"   onclick="toggleHSK('3')">HSK 3</button>
 </div>
-<!-- Direction -->
 <div class="settings">
   <span class="settings-label">Direction</span>
   <button class="pill dir active" data-dir="random" onclick="setDir('random')">Random</button>
@@ -377,6 +411,13 @@
     <div class="tap-hint"    id="tapHint">tap to reveal</div>
     <div class="reveal-block hidden" id="revealBlock"></div>
   </div>
+</div>
+
+<!-- History nav -->
+<div class="history-nav">
+  <button class="hist-btn" id="btnBack"    onclick="historyBack()"    disabled>← Back</button>
+  <div class="hist-dots" id="histDots"></div>
+  <button class="hist-btn" id="btnForward" onclick="historyForward()" disabled>Fwd →</button>
 </div>
 
 <!-- Timer -->
@@ -396,18 +437,64 @@
 
 <script>
 // ── State ──────────────────────────────────────────────────────────────
-let allSentences  = [];
-let filtered      = [];
-let current       = null;
-let mode          = null;
-let revealed      = false;
-let animating     = false;
+let allSentences = [];
+let filtered     = [];
+let revealed     = false;
+let animating    = false;
+let hskActive    = new Set(['all']);
+let dirSetting   = 'random';
 
-// HSK multi-select: set of active levels, or 'all'
-let hskActive = new Set(['all']); // 'all' means no filter
+// ── History ────────────────────────────────────────────────────────────
+// Each entry: { sentence, mode }
+const HIST_MAX   = 6;
+let history      = [];   // oldest → newest
+let historyPos   = -1;   // index of currently shown card
 
-// Direction
-let dirSetting = 'random';
+function historyPush(sentence, mode) {
+  // If we're not at the end (user went back then moved forward), truncate future
+  if (historyPos < history.length - 1) {
+    history = history.slice(0, historyPos + 1);
+  }
+  history.push({ sentence, mode });
+  if (history.length > HIST_MAX) history.shift();
+  historyPos = history.length - 1;
+  updateHistoryUI();
+}
+
+function historyBack() {
+  if (historyPos <= 0) return;
+  historyPos--;
+  renderFromHistory();
+}
+
+function historyForward() {
+  if (historyPos >= history.length - 1) return;
+  historyPos++;
+  renderFromHistory();
+}
+
+function renderFromHistory() {
+  const entry = history[historyPos];
+  revealed = false;
+  render(entry.sentence, entry.mode);
+  updateHistoryUI();
+  resumeTimer();
+}
+
+function updateHistoryUI() {
+  document.getElementById('btnBack').disabled    = historyPos <= 0;
+  document.getElementById('btnForward').disabled = historyPos >= history.length - 1;
+
+  // dots
+  const dots = document.getElementById('histDots');
+  dots.innerHTML = '';
+  history.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'hist-dot' + (i === historyPos ? ' current' : ' visited');
+    d.onclick = () => { historyPos = i; renderFromHistory(); };
+    dots.appendChild(d);
+  });
+}
 
 // ── CSV parser ─────────────────────────────────────────────────────────
 function parseCSV(text) {
@@ -440,22 +527,18 @@ async function loadSentences() {
 // ── HSK multi-select ───────────────────────────────────────────────────
 function toggleHSK(val) {
   if (val === 'all') {
-    // All clears individual selections
     hskActive = new Set(['all']);
   } else {
     hskActive.delete('all');
     if (hskActive.has(val)) {
       hskActive.delete(val);
-      // If nothing left, fall back to all
       if (hskActive.size === 0) hskActive = new Set(['all']);
     } else {
       hskActive.add(val);
     }
   }
-  // Update pill states
-  document.querySelectorAll('.pill[data-hsk]').forEach(p => {
-    p.classList.toggle('active', hskActive.has(p.dataset.hsk));
-  });
+  document.querySelectorAll('.pill[data-hsk]').forEach(p =>
+    p.classList.toggle('active', hskActive.has(p.dataset.hsk)));
   applyFilter();
   nextCard();
 }
@@ -479,20 +562,23 @@ function setDir(val) {
 
 // ── Card logic ─────────────────────────────────────────────────────────
 function pickRandom() {
+  const last = history.length ? history[history.length - 1].sentence : null;
   let s;
   do { s = filtered[Math.floor(Math.random() * filtered.length)]; }
-  while (s === current && filtered.length > 1);
+  while (s === last && filtered.length > 1);
   return s;
 }
 
 function nextCard() {
+  const s    = pickRandom();
+  const mode = dirSetting === 'zh' ? 'zh' : dirSetting === 'en' ? 'en' : (Math.random() < 0.5 ? 'zh' : 'en');
+  historyPush(s, mode);
   revealed = false;
-  current  = pickRandom();
-  mode = dirSetting === 'zh' ? 'zh' : dirSetting === 'en' ? 'en' : (Math.random() < 0.5 ? 'zh' : 'en');
-  render();
+  render(s, mode);
+  resumeTimer();
 }
 
-function render() {
+function render(sentence, mode) {
   const badge       = document.getElementById('dirBadge');
   const frontLabel  = document.getElementById('frontLabel');
   const hskTag      = document.getElementById('hskTag');
@@ -505,23 +591,23 @@ function render() {
   tapHint.classList.remove('hidden');
   btnReveal.classList.remove('hidden');
 
-  hskTag.textContent = `HSK ${current.hsk}`;
-  hskTag.className   = `hsk-tag h${current.hsk}`;
+  hskTag.textContent = `HSK ${sentence.hsk}`;
+  hskTag.className   = `hsk-tag h${sentence.hsk}`;
 
   if (mode === 'zh') {
     badge.textContent      = '中 → EN';
     badge.className        = 'direction-badge zh';
     frontLabel.textContent = 'Chinese → English';
-    frontBlock.innerHTML   = `<div class="zh-big">${current.zh}</div>`;
-    revealBlock.innerHTML  = `<div class="py-reveal">${current.pinyin}</div>
-                               <div class="en-reveal">${current.english}</div>`;
+    frontBlock.innerHTML   = `<div class="zh-big">${sentence.zh}</div>`;
+    revealBlock.innerHTML  = `<div class="py-reveal">${sentence.pinyin}</div>
+                               <div class="en-reveal">${sentence.english}</div>`;
   } else {
     badge.textContent      = 'EN → 中';
     badge.className        = 'direction-badge en';
     frontLabel.textContent = 'English → Chinese';
-    frontBlock.innerHTML   = `<div class="en-big">${current.english}</div>`;
-    revealBlock.innerHTML  = `<div class="zh-reveal">${current.zh}</div>
-                               <div class="py-reveal">${current.pinyin}</div>`;
+    frontBlock.innerHTML   = `<div class="en-big">${sentence.english}</div>`;
+    revealBlock.innerHTML  = `<div class="zh-reveal">${sentence.zh}</div>
+                               <div class="py-reveal">${sentence.pinyin}</div>`;
   }
 }
 
@@ -531,6 +617,7 @@ function revealCard() {
   document.getElementById('revealBlock').classList.remove('hidden');
   document.getElementById('tapHint').classList.add('hidden');
   document.getElementById('btnReveal').classList.add('hidden');
+  resumeTimer();
 }
 
 function animateSwipe(dir) {
@@ -578,10 +665,9 @@ function animateSwipe(dir) {
 document.getElementById('btnNext').addEventListener('click', () => animateSwipe('left'));
 
 // ── Timer ──────────────────────────────────────────────────────────────
-let timerSeconds  = 0;
-let timerPaused   = false;
-let timerVisible  = true;
-let timerInterval = null;
+let timerSeconds = 0;
+let timerPaused  = false;
+let timerVisible = true;
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -591,13 +677,13 @@ function updateTimerDisplay() {
   document.getElementById('timerDisplay').textContent = `${pad(m)}:${pad(s)}`;
 }
 
-function startTimer() {
-  timerInterval = setInterval(() => {
-    if (!timerPaused) {
-      timerSeconds++;
-      updateTimerDisplay();
-    }
-  }, 1000);
+function resumeTimer() {
+  if (!timerPaused) return;
+  timerPaused = false;
+  const btn = document.getElementById('btnPause');
+  btn.textContent = 'Pause';
+  btn.classList.remove('pause-active');
+  document.getElementById('timerDisplay').classList.remove('paused');
 }
 
 function togglePause() {
@@ -621,13 +707,14 @@ function resetTimer() {
 
 function toggleTimerVisible() {
   timerVisible = !timerVisible;
-  const bar    = document.getElementById('timerBar');
-  const toggle = document.getElementById('timerToggle');
-  bar.classList.toggle('timer-hidden', !timerVisible);
-  toggle.textContent = timerVisible ? '◎ hide' : 'timer ◉';
+  document.getElementById('timerBar').classList.toggle('timer-hidden', !timerVisible);
+  document.getElementById('timerToggle').textContent = timerVisible ? '◎ hide' : 'timer ◉';
 }
 
-startTimer();
+setInterval(() => {
+  if (!timerPaused) { timerSeconds++; updateTimerDisplay(); }
+}, 1000);
+
 loadSentences();
 </script>
 </body>
