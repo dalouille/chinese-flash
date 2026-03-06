@@ -239,8 +239,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 8px 16px 28px;
-    gap: 6px;
+    padding: 10px 16px 36px;
+    gap: 10px;
   }
 
   /* Row 1: Reset · 00:00 · hide */
@@ -248,20 +248,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    transition: opacity 0.2s;
+    gap: 20px;
+    transition: opacity 0.3s;
   }
   .timer-display {
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 600;
-    letter-spacing: 2.5px;
+    letter-spacing: 3px;
     color: var(--muted);
-    min-width: 52px;
+    min-width: 80px;
     text-align: center;
     font-variant-numeric: tabular-nums;
   }
   .t-btn {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -269,7 +269,7 @@
     border: 1px solid var(--border);
     color: var(--muted);
     border-radius: 20px;
-    padding: 3px 10px;
+    padding: 5px 14px;
     cursor: pointer;
     font-family: 'Noto Sans', sans-serif;
     transition: all 0.15s;
@@ -281,15 +281,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 24px;
   }
   .nav-btn {
-    width: 48px; height: 48px;
+    width: 64px; height: 64px;
     border-radius: 50%;
     border: 1.5px solid var(--border);
     background: transparent;
     color: var(--muted);
-    font-size: 18px;
+    font-size: 26px;
     display: flex; align-items: center; justify-content: center;
     cursor: pointer;
     transition: opacity 0.2s;
@@ -298,28 +298,26 @@
   .nav-btn.dimmed { opacity: 0.2; pointer-events: none; }
 
   .pause-btn {
-    width: 56px; height: 56px;
+    width: 72px; height: 72px;
     border-radius: 50%;
-    border: 1.5px solid var(--accent);
+    border: 1.5px solid var(--border);
     background: transparent;
-    color: var(--accent);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    font-family: 'Noto Sans', sans-serif;
+    color: var(--muted);
     display: flex; align-items: center; justify-content: center;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: all 0.2s;
+    flex-shrink: 0;
   }
+  .pause-btn svg { transition: all 0.2s; }
   .pause-btn:active { transform: scale(0.93); }
-  .pause-btn.is-paused {
-    background: var(--accent);
-    color: #0f0e0c;
-  }
+  .pause-btn.is-paused { border-color: var(--accent); }
+  .pause-btn.is-paused svg { color: var(--accent); }
 
-  /* when paused: dim everything except pause button */
+  /* when paused: dim bottom controls and card */
   .bottom.is-paused .timer-row { opacity: 0.18; pointer-events: none; }
   .bottom.is-paused .nav-btn   { opacity: 0.08 !important; pointer-events: none; }
+  .card-area.is-paused { opacity: 0.3; pointer-events: none; transition: opacity 0.3s; }
+  .card-area { transition: opacity 0.3s; }
 
   /* ── Status overlay ── */
   #status {
@@ -343,7 +341,7 @@
 </div>
 
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.6.2</span></div>
+  <div class="logo">汉字 <span class="version">v1.6.3</span></div>
   <div class="dir-badge" id="dirBadge">—</div>
 </div>
 
@@ -382,7 +380,16 @@
   <!-- Row 2: ← · pause · → -->
   <div class="action-row">
     <button class="nav-btn dimmed" id="btnBack"    onclick="historyBack()">←</button>
-    <button class="pause-btn"      id="btnPause"   onclick="togglePause()">PAUSE</button>
+    <button class="pause-btn" id="btnPause" onclick="togglePause()">
+      <!-- pause icon (two bars) shown by default; play icon shown when paused -->
+      <svg id="iconPause" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="4" width="4" height="16" rx="1.5"/>
+        <rect x="15" y="4" width="4" height="16" rx="1.5"/>
+      </svg>
+      <svg id="iconPlay" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="display:none">
+        <path d="M6 4.5L20 12L6 19.5V4.5Z"/>
+      </svg>
+    </button>
     <button class="nav-btn dimmed" id="btnFwd"     onclick="historyFwdOrNext()">→</button>
   </div>
 </div>
@@ -615,24 +622,30 @@ function updateTimerDisplay() {
 function resumeTimer() {
   if (!timerPaused) return;
   timerPaused = false;
-  document.getElementById('btnPause').textContent = 'PAUSE';
   document.getElementById('btnPause').classList.remove('is-paused');
   document.getElementById('bottom').classList.remove('is-paused');
+  document.getElementById('iconPause').style.display = '';
+  document.getElementById('iconPlay').style.display  = 'none';
+  document.querySelector('.card-area').classList.remove('is-paused');
 }
 
 function togglePause() {
   timerPaused = !timerPaused;
-  document.getElementById('btnPause').textContent = timerPaused ? 'PLAY' : 'PAUSE';
   document.getElementById('btnPause').classList.toggle('is-paused', timerPaused);
   document.getElementById('bottom').classList.toggle('is-paused', timerPaused);
+  document.getElementById('iconPause').style.display = timerPaused ? 'none' : '';
+  document.getElementById('iconPlay').style.display  = timerPaused ? '' : 'none';
+  document.querySelector('.card-area').classList.toggle('is-paused', timerPaused);
 }
 
 function resetTimer() {
   timerSecs   = 0;
   timerPaused = false;
-  document.getElementById('btnPause').textContent = 'PAUSE';
   document.getElementById('btnPause').classList.remove('is-paused');
   document.getElementById('bottom').classList.remove('is-paused');
+  document.getElementById('iconPause').style.display = '';
+  document.getElementById('iconPlay').style.display  = 'none';
+  document.querySelector('.card-area').classList.remove('is-paused');
   updateTimerDisplay();
 }
 
