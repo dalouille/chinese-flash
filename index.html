@@ -235,78 +235,37 @@
 
   .hidden { display: none !important; }
 
-  /* ── History nav ── */
-  .history-nav {
+  /* ── Bottom controls ── */
+  .bottom {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding-bottom: 28px;
+  }
+
+  /* Row 1: Reset · timer · hide */
+  .timer-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 6px 16px 2px;
-    flex-shrink: 0;
-  }
-  .hist-btn {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    border-radius: 16px;
-    padding: 4px 11px;
-    cursor: pointer;
-    font-family: 'Noto Sans', sans-serif;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
-  .hist-btn:active { transform: scale(0.93); }
-  .hist-btn:disabled { opacity: 0.2; cursor: default; transform: none; }
-  .hist-btn.hist-current { color: var(--accent); border-color: var(--accent); background: #c8a96e12; }
-
-  .hist-dots {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-  }
-  .hist-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--border);
-    cursor: pointer;
-    transition: all 0.15s;
-    flex-shrink: 0;
-  }
-  .hist-dot.current { background: var(--accent); transform: scale(1.3); }
-  .hist-dot.visited { background: var(--muted); }
-
-  /* ── Timer ── */
-  .timer-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    height: 32px;
-    gap: 8px;
-    padding: 0 16px;
-  }
-  .timer-bar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    gap: 12px;
+    padding: 10px 16px 6px;
     transition: opacity 0.25s;
   }
-  .timer-bar.timer-hidden { opacity: 0; pointer-events: none; width: 0; overflow: hidden; }
+  .timer-row.paused-dim { opacity: 0.18; pointer-events: none; }
+
   .timer-display {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     color: var(--muted);
-    min-width: 48px;
+    min-width: 52px;
     text-align: center;
     font-variant-numeric: tabular-nums;
-    transition: color 0.3s;
   }
-  .timer-display.paused { color: #554e3e; }
-  .timer-btn {
+  .timer-small-btn {
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -315,52 +274,55 @@
     border: 1px solid var(--border);
     color: var(--muted);
     border-radius: 20px;
-    padding: 3px 9px;
+    padding: 3px 10px;
     cursor: pointer;
     font-family: 'Noto Sans', sans-serif;
     transition: all 0.15s;
   }
-  .timer-btn:active { transform: scale(0.93); }
-  .timer-btn.pause-active { color: var(--accent); border-color: var(--accent); }
-  .timer-toggle {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: var(--muted);
-    cursor: pointer;
-    padding: 3px 8px;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    background: none;
-    font-family: 'Noto Sans', sans-serif;
-    transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .timer-toggle:active { transform: scale(0.93); }
+  .timer-small-btn:active { transform: scale(0.93); }
 
-  /* ── Controls ── */
-  .controls {
-    padding: 6px 16px 28px;
+  /* Row 2: ← · pause · → */
+  .action-row {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 14px;
+    padding: 4px 16px 0;
+  }
+
+  .nav-btn {
+    font-size: 20px;
+    background: transparent;
+    border: 1.5px solid var(--border);
+    color: var(--muted);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s;
     flex-shrink: 0;
   }
-  .btn {
-    border: none;
-    border-radius: 50px;
-    padding: 14px 0;
-    font-size: 15px;
-    font-weight: 600;
-    font-family: 'Noto Sans', sans-serif;
+  .nav-btn:active { transform: scale(0.93); }
+  .nav-btn:disabled { opacity: 0.18; cursor: default; transform: none; }
+
+  .pause-btn {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    font-size: 22px;
+    display: flex; align-items: center; justify-content: center;
     cursor: pointer;
-    min-width: 130px;
-    transition: transform 0.12s, opacity 0.12s;
+    transition: all 0.15s;
+    flex-shrink: 0;
   }
-  .btn:active { transform: scale(0.96); }
-  .btn-reveal { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
-  .btn-next   { background: var(--accent); color: #0f0e0c; }
+  .pause-btn:active  { transform: scale(0.93); }
+  .pause-btn.paused  { background: var(--accent); color: #0f0e0c; }
+
+  /* when paused, dim everything except pause button */
+  .bottom.is-paused .timer-row   { opacity: 0.18; pointer-events: none; }
+  .bottom.is-paused .nav-btn     { opacity: 0.18; pointer-events: none; }
 
   /* ── Status overlay ── */
   #status {
@@ -384,7 +346,7 @@
 </div>
 
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.5.1</span></div>
+  <div class="logo">汉字 <span class="version">v1.6</span></div>
   <div class="direction-badge" id="dirBadge">—</div>
 </div>
 
@@ -413,26 +375,20 @@
   </div>
 </div>
 
-<!-- History nav -->
-<div class="history-nav">
-  <button class="hist-btn" id="btnBack"    onclick="historyBack()"    disabled>←</button>
-  <div class="hist-dots" id="histDots"></div>
-  <button class="hist-btn" id="btnForward" onclick="historyForward()" disabled>→</button>
-</div>
-
-<!-- Timer -->
-<div class="timer-wrapper">
-  <div class="timer-bar" id="timerBar">
-    <button class="timer-btn" id="btnPause" onclick="togglePause()">Pause</button>
+<div class="bottom" id="bottom">
+  <!-- Row 1: Reset · xx:xx · hide -->
+  <div class="timer-row" id="timerRow">
+    <button class="timer-small-btn" onclick="resetTimer()">Reset</button>
     <span class="timer-display" id="timerDisplay">00:00</span>
-    <button class="timer-btn" onclick="resetTimer()">Reset</button>
+    <button class="timer-small-btn" id="timerToggle" onclick="toggleTimerVisible()">hide</button>
   </div>
-  <button class="timer-toggle" id="timerToggle" onclick="toggleTimerVisible()">◎ hide</button>
-</div>
 
-<div class="controls">
-  <button class="btn btn-reveal" id="btnReveal" onclick="revealCard()">Reveal</button>
-  <button class="btn btn-next"   id="btnNext"   onclick="nextCard()">Next →</button>
+  <!-- Row 2: ← · pause · → -->
+  <div class="action-row">
+    <button class="nav-btn" id="btnBack"    onclick="historyBack()"    disabled>←</button>
+    <button class="pause-btn" id="btnPause" onclick="togglePause()">⏸</button>
+    <button class="nav-btn" id="btnForward" onclick="historyForward()" disabled>→</button>
+  </div>
 </div>
 
 <script>
@@ -585,11 +541,8 @@ function render(sentence, mode) {
   const frontBlock  = document.getElementById('frontBlock');
   const tapHint     = document.getElementById('tapHint');
   const revealBlock = document.getElementById('revealBlock');
-  const btnReveal   = document.getElementById('btnReveal');
-
   revealBlock.classList.add('hidden');
   tapHint.classList.remove('hidden');
-  btnReveal.classList.remove('hidden');
 
   hskTag.textContent = `HSK ${sentence.hsk}`;
   hskTag.className   = `hsk-tag h${sentence.hsk}`;
@@ -616,7 +569,6 @@ function revealCard() {
   revealed = true;
   document.getElementById('revealBlock').classList.remove('hidden');
   document.getElementById('tapHint').classList.add('hidden');
-  document.getElementById('btnReveal').classList.add('hidden');
   resumeTimer();
 }
 
@@ -662,7 +614,17 @@ function animateSwipe(dir) {
   card.onclick = null;
 })();
 
-document.getElementById('btnNext').addEventListener('click', () => animateSwipe('left'));
+// → button: go forward in history if possible, else new card
+function historyForwardOrNext() {
+  if (historyPos < history.length - 1) {
+    historyForward();
+  } else {
+    animateSwipe('left');
+  }
+}
+document.getElementById('btnForward').addEventListener('click', historyForwardOrNext);
+// override the inline onclick
+document.getElementById('btnForward').onclick = historyForwardOrNext;
 
 // ── Timer ──────────────────────────────────────────────────────────────
 let timerSeconds = 0;
@@ -681,34 +643,38 @@ function resumeTimer() {
   if (!timerPaused) return;
   timerPaused = false;
   const btn = document.getElementById('btnPause');
-  btn.textContent = 'Pause';
-  btn.classList.remove('pause-active');
-  document.getElementById('timerDisplay').classList.remove('paused');
+  btn.textContent = '⏸';
+  btn.classList.remove('paused');
+  document.getElementById('bottom').classList.remove('is-paused');
 }
 
 function togglePause() {
   timerPaused = !timerPaused;
-  const btn     = document.getElementById('btnPause');
-  const display = document.getElementById('timerDisplay');
-  btn.textContent = timerPaused ? 'Resume' : 'Pause';
-  btn.classList.toggle('pause-active', timerPaused);
-  display.classList.toggle('paused', timerPaused);
+  const btn    = document.getElementById('btnPause');
+  const bottom = document.getElementById('bottom');
+  btn.textContent = timerPaused ? '▶' : '⏸';
+  btn.classList.toggle('paused', timerPaused);
+  bottom.classList.toggle('is-paused', timerPaused);
 }
 
 function resetTimer() {
   timerSeconds = 0;
   timerPaused  = false;
   const btn = document.getElementById('btnPause');
-  btn.textContent = 'Pause';
-  btn.classList.remove('pause-active');
-  document.getElementById('timerDisplay').classList.remove('paused');
+  btn.textContent = '⏸';
+  btn.classList.remove('paused');
+  document.getElementById('bottom').classList.remove('is-paused');
   updateTimerDisplay();
 }
 
 function toggleTimerVisible() {
   timerVisible = !timerVisible;
-  document.getElementById('timerBar').classList.toggle('timer-hidden', !timerVisible);
-  document.getElementById('timerToggle').textContent = timerVisible ? '◎ hide' : 'timer ◉';
+  const row    = document.getElementById('timerRow');
+  const toggle = document.getElementById('timerToggle');
+  // hide the display + reset but keep the toggle itself
+  document.getElementById('timerDisplay').style.visibility = timerVisible ? '' : 'hidden';
+  document.getElementById('timerDisplay').previousElementSibling.style.visibility = timerVisible ? '' : 'hidden';
+  toggle.textContent = timerVisible ? 'hide' : 'show';
 }
 
 setInterval(() => {
