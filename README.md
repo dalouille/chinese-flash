@@ -13,16 +13,14 @@ Most language tools want you to *study*. This one doesn't. 汉字 Flash shows yo
 
 It currently supports Chinese, with sentences tagged by HSK level (1–3) so you can filter by difficulty. Each card shows the characters, pinyin, and English translation.
 
+The timer tracks how long you've been browsing — useful if you log your study time. It can be hidden with the "hide" button if you don't need it.
+
 ## How to use it
 
 - **Tap the card** to reveal the translation
 - **Swipe left/right** (or use the arrows) to move between sentences
 - **Filter by HSK level** using the pills at the top
 - **Toggle direction** between Chinese → English or English → Chinese
-
-## Sentence data
-Sentences are sourced from Tatoeba via the Anki sentence packs at manythings.org. The raw pairs were fed to Claude (claude.ai) with a prompt asking it to filter for natural, common sentences and tag each one with an approximate HSK 1–3 level, then format them into the CSV structure this app uses.
-The HSK tagging is approximate — it's based on vocabulary difficulty, not an official assessment. If you spot something miscategorized, PRs welcome.
 
 ## What's coming
 
@@ -38,6 +36,10 @@ Sentences live in a simple CSV file:
 zh,pinyin,english,hsk
 你好,nǐ hǎo,Hello,1
 ```
+
+Sentences are sourced from Tatoeba via the Anki sentence packs at manythings.org. The raw pairs were fed to Claude (claude.ai) with a prompt asking it to filter for natural, common sentences and tag each one with an approximate HSK 1–3 level, then format them into the CSV structure this app uses.
+The HSK tagging is approximate — it's based on vocabulary difficulty, not an official assessment. If you spot something miscategorized, PRs welcome.
+
 
 Want to contribute sentences or build your own list? That's all you need.
 
