@@ -4,6 +4,9 @@ A lightweight, mobile-friendly sentence browser for language learners. No accoun
 
 (it was made mostly using claude ai (sonnet 4.6), i dont take credit for any of the code )
 
+accessible at:
+https://dalouille.github.io/chinese-flash/
+
 ## What it is
 
 Most language tools want you to *study*. This one doesn't. 汉字 Flash shows you a random sentence, lets you peek at the translation, and moves on. That's it. Think of it less like a flashcard app and more like flipping through a phrasebook with your eyes closed — you get a moment with the language without any obligation to remember it.
