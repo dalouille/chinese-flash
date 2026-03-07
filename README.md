@@ -2,7 +2,7 @@
 
 A lightweight, mobile-friendly sentence browser for language learners. No accounts, no algorithms, no pressure — just random exposure to the language, one sentence at a time.
 
-(it was made using claude ai (sonnet 4.6), i dont take credit for any of the code )
+(it was made mostly using claude ai (sonnet 4.6), i dont take credit for any of the code )
 
 ## What it is
 
