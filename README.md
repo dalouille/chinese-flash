@@ -17,8 +17,8 @@ The timer tracks how long you've been browsing — useful if you log your study 
 
 ## How to use it
 
-- **Tap the card** to reveal the translation
-- **Swipe left/right** (or use the arrows) to move between sentences
+- **Tap the card** to reveal the translation (or press Space / Enter)
+- **Swipe left/right** or use the arrow buttons (or ← → arrow keys) to move between sentences
 - **Filter by HSK level** using the pills at the top
 - **Toggle direction** between Chinese → English or English → Chinese
 
