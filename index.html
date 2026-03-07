@@ -341,7 +341,7 @@
 </div>
 
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.6.4</span></div>
+  <div class="logo">汉字 <span class="version">v1.6.5</span></div>
   <div class="dir-badge" id="dirBadge">—</div>
 </div>
 
@@ -569,11 +569,12 @@ function animateSwipe(dir) {
   }, 260);
 }
 
-// ── Touch / swipe ─────────────────────────────────────────────────────
+// ── Touch + Mouse swipe + Keyboard ────────────────────────────────────
 (function() {
   const card = document.getElementById('card');
   let startX = 0, startY = 0, isSwiping = false, touchActive = false;
 
+  // ── Touch ──
   card.addEventListener('touchstart', e => {
     startX      = e.touches[0].clientX;
     startY      = e.touches[0].clientY;
@@ -596,14 +597,56 @@ function animateSwipe(dir) {
       revealCard();
     }
     isSwiping = false;
-    // block the ghost click that follows touchend on mobile
     setTimeout(() => { touchActive = false; }, 400);
   }, { passive: true });
 
-  // desktop click only — ignored if touch just fired
-  card.addEventListener('click', () => {
-    if (touchActive) return;
-    revealCard();
+  // ── Mouse swipe ──
+  let mouseDown = false, mouseDragging = false;
+  card.addEventListener('mousedown', e => {
+    startX       = e.clientX;
+    startY       = e.clientY;
+    mouseDown    = true;
+    mouseDragging= false;
+  });
+  window.addEventListener('mousemove', e => {
+    if (!mouseDown) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) mouseDragging = true;
+  });
+  window.addEventListener('mouseup', e => {
+    if (!mouseDown) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    if (mouseDragging && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      animateSwipe(dx < 0 ? 'left' : 'right');
+    } else if (!mouseDragging && e.target === card || card.contains(e.target)) {
+      if (!touchActive) revealCard();
+    }
+    mouseDown    = false;
+    mouseDragging= false;
+  });
+
+  // ── Keyboard ──
+  document.addEventListener('keydown', e => {
+    if (['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) return;
+    switch (e.key) {
+      case ' ':
+      case 'Enter':
+        e.preventDefault();
+        revealCard();
+        break;
+      case 'ArrowRight':
+      case 'ArrowDown':
+        e.preventDefault();
+        historyFwdOrNext();
+        break;
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        e.preventDefault();
+        historyBack();
+        break;
+    }
   });
 })();
 
