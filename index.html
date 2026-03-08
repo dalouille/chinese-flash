@@ -325,10 +325,10 @@
 
 <!-- Header -->
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.7</span></div>
+  <div class="logo">汉字 <span class="version">v1.7.1</span></div>
   <div class="header-right">
     <div class="dir-badge" id="dirBadge">—</div>
-    <button class="icon-btn" id="settingsBtn" onclick="openSettings()" title="Settings">⚙</button>
+    <button class="icon-btn" id="settingsBtn" onclick="openSettings(event)" title="Settings">⚙</button>
   </div>
 </div>
 
@@ -742,30 +742,32 @@ function tagCurrent(tag) {
 }
 
 // ── Settings panel ─────────────────────────────────────────────────────
+let panelJustOpened = false;
+
 function openSettings(e) {
   if (e) e.stopPropagation();
   document.getElementById('sheetUrl').value  = localStorage.getItem('sheetUrl')  || '';
   document.getElementById('scriptUrl').value = localStorage.getItem('scriptUrl') || '';
   document.getElementById('sourceStatus').textContent = '';
-  document.getElementById('panelOverlay').classList.remove('hidden');
-  // stop the overlay from immediately closing due to the same click bubbling
-  setTimeout(() => {
-    document.getElementById('panelOverlay').addEventListener('click', onOverlayClick);
-  }, 50);
+  const overlay = document.getElementById('panelOverlay');
+  overlay.classList.remove('hidden', 'closing');
+  panelJustOpened = true;
+  setTimeout(() => { panelJustOpened = false; }, 100);
 }
 
 function closeSettings() {
   const overlay = document.getElementById('panelOverlay');
-  overlay.removeEventListener('click', onOverlayClick);
   overlay.classList.add('closing');
-  setTimeout(() => {
-    overlay.classList.remove('hidden', 'closing');
-  }, 200);
+  setTimeout(() => { overlay.classList.add('hidden'); overlay.classList.remove('closing'); }, 200);
 }
 
-function onOverlayClick(e) {
-  if (e.target === document.getElementById('panelOverlay')) closeSettings();
-}
+// single overlay click listener set up once at the bottom
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('panelOverlay').addEventListener('click', e => {
+    if (panelJustOpened) return;
+    if (e.target === document.getElementById('panelOverlay')) closeSettings();
+  });
+});
 
 async function saveSettings() {
   const sheetUrl  = document.getElementById('sheetUrl').value.trim();
