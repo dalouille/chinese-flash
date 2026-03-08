@@ -97,7 +97,7 @@
   .pill.hsk-2.active   { color: var(--hsk2);   border-color: var(--hsk2);  background: #5b9bd518; }
   .pill.hsk-3.active   { color: var(--hsk3);   border-color: var(--hsk3);  background: #b07fd418; }
   .pill.dir.active      { color: var(--text);   border-color: var(--soft);  background: #a0908018; }
-  .pill.skip-filter.active { color: var(--skip); border-color: var(--skip); background: #7a706018; }
+  .pill.skip-filter.active  { color: var(--skip); border-color: var(--skip); background: #7a706018; }
 
   /* ── Card area ── */
   .card-area {
@@ -120,9 +120,45 @@
 
   /* tag state borders */
   .card.tag-skip  { border-color: var(--skip); border-style: dashed; }
-  /* difficulty color on hsk-tag when diff set */
-  .hsk-tag.has-diff-pos { color: var(--hsk1); border-color: var(--hsk1); }
-  .hsk-tag.has-diff-neg { color: var(--diff); border-color: var(--diff); }
+
+  /* card badges row */
+  .card-badges {
+    position: absolute; top: 14px; right: 18px;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .diff-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 2px 7px; border-radius: 10px; border: 1px solid;
+  }
+  .diff-badge.pos { color: var(--hsk1); border-color: var(--hsk1); background: #4caf7d12; }
+  .diff-badge.neg { color: var(--diff); border-color: var(--diff); background: #e0705012; }
+  .skip-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 2px 7px; border-radius: 10px; border: 1px dashed var(--skip);
+    color: var(--skip);
+  }
+
+  /* swipe difficulty hint — shown when card is revealed */
+  .swipe-hint {
+    display: flex; justify-content: space-between; width: 100%;
+    padding: 0 4px; margin-top: 10px;
+    font-size: 11px; color: var(--muted); letter-spacing: 0.5px;
+    opacity: 0; transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .swipe-hint.visible { opacity: 1; }
+  .sh-left  { color: var(--diff); }
+  .sh-right { color: var(--hsk1); }
+
+  /* swipe feedback flash */
+  @keyframes flashLeft  { 0%{opacity:0;transform:translateX(0)} 30%{opacity:1;transform:translateX(-6px)} 100%{opacity:0;transform:translateX(-12px)} }
+  @keyframes flashRight { 0%{opacity:0;transform:translateX(0)} 30%{opacity:1;transform:translateX(6px)}  100%{opacity:0;transform:translateX(12px)} }
+  .diff-feedback {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    font-size: 40px; pointer-events: none; z-index: 10;
+  }
+  .diff-feedback.left  { animation: flashLeft  0.45s ease-out forwards; }
+  .diff-feedback.right { animation: flashRight 0.45s ease-out forwards; }
 
   @keyframes swipeLeft  { to { transform: translateX(-140%) rotate(-12deg); opacity: 0; } }
   @keyframes swipeRight { to { transform: translateX(140%)  rotate(12deg);  opacity: 0; } }
@@ -200,6 +236,20 @@
   .skip-btn:active { transform: scale(0.93); }
   .skip-btn.active { color: var(--skip); border-color: var(--skip); background: #7a706018; }
   .tag-btn.sending { opacity: 0.5; }
+
+  /* ── Toggle switch ── */
+  .toggle-switch { position: relative; display: inline-flex; cursor: pointer; flex-shrink: 0; }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+  .toggle-track {
+    width: 44px; height: 26px; background: var(--border); border-radius: 13px;
+    transition: background 0.2s; display: flex; align-items: center; padding: 3px;
+  }
+  .toggle-switch input:checked + .toggle-track { background: var(--accent); }
+  .toggle-thumb {
+    width: 20px; height: 20px; background: var(--text); border-radius: 50%;
+    transition: transform 0.2s; flex-shrink: 0;
+  }
+  .toggle-switch input:checked + .toggle-track .toggle-thumb { transform: translateX(18px); }
 
   .hidden { display: none !important; }
 
@@ -341,7 +391,7 @@
 
 <!-- Header -->
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.7.3</span></div>
+  <div class="logo">汉字 <span class="version">v1.7.5</span></div>
   <div class="header-right">
     <div class="dir-badge" id="dirBadge">—</div>
     <button class="icon-btn" id="settingsBtn" onclick="openSettings(event)" title="Settings">⚙</button>
@@ -356,7 +406,7 @@
   <button class="pill hsk-2"          data-hsk="2"   onclick="toggleHSK('2')">HSK 2</button>
   <button class="pill hsk-3"          data-hsk="3"   onclick="toggleHSK('3')">HSK 3</button>
   <div style="width:1px;background:var(--border);height:16px;flex-shrink:0;margin:0 2px"></div>
-  <button class="pill skip-filter" id="pillSkip" onclick="toggleSkipFilter()">⊘ Skip</button>
+  <button class="pill skip-filter" id="pillSkip"   onclick="toggleSkipFilter()">⊘ Skip</button>
 </div>
 <!-- Direction -->
 <div class="settings">
@@ -371,8 +421,16 @@
   <div class="card-shadow" id="cardShadow"></div>
   <div class="card" id="card">
     <div class="front-label" id="frontLabel"></div>
-    <div class="hsk-tag"     id="hskTag"></div>
+    <div class="card-badges">
+      <div class="hsk-tag" id="hskTag"></div>
+      <div class="diff-badge hidden" id="diffBadge"></div>
+      <div class="skip-badge hidden" id="skipBadge">⊘ Skip</div>
+    </div>
     <div class="front-block" id="frontBlock"></div>
+    <div class="swipe-hint" id="swipeHint">
+      <span class="sh-left">👎 ←</span>
+      <span class="sh-right">→ 👍</span>
+    </div>
     <div class="tap-hint"    id="tapHint">tap to reveal</div>
     <div class="reveal-block hidden" id="revealBlock"></div>
   </div>
@@ -450,6 +508,17 @@
       <code>}</code>
     </div>
 
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:2px 0">
+      <div>
+        <div class="field-label" style="margin-bottom:2px">Difficulty weighting</div>
+        <div class="field-hint" style="margin:0">👎 cards appear 4× more often, 👍 appear 1×</div>
+      </div>
+      <label class="toggle-switch">
+        <input type="checkbox" id="weightingToggle" onchange="saveWeighting(this.checked)" checked>
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </label>
+    </div>
+
     <button class="panel-save" onclick="saveSettings()">Save &amp; Reload</button>
   </div>
 </div>
@@ -462,7 +531,7 @@ let revealed     = false;
 let animating    = false;
 let hskActive    = new Set(['all']);
 let dirSetting      = 'random';
-let skipFilterActive = false; // when true: show ONLY skipped sentences
+let skipFilterActive  = false; // when true: show ONLY skipped sentences
 
 // ── History (max 3) ────────────────────────────────────────────────────
 const HIST_MAX = 3;
@@ -607,10 +676,12 @@ function applyFilter() {
   // exclude skipped sentences normally
   pool = pool.filter(s => !s.skip);
 
-  // weight by difficulty: +1 (easy) appears 1x, 0 (neutral) 2x, -1 (hard) 4x
+  // weight by difficulty: +1 (easy) 1x, 0 (neutral) 2x, -1 (hard) 4x
+  // weighting toggled in settings; when off pool is used as-is
+  const useWeight = localStorage.getItem('weightingOn') !== 'false';
   filtered = [];
   for (const s of pool) {
-    const weight = s.diff > 0 ? 1 : s.diff < 0 ? 4 : 2;
+    const weight = useWeight ? (s.diff > 0 ? 1 : s.diff < 0 ? 4 : 2) : 1;
     for (let i = 0; i < weight; i++) filtered.push(s);
   }
 
@@ -666,19 +737,33 @@ function render(sentence, mode) {
   card.className = 'card';
   if (sentence.skip) card.classList.add('tag-skip');
 
-  // difficulty widget
-  const dv = document.getElementById('diffVal');
-  dv.textContent = diffLabel(sentence.diff);
-  dv.className = 'diff-val' + diffClass(sentence.diff);
+  // diff badge
+  const diffBadge = document.getElementById('diffBadge');
+  if (sentence.diff !== 0) {
+    diffBadge.textContent = sentence.diff > 0 ? '👍 +1' : '👎 −1';
+    diffBadge.className   = 'diff-badge ' + (sentence.diff > 0 ? 'pos' : 'neg');
+    diffBadge.classList.remove('hidden');
+  } else {
+    diffBadge.classList.add('hidden');
+  }
 
-  // hsk-tag color hint when difficulty set
-  // (set after hskTag.className is assigned below)
+  // skip badge
+  const skipBadge = document.getElementById('skipBadge');
+  skipBadge.classList.toggle('hidden', !sentence.skip);
 
   // skip button state
   document.getElementById('skipBtn').classList.toggle('active', !!sentence.skip);
 
+  // diff widget
+  const dv = document.getElementById('diffVal');
+  dv.textContent = diffLabel(sentence.diff);
+  dv.className   = 'diff-val' + diffClass(sentence.diff);
+
+  // swipe hint hidden until revealed
+  document.getElementById('swipeHint').classList.remove('visible');
+
   hskTag.textContent = `HSK ${sentence.hsk}`;
-  hskTag.className   = `hsk-tag h${sentence.hsk}${sentence.diff > 0 ? ' has-diff-pos' : sentence.diff < 0 ? ' has-diff-neg' : ''}`;
+  hskTag.className   = `hsk-tag h${sentence.hsk}`;
 
   if (mode === 'zh') {
     badge.textContent      = '中 → EN';
@@ -700,7 +785,32 @@ function revealCard() {
   revealed = true;
   document.getElementById('revealBlock').classList.remove('hidden');
   document.getElementById('tapHint').classList.add('hidden');
+  document.getElementById('swipeHint').classList.add('visible');
   resumeTimer();
+}
+
+function handleCardSwipe(dir) {
+  if (revealed) {
+    // card is revealed → swipe changes difficulty
+    const delta = dir === 'left' ? -1 : 1;
+    nudgeDiff(delta);
+    showDiffFeedback(dir);
+  } else {
+    // card not revealed → navigate
+    animateSwipe(dir);
+  }
+}
+
+function showDiffFeedback(dir) {
+  const card = document.getElementById('card');
+  // remove any existing
+  const old = card.querySelector('.diff-feedback');
+  if (old) old.remove();
+  const fb = document.createElement('div');
+  fb.className = 'diff-feedback ' + dir;
+  fb.textContent = dir === 'left' ? '👎' : '👍';
+  card.appendChild(fb);
+  setTimeout(() => fb.remove(), 500);
 }
 
 function animateSwipe(dir) {
@@ -744,9 +854,18 @@ function nudgeDiff(delta) {
   dv.textContent = diffLabel(s.diff);
   dv.className   = 'diff-val' + diffClass(s.diff);
 
-  // hsk-tag tint
-  const hskTag = document.getElementById('hskTag');
-  hskTag.className = `hsk-tag h${s.hsk}${s.diff > 0 ? ' has-diff-pos' : s.diff < 0 ? ' has-diff-neg' : ''}`;
+  // diff badge
+  const diffBadge = document.getElementById('diffBadge');
+  if (s.diff !== 0) {
+    diffBadge.textContent = s.diff > 0 ? '👍 +1' : '👎 −1';
+    diffBadge.className   = 'diff-badge ' + (s.diff > 0 ? 'pos' : 'neg');
+    diffBadge.classList.remove('hidden');
+  } else {
+    diffBadge.classList.add('hidden');
+  }
+
+  // hsk-tag plain
+  document.getElementById('hskTag').className = `hsk-tag h${s.hsk}`;
 
   applyFilter();
   writeBack(s, s._colDiff, s.diff !== 0 ? String(s.diff) : '0', document.getElementById('diffMinus'));
@@ -761,12 +880,17 @@ function toggleSkip() {
   const card = document.getElementById('card');
   card.className = 'card' + (s.skip ? ' tag-skip' : '');
   document.getElementById('skipBtn').classList.toggle('active', s.skip);
+  document.getElementById('skipBadge').classList.toggle('hidden', !s.skip);
 
   applyFilter();
   writeBack(s, s._colSkip, s.skip ? 'true' : 'false', document.getElementById('skipBtn'));
 }
 
 // ── Settings panel ─────────────────────────────────────────────────────
+function saveWeighting(val) {
+  localStorage.setItem('weightingOn', val ? 'true' : 'false');
+  applyFilter();
+}
 let panelJustOpened = false;
 
 function openSettings(e) {
@@ -774,6 +898,7 @@ function openSettings(e) {
   document.getElementById('sheetUrl').value  = localStorage.getItem('sheetUrl')  || '';
   document.getElementById('scriptUrl').value = localStorage.getItem('scriptUrl') || '';
   document.getElementById('sourceStatus').textContent = '';
+  document.getElementById('weightingToggle').checked = localStorage.getItem('weightingOn') !== 'false';
   const overlay = document.getElementById('panelOverlay');
   overlay.classList.remove('hidden', 'closing');
   panelJustOpened = true;
@@ -845,7 +970,7 @@ async function saveSettings() {
   card.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - startX, dy = e.changedTouches[0].clientY - startY;
     if (isSwiping && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-      animateSwipe(dx < 0 ? 'left' : 'right');
+      handleCardSwipe(dx < 0 ? 'left' : 'right');
     } else if (!isSwiping) {
       revealCard();
     }
@@ -865,7 +990,7 @@ async function saveSettings() {
     if (!mouseDown) return;
     const dx = e.clientX - startX, dy = e.clientY - startY;
     if (mouseDragging && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-      animateSwipe(dx < 0 ? 'left' : 'right');
+      handleCardSwipe(dx < 0 ? 'left' : 'right');
     } else if (!mouseDragging && (e.target === card || card.contains(e.target))) {
       if (!touchActive) revealCard();
     }
