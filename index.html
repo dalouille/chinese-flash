@@ -140,18 +140,27 @@
     color: var(--skip); white-space: nowrap;
   }
 
-  /* swipe difficulty hint — shown when card is revealed */
-  .swipe-hint {
-    display: flex; justify-content: space-between; width: 100%;
-    padding: 0 4px; margin-top: 10px;
-    font-size: 11px; color: var(--muted); letter-spacing: 0.5px;
-    opacity: 0; transition: opacity 0.3s;
-    pointer-events: none;
+  /* swipe hints — shown around the card after reveal */
+  .swipe-hint-side {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+    opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    white-space: nowrap;
   }
-  .swipe-hint.visible { opacity: 1; }
-  .sh-left  { color: var(--diff); }
-  .sh-mid   { color: var(--muted); font-size: 10px; }
-  .sh-right { color: var(--hsk1); }
+  .swipe-hint-vert {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    font-size: 11px; letter-spacing: 0.5px; color: var(--muted);
+    opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    white-space: nowrap;
+  }
+  .swipe-hint-side.hidden, .swipe-hint-vert.hidden { opacity: 0 !important; }
+  .sh-left-hint  { left: 10px;    color: var(--diff); }
+  .sh-right-hint { right: 10px;   color: var(--hsk1); }
+  .sh-top-hint   { top: 12px;  }
+  .sh-bot-hint   { bottom: 12px; }
+  /* visible state */
+  .card-area.hints-visible .swipe-hint-side,
+  .card-area.hints-visible .swipe-hint-vert { opacity: 1; }
 
   /* swipe feedback flash */
   @keyframes flashLeft  { 0%{opacity:0;transform:translateX(0)} 30%{opacity:1;transform:translateX(-6px)} 100%{opacity:0;transform:translateX(-12px)} }
@@ -165,9 +174,13 @@
 
   @keyframes swipeLeft  { to { transform: translateX(-140%) rotate(-12deg); opacity: 0; } }
   @keyframes swipeRight { to { transform: translateX(140%)  rotate(12deg);  opacity: 0; } }
+  @keyframes swipeUp    { to { transform: translateY(-130%) rotate(-6deg);  opacity: 0; } }
+  @keyframes swipeDown  { to { transform: translateY(130%)  rotate(6deg);   opacity: 0; } }
   @keyframes shadowRise { from { transform: translateY(12px) scale(0.95); } to { transform: translateY(0) scale(1); } }
-  .swiping-left  { animation: swipeLeft  0.26s ease-in  forwards; pointer-events: none; }
-  .swiping-right { animation: swipeRight 0.26s ease-in  forwards; pointer-events: none; }
+  .swiping-left  { animation: swipeLeft  0.26s ease-in forwards; pointer-events: none; }
+  .swiping-right { animation: swipeRight 0.26s ease-in forwards; pointer-events: none; }
+  .swiping-up    { animation: swipeUp   0.26s ease-in forwards; pointer-events: none; }
+  .swiping-down  { animation: swipeDown 0.26s ease-in forwards; pointer-events: none; }
   .shadow-rise   { animation: shadowRise 0.26s ease-out forwards; }
 
   .front-label {
@@ -393,7 +406,7 @@
 
 <!-- Header -->
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.7.7</span></div>
+  <div class="logo">汉字 <span class="version">v1.7.8</span></div>
   <div class="header-right">
     <div class="dir-badge" id="dirBadge">—</div>
     <button class="icon-btn" id="settingsBtn" onclick="openSettings(event)" title="Settings">⚙</button>
@@ -421,6 +434,10 @@
 <!-- Card -->
 <div class="card-area" id="cardArea">
   <div class="card-shadow" id="cardShadow"></div>
+  <div class="sh-left-hint  swipe-hint-side hidden" id="swipeHint">← 👎</div>
+  <div class="sh-right-hint swipe-hint-side hidden">👍 →</div>
+  <div class="sh-top-hint   swipe-hint-vert hidden">↑ next</div>
+  <div class="sh-bot-hint   swipe-hint-vert hidden">↓ next</div>
   <div class="card" id="card">
     <div class="front-label" id="frontLabel"></div>
     <div class="card-badges">
@@ -429,11 +446,6 @@
       <div class="skip-badge hidden" id="skipBadge">⊘ Skip</div>
     </div>
     <div class="front-block" id="frontBlock"></div>
-    <div class="swipe-hint" id="swipeHint">
-      <span class="sh-left">← 👎 rate</span>
-      <span class="sh-mid">↕ skip</span>
-      <span class="sh-right">rate 👍 →</span>
-    </div>
     <div class="tap-hint"    id="tapHint">tap to reveal</div>
     <div class="reveal-block hidden" id="revealBlock"></div>
   </div>
@@ -756,8 +768,8 @@ function render(sentence, mode) {
   dv.textContent = diffLabel(sentence.diff);
   dv.className   = 'diff-val' + diffClass(sentence.diff);
 
-  // swipe hint hidden until revealed
-  document.getElementById('swipeHint').classList.remove('visible');
+  // swipe hints hidden until revealed
+  document.getElementById('cardArea').classList.remove('hints-visible');
 
   hskTag.textContent = `HSK ${sentence.hsk}`;
   hskTag.className   = `hsk-tag h${sentence.hsk}`;
@@ -782,7 +794,7 @@ function revealCard() {
   revealed = true;
   document.getElementById('revealBlock').classList.remove('hidden');
   document.getElementById('tapHint').classList.add('hidden');
-  document.getElementById('swipeHint').classList.add('visible');
+  document.getElementById('cardArea').classList.add('hints-visible');
   resumeTimer();
 }
 
@@ -817,9 +829,10 @@ function animateSwipe(dir) {
   const card   = document.getElementById('card');
   const shadow = document.getElementById('cardShadow');
   shadow.classList.add('shadow-rise');
-  card.classList.add(dir === 'left' ? 'swiping-left' : 'swiping-right');
+  const cls = { left: 'swiping-left', right: 'swiping-right', up: 'swiping-up', down: 'swiping-down' }[dir] || 'swiping-left';
+  card.classList.add(cls);
   setTimeout(() => {
-    card.classList.remove('swiping-left', 'swiping-right');
+    card.classList.remove(cls);
     shadow.classList.remove('shadow-rise');
     nextCard();
     animating = false;
@@ -990,7 +1003,7 @@ async function saveSettings() {
     if (swipeDir === 'h' && Math.abs(dx) > 40) {
       handleCardSwipe(dx < 0 ? 'left' : 'right');
     } else if (swipeDir === 'v' && Math.abs(dy) > 40) {
-      animateSwipe(dy < 0 ? 'left' : 'right'); // up/down → next card, no diff change
+      animateSwipe(dy < 0 ? 'up' : 'down');
     } else if (!swipeDir) {
       revealCard();
     }
@@ -1015,7 +1028,7 @@ async function saveSettings() {
     if (mouseDirLocked === 'h' && Math.abs(dx) > 40) {
       handleCardSwipe(dx < 0 ? 'left' : 'right');
     } else if (mouseDirLocked === 'v' && Math.abs(dy) > 40) {
-      animateSwipe('left'); // up/down → next card, no diff change
+      animateSwipe(dy < 0 ? 'up' : 'down'); // up/down → next card, no diff change
     } else if (!mouseDragging && (e.target === card || card.contains(e.target))) {
       if (!touchActive) revealCard();
     }
