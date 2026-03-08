@@ -19,6 +19,9 @@
     --hsk1:    #4caf7d;
     --hsk2:    #5b9bd5;
     --hsk3:    #b07fd4;
+    --known:   #4caf7d;
+    --hard:    #e07050;
+    --skip:    #7a7060;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -35,7 +38,7 @@
 
   /* ── Header ── */
   .header {
-    padding: 14px 16px 10px;
+    padding: 12px 16px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,61 +54,43 @@
     align-items: baseline;
     gap: 7px;
   }
-  .version {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: var(--accent);
-    opacity: 0.6;
-  }
+  .version { font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--accent); opacity: 0.6; }
+
+  .header-right { display: flex; align-items: center; gap: 8px; }
+
   .dir-badge {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    color: var(--muted);
+    font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); color: var(--muted);
     transition: color 0.3s, border-color 0.3s;
   }
   .dir-badge.zh { color: var(--accent); border-color: var(--accent); }
   .dir-badge.en { color: #7ab8d4;       border-color: #7ab8d4; }
 
+  .icon-btn {
+    background: transparent; border: 1px solid var(--border); color: var(--muted);
+    border-radius: 50%; width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 15px; transition: all 0.15s;
+  }
+  .icon-btn:active { transform: scale(0.93); }
+  .icon-btn.active { border-color: var(--accent); color: var(--accent); }
+
   /* ── Settings bars ── */
   .settings {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border-bottom: 1px solid var(--border);
-    flex-shrink: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 16px; border-bottom: 1px solid var(--border);
+    flex-shrink: 0; overflow-x: auto; scrollbar-width: none;
   }
   .settings::-webkit-scrollbar { display: none; }
   .settings-label {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--soft);
-    white-space: nowrap;
-    flex-shrink: 0;
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--soft); white-space: nowrap; flex-shrink: 0;
   }
   .pill {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 20px;
-    border: 1.5px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    white-space: nowrap;
-    flex-shrink: 0;
-    font-family: 'Noto Sans', sans-serif;
-    transition: all 0.15s;
+    font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px;
+    border: 1.5px solid var(--border); background: transparent; color: var(--muted);
+    cursor: pointer; white-space: nowrap; flex-shrink: 0;
+    font-family: 'Noto Sans', sans-serif; transition: all 0.15s;
   }
   .pill:active { transform: scale(0.95); }
   .pill.hsk-all.active { color: var(--accent); border-color: var(--accent); background: #c8a96e18; }
@@ -116,221 +101,218 @@
 
   /* ── Card area ── */
   .card-area {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    overflow: hidden;
-    position: relative;
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 16px; overflow: hidden; position: relative; transition: opacity 0.3s;
   }
+  .card-area.is-paused { opacity: 0.3; pointer-events: none; }
+
   .card-shadow {
-    position: absolute;
-    width: calc(100% - 64px);
-    max-width: 388px;
-    height: 60px;
-    background: var(--surface2);
-    border: 1px solid #252118;
-    border-radius: 20px;
-    transform: translateY(12px) scale(0.95);
-    z-index: 1;
-    pointer-events: none;
+    position: absolute; width: calc(100% - 64px); max-width: 388px;
+    height: 60px; background: var(--surface2); border: 1px solid #252118;
+    border-radius: 20px; transform: translateY(12px) scale(0.95); z-index: 1; pointer-events: none;
   }
   .card {
-    width: calc(100% - 32px);
-    max-width: 420px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 24px 24px;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    z-index: 2;
+    width: calc(100% - 32px); max-width: 420px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 20px;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 32px 24px 20px; position: relative; cursor: pointer; user-select: none; z-index: 2;
   }
+
+  /* tag state borders */
+  .card.tag-known { border-color: var(--known); }
+  .card.tag-hard  { border-color: var(--hard); }
+  .card.tag-skip  { border-color: var(--skip); border-style: dashed; }
+
   @keyframes swipeLeft  { to { transform: translateX(-140%) rotate(-12deg); opacity: 0; } }
   @keyframes swipeRight { to { transform: translateX(140%)  rotate(12deg);  opacity: 0; } }
-  @keyframes shadowRise {
-    from { transform: translateY(12px) scale(0.95); }
-    to   { transform: translateY(0)    scale(1); }
-  }
+  @keyframes shadowRise { from { transform: translateY(12px) scale(0.95); } to { transform: translateY(0) scale(1); } }
   .swiping-left  { animation: swipeLeft  0.26s ease-in  forwards; pointer-events: none; }
   .swiping-right { animation: swipeRight 0.26s ease-in  forwards; pointer-events: none; }
   .shadow-rise   { animation: shadowRise 0.26s ease-out forwards; }
 
   .front-label {
-    position: absolute;
-    top: 14px; left: 18px;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--soft);
+    position: absolute; top: 14px; left: 18px;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soft);
   }
   .hsk-tag {
-    position: absolute;
-    top: 14px; right: 18px;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    border: 1px solid;
+    position: absolute; top: 14px; right: 18px;
+    font-size: 10px; font-weight: 600; letter-spacing: 1px;
+    padding: 2px 8px; border-radius: 10px; border: 1px solid;
   }
   .hsk-tag.h1 { color: var(--hsk1); border-color: var(--hsk1); }
   .hsk-tag.h2 { color: var(--hsk2); border-color: var(--hsk2); }
   .hsk-tag.h3 { color: var(--hsk3); border-color: var(--hsk3); }
 
   .front-block {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 110px;
-    margin-top: 8px;
+    width: 100%; display: flex; align-items: center; justify-content: center;
+    min-height: 110px; margin-top: 8px;
   }
-  .zh-big {
-    font-family: 'Noto Serif SC', serif;
-    font-size: clamp(36px, 10vw, 56px);
-    line-height: 1.3;
-    text-align: center;
-  }
-  .en-big {
-    font-size: clamp(18px, 5vw, 26px);
-    font-weight: 300;
-    text-align: center;
-    line-height: 1.5;
-  }
+  .zh-big { font-family: 'Noto Serif SC', serif; font-size: clamp(36px,10vw,56px); line-height: 1.3; text-align: center; }
+  .en-big { font-size: clamp(18px,5vw,26px); font-weight: 300; text-align: center; line-height: 1.5; }
+
   .tap-hint {
-    margin-top: 20px;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--soft);
-    animation: pulse 2.2s infinite;
+    margin-top: 20px; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--soft); animation: pulse 2.2s infinite;
   }
   @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
 
   .reveal-block {
-    width: 100%;
-    border-top: 1px solid var(--border);
-    margin-top: 20px;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    animation: fadeUp 0.28s ease;
+    width: 100%; border-top: 1px solid var(--border); margin-top: 20px; padding-top: 20px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px; animation: fadeUp 0.28s ease;
   }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
   .zh-reveal { font-family: 'Noto Serif SC', serif; font-size: clamp(26px,7vw,42px); text-align: center; }
   .py-reveal  { font-size: clamp(14px,3.8vw,19px); color: var(--text); opacity: 0.7; text-align: center; letter-spacing: 0.5px; }
   .en-reveal  { font-size: clamp(14px,3.8vw,18px); font-weight: 300; color: var(--text); opacity: 0.7; text-align: center; }
+
+  /* ── Tag bar (under card, above bottom) ── */
+  .tag-bar {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 6px 16px 0; flex-shrink: 0;
+  }
+  .tag-btn {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;
+    background: transparent; border: 1px solid var(--border); color: var(--muted);
+    border-radius: 20px; padding: 5px 14px; cursor: pointer;
+    font-family: 'Noto Sans', sans-serif; transition: all 0.18s;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .tag-btn:active { transform: scale(0.93); }
+  .tag-btn.known.active  { color: var(--known); border-color: var(--known); background: #4caf7d18; }
+  .tag-btn.hard.active   { color: var(--hard);  border-color: var(--hard);  background: #e0705018; }
+  .tag-btn.skip.active   { color: var(--skip);  border-color: var(--skip);  background: #7a706018; }
+  /* sending animation */
+  .tag-btn.sending { opacity: 0.5; }
+  .tag-btn.sent { opacity: 1; }
 
   .hidden { display: none !important; }
 
   /* ── Bottom ── */
   .bottom {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 16px 36px;
-    gap: 10px;
+    flex-shrink: 0; display: flex; flex-direction: column;
+    align-items: center; padding: 8px 16px 32px; gap: 8px;
   }
-
-  /* Row 1: Reset · 00:00 · hide */
   .timer-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    transition: opacity 0.3s;
+    display: flex; align-items: center; justify-content: center;
+    gap: 20px; transition: opacity 0.3s;
   }
   .timer-display {
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    color: var(--text);
-    min-width: 80px;
-    text-align: center;
-    font-variant-numeric: tabular-nums;
+    font-size: 22px; font-weight: 600; letter-spacing: 3px; color: var(--text);
+    min-width: 80px; text-align: center; font-variant-numeric: tabular-nums;
   }
   .t-btn {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    background: transparent;
-    border: 1px solid var(--soft);
-    color: var(--soft);
-    border-radius: 20px;
-    padding: 5px 14px;
-    cursor: pointer;
-    font-family: 'Noto Sans', sans-serif;
-    transition: all 0.15s;
+    font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    background: transparent; border: 1px solid var(--soft); color: var(--soft);
+    border-radius: 20px; padding: 5px 14px; cursor: pointer;
+    font-family: 'Noto Sans', sans-serif; transition: all 0.15s;
   }
   .t-btn:active { transform: scale(0.93); }
 
-  /* Row 2: ← · pause · → */
-  .action-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-  }
+  .action-row { display: flex; align-items: center; justify-content: center; gap: 24px; }
   .nav-btn {
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    border: 1.5px solid var(--soft);
-    background: transparent;
-    color: var(--soft);
-    font-size: 26px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: opacity 0.2s;
+    width: 64px; height: 64px; border-radius: 50%;
+    border: 1.5px solid var(--soft); background: transparent; color: var(--soft);
+    font-size: 26px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: opacity 0.2s;
   }
   .nav-btn:active:not(.dimmed) { transform: scale(0.93); }
   .nav-btn.dimmed { opacity: 0.2; pointer-events: none; }
 
   .pause-btn {
-    width: 72px; height: 72px;
-    border-radius: 50%;
-    border: 1.5px solid var(--accent);
-    background: transparent;
-    color: var(--accent);
+    width: 72px; height: 72px; border-radius: 50%;
+    border: 1.5px solid var(--accent); background: transparent; color: var(--accent);
     display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    flex-shrink: 0;
+    cursor: pointer; transition: all 0.2s; flex-shrink: 0;
   }
   .pause-btn svg { transition: all 0.2s; }
   .pause-btn:active { transform: scale(0.93); }
   .pause-btn.is-paused { background: #d4b47822; }
 
-  /* when paused: dim bottom controls and card */
   .bottom.is-paused .timer-row { opacity: 0.18; pointer-events: none; }
   .bottom.is-paused .nav-btn   { opacity: 0.08 !important; pointer-events: none; }
-  .card-area.is-paused { opacity: 0.3; pointer-events: none; transition: opacity 0.3s; }
-  .card-area { transition: opacity 0.3s; }
+
+  /* ── Settings panel ── */
+  .panel-overlay {
+    position: fixed; inset: 0; background: rgba(10,9,8,0.85);
+    display: flex; align-items: flex-end; z-index: 50;
+    animation: fadeIn 0.2s ease;
+  }
+  .panel-overlay.closing { animation: fadeOut 0.2s ease forwards; }
+  @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+  .panel {
+    width: 100%; background: var(--surface); border-top: 1px solid var(--border);
+    border-radius: 20px 20px 0 0; padding: 20px 20px 40px;
+    display: flex; flex-direction: column; gap: 20px;
+    animation: slideUp 0.25s ease;
+  }
+  .panel-overlay.closing .panel { animation: slideDown 0.2s ease forwards; }
+  @keyframes slideUp   { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  @keyframes slideDown { from { transform: translateY(0); } to { transform: translateY(100%); } }
+
+  .panel-header {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .panel-title { font-size: 16px; font-weight: 600; color: var(--text); letter-spacing: 0.5px; }
+  .panel-close {
+    background: transparent; border: none; color: var(--muted);
+    font-size: 22px; cursor: pointer; padding: 0 4px; line-height: 1;
+  }
+
+  .field-label {
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--soft); margin-bottom: 6px;
+  }
+  .field-input {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 10px; color: var(--text); font-size: 13px;
+    padding: 10px 12px; font-family: 'Noto Sans', sans-serif; outline: none;
+    transition: border-color 0.2s;
+  }
+  .field-input:focus { border-color: var(--accent); }
+  .field-input::placeholder { color: var(--muted); }
+
+  .field-hint {
+    font-size: 11px; color: var(--muted); margin-top: 5px; line-height: 1.5;
+  }
+  .field-hint a { color: var(--accent); text-decoration: none; }
+
+  .panel-save {
+    background: var(--accent); color: #0f0e0c; border: none;
+    border-radius: 12px; padding: 12px; font-size: 14px; font-weight: 700;
+    font-family: 'Noto Sans', sans-serif; cursor: pointer; transition: opacity 0.15s;
+    letter-spacing: 0.5px;
+  }
+  .panel-save:active { opacity: 0.8; }
+
+  .source-status {
+    font-size: 11px; text-align: center; padding: 4px 0;
+    transition: color 0.3s;
+  }
+  .source-status.ok    { color: var(--known); }
+  .source-status.error { color: var(--hard); }
+  .source-status.loading { color: var(--muted); }
+
+  /* ── Apps Script section ── */
+  .apps-script-info {
+    background: var(--surface2); border-radius: 12px; padding: 14px;
+    font-size: 12px; color: var(--muted); line-height: 1.6;
+  }
+  .apps-script-info code {
+    background: #1a1814; color: var(--accent); padding: 1px 5px;
+    border-radius: 4px; font-size: 11px; font-family: monospace;
+  }
 
   /* ── Status overlay ── */
   #status {
-    position: fixed; inset: 0;
-    display: flex; flex-direction: column;
+    position: fixed; inset: 0; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    background: var(--bg);
-    font-size: 15px; color: var(--muted);
-    gap: 12px;
-    z-index: 99;
+    background: var(--bg); font-size: 15px; color: var(--muted); gap: 12px; z-index: 99;
   }
   #status.hidden { display: none; }
   #statusMsg { text-align: center; padding: 0 32px; line-height: 1.6; }
+  .status-sub { font-size: 12px; color: var(--muted); opacity: 0.7; }
 </style>
 </head>
 <body>
@@ -338,13 +320,19 @@
 <div id="status">
   <div style="font-family:'Noto Serif SC',serif;font-size:28px;color:var(--accent)">汉字</div>
   <div id="statusMsg">Loading sentences…</div>
+  <div class="status-sub" id="statusSub"></div>
 </div>
 
+<!-- Header -->
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.6.5</span></div>
-  <div class="dir-badge" id="dirBadge">—</div>
+  <div class="logo">汉字 <span class="version">v1.7</span></div>
+  <div class="header-right">
+    <div class="dir-badge" id="dirBadge">—</div>
+    <button class="icon-btn" id="settingsBtn" onclick="openSettings()" title="Settings">⚙</button>
+  </div>
 </div>
 
+<!-- HSK filter -->
 <div class="settings">
   <span class="settings-label">HSK</span>
   <button class="pill hsk-all active" data-hsk="all" onclick="toggleHSK('all')">All</button>
@@ -352,6 +340,7 @@
   <button class="pill hsk-2"          data-hsk="2"   onclick="toggleHSK('2')">HSK 2</button>
   <button class="pill hsk-3"          data-hsk="3"   onclick="toggleHSK('3')">HSK 3</button>
 </div>
+<!-- Direction -->
 <div class="settings">
   <span class="settings-label">Direction</span>
   <button class="pill dir active" data-dir="random" onclick="setDir('random')">Random</button>
@@ -359,7 +348,8 @@
   <button class="pill dir"        data-dir="en"     onclick="setDir('en')">EN → 中</button>
 </div>
 
-<div class="card-area">
+<!-- Card -->
+<div class="card-area" id="cardArea">
   <div class="card-shadow" id="cardShadow"></div>
   <div class="card" id="card">
     <div class="front-label" id="frontLabel"></div>
@@ -370,27 +360,76 @@
   </div>
 </div>
 
+<!-- Tag bar -->
+<div class="tag-bar" id="tagBar">
+  <button class="tag-btn known" id="tagKnown" onclick="tagCurrent('known')">✓ Known</button>
+  <button class="tag-btn hard"  id="tagHard"  onclick="tagCurrent('hard')">★ Hard</button>
+  <button class="tag-btn skip"  id="tagSkip"  onclick="tagCurrent('skip')">⊘ Skip</button>
+</div>
+
+<!-- Bottom controls -->
 <div class="bottom" id="bottom">
-  <!-- Row 1: Reset · 00:00 · hide  /  show (centered) -->
   <div class="timer-row" id="timerRow">
     <button class="t-btn" id="timerReset" onclick="resetTimer()">Reset</button>
     <span class="timer-display" id="timerDisplay">00:00</span>
     <button class="t-btn" id="timerToggle" onclick="toggleTimerVisible()">hide</button>
   </div>
-  <!-- Row 2: ← · pause · → -->
   <div class="action-row">
-    <button class="nav-btn dimmed" id="btnBack"    onclick="historyBack()">←</button>
+    <button class="nav-btn dimmed" id="btnBack" onclick="historyBack()">←</button>
     <button class="pause-btn" id="btnPause" onclick="togglePause()">
-      <!-- pause icon (two bars) shown by default; play icon shown when paused -->
-      <svg id="iconPause" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <svg id="iconPause" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
         <rect x="5" y="4" width="4" height="16" rx="1.5"/>
         <rect x="15" y="4" width="4" height="16" rx="1.5"/>
       </svg>
-      <svg id="iconPlay" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="display:none">
+      <svg id="iconPlay" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="display:none">
         <path d="M6 4.5L20 12L6 19.5V4.5Z"/>
       </svg>
     </button>
-    <button class="nav-btn dimmed" id="btnFwd"     onclick="historyFwdOrNext()">→</button>
+    <button class="nav-btn" id="btnFwd" onclick="historyFwdOrNext()">→</button>
+  </div>
+</div>
+
+<!-- Settings panel -->
+<div class="panel-overlay hidden" id="panelOverlay" onclick="onOverlayClick(event)">
+  <div class="panel" id="panel">
+    <div class="panel-header">
+      <span class="panel-title">Data Source</span>
+      <button class="panel-close" onclick="closeSettings()">×</button>
+    </div>
+
+    <div>
+      <div class="field-label">Google Sheet — Published CSV URL</div>
+      <input class="field-input" id="sheetUrl" type="url"
+        placeholder="https://docs.google.com/spreadsheets/d/…/pub?output=csv">
+      <div class="field-hint">
+        In Google Sheets: <strong>File → Share → Publish to web</strong> → select your sheet → <strong>CSV</strong> → Publish.<br>
+        Paste the link above. Leave blank to use the local <code>sentences.csv</code>.
+      </div>
+      <div class="source-status" id="sourceStatus"></div>
+    </div>
+
+    <div>
+      <div class="field-label">Apps Script URL (for tagging)</div>
+      <input class="field-input" id="scriptUrl" type="url"
+        placeholder="https://script.google.com/macros/s/…/exec">
+      <div class="field-hint">
+        Deploy the Apps Script below in your sheet to enable write-back tagging.
+      </div>
+    </div>
+
+    <div class="apps-script-info" id="scriptInfo">
+      <strong style="color:var(--text)">Apps Script setup</strong> — paste this in your sheet's script editor (<em>Extensions → Apps Script</em>), then deploy as a web app (Execute as: Me, Access: Anyone):<br><br>
+      <code>function doPost(e){</code><br>
+      <code>&nbsp;&nbsp;var d=JSON.parse(e.postData.contents);</code><br>
+      <code>&nbsp;&nbsp;var s=SpreadsheetApp.getActiveSpreadsheet()</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;.getActiveSheet();</code><br>
+      <code>&nbsp;&nbsp;s.getRange(d.row,d.col).setValue(d.val);</code><br>
+      <code>&nbsp;&nbsp;return ContentService</code><br>
+      <code>&nbsp;&nbsp;&nbsp;&nbsp;.createTextOutput('ok');</code><br>
+      <code>}</code>
+    </div>
+
+    <button class="panel-save" onclick="saveSettings()">Save &amp; Reload</button>
   </div>
 </div>
 
@@ -405,11 +444,10 @@ let dirSetting   = 'random';
 
 // ── History (max 3) ────────────────────────────────────────────────────
 const HIST_MAX = 3;
-let hist    = [];   // [{sentence, mode}]
+let hist    = [];
 let histPos = -1;
 
 function histPush(sentence, mode) {
-  // truncate forward entries if we branched
   if (histPos < hist.length - 1) hist = hist.slice(0, histPos + 1);
   hist.push({ sentence, mode });
   if (hist.length > HIST_MAX) hist.shift();
@@ -418,11 +456,8 @@ function histPush(sentence, mode) {
 }
 
 function updateNavBtns() {
-  const back = document.getElementById('btnBack');
-  const fwd  = document.getElementById('btnFwd');
-  back.classList.toggle('dimmed', histPos <= 0);
-  // forward arrow: available if there's history ahead OR always (will pick new card)
-  fwd.classList.remove('dimmed'); // always available — goes forward or new card
+  document.getElementById('btnBack').classList.toggle('dimmed', histPos <= 0);
+  document.getElementById('btnFwd').classList.remove('dimmed');
 }
 
 function historyBack() {
@@ -437,7 +472,6 @@ function historyBack() {
 
 function historyFwdOrNext() {
   if (histPos < hist.length - 1) {
-    // go forward in existing history
     histPos++;
     const e = hist[histPos];
     revealed = false;
@@ -445,29 +479,82 @@ function historyFwdOrNext() {
     updateNavBtns();
     resumeTimer();
   } else {
-    // new card
     animateSwipe('left');
   }
 }
 
-// ── CSV ────────────────────────────────────────────────────────────────
+// ── CSV parser — handles Google Sheets CSV (quoted fields) ─────────────
 function parseCSV(text) {
-  return text.trim().split('\n').slice(1).map(line => {
-    const c = line.split(',');
-    return { zh: c[0]?.trim(), pinyin: c[1]?.trim(), english: c[2]?.trim(), hsk: parseInt(c[3]?.trim()) || 1 };
+  const lines = text.trim().split('\n');
+  const headers = splitCSVLine(lines[0]).map(h => h.trim().toLowerCase());
+  // find column indices flexibly
+  const iZh      = headers.findIndex(h => h === 'zh' || h === 'chinese');
+  const iPinyin  = headers.findIndex(h => h === 'pinyin');
+  const iEn      = headers.findIndex(h => h === 'english' || h === 'en');
+  const iHsk     = headers.findIndex(h => h === 'hsk');
+  const iKnown   = headers.findIndex(h => h === 'known');
+  const iDiff    = headers.findIndex(h => h === 'difficulty');
+  const iSkip    = headers.findIndex(h => h === 'skip');
+  const iRow     = -1; // we'll use 1-based line index
+
+  return lines.slice(1).map((line, idx) => {
+    const c = splitCSVLine(line);
+    const get = i => (i >= 0 && c[i] !== undefined) ? c[i].trim() : '';
+    return {
+      rowNum:  idx + 2, // 1-based, +1 for header
+      zh:      get(iZh),
+      pinyin:  get(iPinyin),
+      english: get(iEn),
+      hsk:     parseInt(get(iHsk)) || 1,
+      known:   get(iKnown).toLowerCase() === 'true' || get(iKnown) === '1',
+      hard:    get(iDiff).toLowerCase() === 'hard'  || get(iDiff) === '2',
+      skip:    get(iSkip).toLowerCase() === 'true'  || get(iSkip) === '1',
+      // store col indices for write-back
+      _colKnown: iKnown >= 0 ? iKnown + 1 : null,
+      _colDiff:  iDiff  >= 0 ? iDiff  + 1 : null,
+      _colSkip:  iSkip  >= 0 ? iSkip  + 1 : null,
+    };
   }).filter(r => r.zh && r.english);
 }
 
+function splitCSVLine(line) {
+  // handles quoted fields with commas inside
+  const result = [];
+  let cur = '', inQuote = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === '"' && !inQuote) { inQuote = true; }
+    else if (ch === '"' && inQuote) {
+      if (line[i+1] === '"') { cur += '"'; i++; } else { inQuote = false; }
+    } else if (ch === ',' && !inQuote) { result.push(cur); cur = ''; }
+    else { cur += ch; }
+  }
+  result.push(cur);
+  return result;
+}
+
+// ── Load sentences ─────────────────────────────────────────────────────
 async function loadSentences() {
+  const sheetUrl  = localStorage.getItem('sheetUrl')  || '';
+  const sourceUrl = sheetUrl || 'sentences.csv';
+
+  document.getElementById('statusMsg').textContent = 'Loading sentences…';
+  document.getElementById('statusSub').textContent = sheetUrl ? '(from Google Sheet)' : '(from local file)';
+
   try {
-    const res  = await fetch('sentences.csv');
+    const res  = await fetch(sourceUrl + (sheetUrl ? '&t=' + Date.now() : '?t=' + Date.now()));
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const text = await res.text();
     allSentences = parseCSV(text);
+    if (!allSentences.length) throw new Error('No sentences found');
     applyFilter();
     document.getElementById('status').classList.add('hidden');
     nextCard();
   } catch (e) {
-    document.getElementById('statusMsg').textContent = "Could not load sentences.csv";
+    document.getElementById('statusMsg').textContent = sheetUrl
+      ? `Could not load Google Sheet.\nCheck the URL is published as CSV.`
+      : `Could not load sentences.csv`;
+    document.getElementById('statusSub').textContent = e.message;
   }
 }
 
@@ -487,10 +574,22 @@ function toggleHSK(val) {
 }
 
 function applyFilter() {
-  filtered = hskActive.has('all')
+  let pool = hskActive.has('all')
     ? allSentences
     : allSentences.filter(s => [...hskActive].map(Number).includes(s.hsk));
-  if (!filtered.length) filtered = allSentences;
+
+  // exclude skipped sentences
+  pool = pool.filter(s => !s.skip);
+
+  // weight: known sentences appear 3x less
+  filtered = [];
+  for (const s of pool) {
+    filtered.push(s);
+    if (!s.known) filtered.push(s); // unknown appear twice
+    if (s.hard)   filtered.push(s); // hard appear extra once
+  }
+
+  if (!filtered.length) filtered = pool.length ? pool : allSentences;
 }
 
 function setDir(val) {
@@ -499,12 +598,14 @@ function setDir(val) {
     p.classList.toggle('active', p.dataset.dir === val));
 }
 
-// ── Card ───────────────────────────────────────────────────────────────
+// ── Card logic ─────────────────────────────────────────────────────────
 function pickRandom() {
   const last = hist.length ? hist[hist.length - 1].sentence : null;
-  let s;
-  do { s = filtered[Math.floor(Math.random() * filtered.length)]; }
-  while (s === last && filtered.length > 1);
+  let s, attempts = 0;
+  do {
+    s = filtered[Math.floor(Math.random() * filtered.length)];
+    attempts++;
+  } while (s === last && filtered.length > 1 && attempts < 20);
   return s;
 }
 
@@ -524,9 +625,21 @@ function render(sentence, mode) {
   const frontBlock  = document.getElementById('frontBlock');
   const tapHint     = document.getElementById('tapHint');
   const revealBlock = document.getElementById('revealBlock');
+  const card        = document.getElementById('card');
 
   revealBlock.classList.add('hidden');
   tapHint.classList.remove('hidden');
+
+  // card border reflects tag state
+  card.className = 'card';
+  if (sentence.skip)  card.classList.add('tag-skip');
+  else if (sentence.hard)  card.classList.add('tag-hard');
+  else if (sentence.known) card.classList.add('tag-known');
+
+  // update tag buttons to reflect current sentence state
+  document.getElementById('tagKnown').classList.toggle('active', !!sentence.known);
+  document.getElementById('tagHard').classList.toggle('active',  !!sentence.hard);
+  document.getElementById('tagSkip').classList.toggle('active',  !!sentence.skip);
 
   hskTag.textContent = `HSK ${sentence.hsk}`;
   hskTag.className   = `hsk-tag h${sentence.hsk}`;
@@ -569,28 +682,135 @@ function animateSwipe(dir) {
   }, 260);
 }
 
-// ── Touch + Mouse swipe + Keyboard ────────────────────────────────────
+// ── Tagging ────────────────────────────────────────────────────────────
+function tagCurrent(tag) {
+  const entry = hist[histPos];
+  if (!entry) return;
+  const s = entry.sentence;
+  const btn = document.getElementById('tag' + tag.charAt(0).toUpperCase() + tag.slice(1));
+
+  // toggle locally
+  if (tag === 'known') {
+    s.known = !s.known;
+    if (s.known) { s.skip = false; s.hard = false; }
+  } else if (tag === 'hard') {
+    s.hard = !s.hard;
+    if (s.hard) { s.skip = false; s.known = false; }
+  } else if (tag === 'skip') {
+    s.skip = !s.skip;
+    if (s.skip) { s.known = false; s.hard = false; }
+  }
+
+  // update card border + button states
+  const card = document.getElementById('card');
+  card.className = 'card';
+  if (s.skip)       card.classList.add('tag-skip');
+  else if (s.hard)  card.classList.add('tag-hard');
+  else if (s.known) card.classList.add('tag-known');
+
+  document.getElementById('tagKnown').classList.toggle('active', !!s.known);
+  document.getElementById('tagHard').classList.toggle('active',  !!s.hard);
+  document.getElementById('tagSkip').classList.toggle('active',  !!s.skip);
+
+  // re-apply filter weights (known/skip affect pool)
+  applyFilter();
+
+  // write-back to Google Sheet via Apps Script if configured
+  const scriptUrl = localStorage.getItem('scriptUrl') || '';
+  if (scriptUrl && s.rowNum) {
+    const updates = [];
+    if (tag === 'known' && s._colKnown) updates.push({ row: s.rowNum, col: s._colKnown, val: s.known ? 'true' : 'false' });
+    if (tag === 'hard'  && s._colDiff)  updates.push({ row: s.rowNum, col: s._colDiff,  val: s.hard  ? 'hard'  : '' });
+    if (tag === 'skip'  && s._colSkip)  updates.push({ row: s.rowNum, col: s._colSkip,  val: s.skip  ? 'true' : 'false' });
+
+    if (updates.length) {
+      btn.classList.add('sending');
+      Promise.all(updates.map(u =>
+        fetch(scriptUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(u),
+          mode: 'no-cors'
+        })
+      )).then(() => {
+        btn.classList.remove('sending');
+        btn.classList.add('sent');
+        setTimeout(() => btn.classList.remove('sent'), 600);
+      }).catch(() => btn.classList.remove('sending'));
+    }
+  }
+}
+
+// ── Settings panel ─────────────────────────────────────────────────────
+function openSettings() {
+  document.getElementById('sheetUrl').value  = localStorage.getItem('sheetUrl')  || '';
+  document.getElementById('scriptUrl').value = localStorage.getItem('scriptUrl') || '';
+  document.getElementById('sourceStatus').textContent = '';
+  document.getElementById('panelOverlay').classList.remove('hidden');
+}
+
+function closeSettings() {
+  const overlay = document.getElementById('panelOverlay');
+  overlay.classList.add('closing');
+  setTimeout(() => {
+    overlay.classList.remove('hidden', 'closing');
+  }, 200);
+}
+
+function onOverlayClick(e) {
+  if (e.target === document.getElementById('panelOverlay')) closeSettings();
+}
+
+async function saveSettings() {
+  const sheetUrl  = document.getElementById('sheetUrl').value.trim();
+  const scriptUrl = document.getElementById('scriptUrl').value.trim();
+  const status    = document.getElementById('sourceStatus');
+
+  if (sheetUrl) {
+    status.textContent = 'Testing URL…';
+    status.className   = 'source-status loading';
+    try {
+      const res = await fetch(sheetUrl + '&t=' + Date.now());
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      const rows = parseCSV(text);
+      if (!rows.length) throw new Error('No rows found');
+      status.textContent = `✓ Found ${rows.length} sentences`;
+      status.className   = 'source-status ok';
+    } catch (e) {
+      status.textContent = `✗ ${e.message} — check the URL is published as CSV`;
+      status.className   = 'source-status error';
+      return;
+    }
+  }
+
+  localStorage.setItem('sheetUrl',  sheetUrl);
+  localStorage.setItem('scriptUrl', scriptUrl);
+
+  closeSettings();
+  setTimeout(() => {
+    document.getElementById('status').classList.remove('hidden');
+    loadSentences();
+  }, 220);
+}
+
+// ── Touch + Mouse + Keyboard ───────────────────────────────────────────
 (function() {
   const card = document.getElementById('card');
   let startX = 0, startY = 0, isSwiping = false, touchActive = false;
 
-  // ── Touch ──
   card.addEventListener('touchstart', e => {
-    startX      = e.touches[0].clientX;
-    startY      = e.touches[0].clientY;
-    isSwiping   = false;
-    touchActive = true;
+    startX = e.touches[0].clientX; startY = e.touches[0].clientY;
+    isSwiping = false; touchActive = true;
   }, { passive: true });
 
   card.addEventListener('touchmove', e => {
-    const dx = e.touches[0].clientX - startX;
-    const dy = e.touches[0].clientY - startY;
+    const dx = e.touches[0].clientX - startX, dy = e.touches[0].clientY - startY;
     if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) isSwiping = true;
   }, { passive: true });
 
   card.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - startX;
-    const dy = e.changedTouches[0].clientY - startY;
+    const dx = e.changedTouches[0].clientX - startX, dy = e.changedTouches[0].clientY - startY;
     if (isSwiping && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
       animateSwipe(dx < 0 ? 'left' : 'right');
     } else if (!isSwiping) {
@@ -600,68 +820,46 @@ function animateSwipe(dir) {
     setTimeout(() => { touchActive = false; }, 400);
   }, { passive: true });
 
-  // ── Mouse swipe ──
   let mouseDown = false, mouseDragging = false;
   card.addEventListener('mousedown', e => {
-    startX       = e.clientX;
-    startY       = e.clientY;
-    mouseDown    = true;
-    mouseDragging= false;
+    startX = e.clientX; startY = e.clientY; mouseDown = true; mouseDragging = false;
   });
   window.addEventListener('mousemove', e => {
     if (!mouseDown) return;
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
-    if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) mouseDragging = true;
+    if (Math.abs(e.clientX - startX) > 8 && Math.abs(e.clientX - startX) > Math.abs(e.clientY - startY)) mouseDragging = true;
   });
   window.addEventListener('mouseup', e => {
     if (!mouseDown) return;
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
+    const dx = e.clientX - startX, dy = e.clientY - startY;
     if (mouseDragging && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
       animateSwipe(dx < 0 ? 'left' : 'right');
-    } else if (!mouseDragging && e.target === card || card.contains(e.target)) {
+    } else if (!mouseDragging && (e.target === card || card.contains(e.target))) {
       if (!touchActive) revealCard();
     }
-    mouseDown    = false;
-    mouseDragging= false;
+    mouseDown = false; mouseDragging = false;
   });
 
-  // ── Keyboard ──
   document.addEventListener('keydown', e => {
     if (['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) return;
+    if (document.getElementById('panelOverlay').classList.contains('hidden') === false) {
+      if (e.key === 'Escape') { closeSettings(); return; }
+      return;
+    }
     switch (e.key) {
-      case ' ':
-      case 'Enter':
-        e.preventDefault();
-        revealCard();
-        break;
-      case 'ArrowRight':
-      case 'ArrowDown':
-        e.preventDefault();
-        historyFwdOrNext();
-        break;
-      case 'ArrowLeft':
-      case 'ArrowUp':
-        e.preventDefault();
-        historyBack();
-        break;
+      case ' ': case 'Enter': e.preventDefault(); revealCard(); break;
+      case 'ArrowRight': case 'ArrowDown':  e.preventDefault(); historyFwdOrNext(); break;
+      case 'ArrowLeft':  case 'ArrowUp':    e.preventDefault(); historyBack(); break;
     }
   });
 })();
 
 // ── Timer ──────────────────────────────────────────────────────────────
-let timerSecs    = 0;
-let timerPaused  = false;
-let timerVisible = true;
-
-function pad(n) { return String(n).padStart(2, '0'); }
-
+let timerSecs = 0, timerPaused = false, timerVisible = true;
+function pad(n) { return String(n).padStart(2,'0'); }
 function updateTimerDisplay() {
   document.getElementById('timerDisplay').textContent =
-    `${pad(Math.floor(timerSecs / 60))}:${pad(timerSecs % 60)}`;
+    `${pad(Math.floor(timerSecs/60))}:${pad(timerSecs%60)}`;
 }
-
 function resumeTimer() {
   if (!timerPaused) return;
   timerPaused = false;
@@ -669,53 +867,34 @@ function resumeTimer() {
   document.getElementById('bottom').classList.remove('is-paused');
   document.getElementById('iconPause').style.display = '';
   document.getElementById('iconPlay').style.display  = 'none';
-  document.querySelector('.card-area').classList.remove('is-paused');
+  document.getElementById('cardArea').classList.remove('is-paused');
 }
-
 function togglePause() {
   timerPaused = !timerPaused;
   document.getElementById('btnPause').classList.toggle('is-paused', timerPaused);
   document.getElementById('bottom').classList.toggle('is-paused', timerPaused);
   document.getElementById('iconPause').style.display = timerPaused ? 'none' : '';
   document.getElementById('iconPlay').style.display  = timerPaused ? '' : 'none';
-  document.querySelector('.card-area').classList.toggle('is-paused', timerPaused);
+  document.getElementById('cardArea').classList.toggle('is-paused', timerPaused);
 }
-
 function resetTimer() {
-  timerSecs   = 0;
-  timerPaused = false;
+  timerSecs = 0; timerPaused = false;
   document.getElementById('btnPause').classList.remove('is-paused');
   document.getElementById('bottom').classList.remove('is-paused');
   document.getElementById('iconPause').style.display = '';
   document.getElementById('iconPlay').style.display  = 'none';
-  document.querySelector('.card-area').classList.remove('is-paused');
+  document.getElementById('cardArea').classList.remove('is-paused');
   updateTimerDisplay();
 }
-
 function toggleTimerVisible() {
   timerVisible = !timerVisible;
-  const display = document.getElementById('timerDisplay');
-  const reset   = document.getElementById('timerReset');
-  const toggle  = document.getElementById('timerToggle');
-  const row     = document.getElementById('timerRow');
-  if (timerVisible) {
-    display.style.display = '';
-    reset.style.display   = '';
-    toggle.textContent    = 'hide';
-    row.style.justifyContent = 'center';
-    row.style.gap = '20px';
-  } else {
-    display.style.display = 'none';
-    reset.style.display   = 'none';
-    toggle.textContent    = 'show';
-    row.style.justifyContent = 'center';
-    row.style.gap = '0';
-  }
+  document.getElementById('timerDisplay').style.display = timerVisible ? '' : 'none';
+  document.getElementById('timerReset').style.display   = timerVisible ? '' : 'none';
+  document.getElementById('timerToggle').textContent    = timerVisible ? 'hide' : 'show';
+  const row = document.getElementById('timerRow');
+  row.style.gap = timerVisible ? '20px' : '0';
 }
-
-setInterval(() => {
-  if (!timerPaused) { timerSecs++; updateTimerDisplay(); }
-}, 1000);
+setInterval(() => { if (!timerPaused) { timerSecs++; updateTimerDisplay(); } }, 1000);
 
 loadSentences();
 </script>
