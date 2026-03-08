@@ -390,7 +390,7 @@
 </div>
 
 <!-- Settings panel -->
-<div class="panel-overlay hidden" id="panelOverlay" onclick="onOverlayClick(event)">
+<div class="panel-overlay hidden" id="panelOverlay">
   <div class="panel" id="panel">
     <div class="panel-header">
       <span class="panel-title">Data Source</span>
@@ -742,15 +742,21 @@ function tagCurrent(tag) {
 }
 
 // ── Settings panel ─────────────────────────────────────────────────────
-function openSettings() {
+function openSettings(e) {
+  if (e) e.stopPropagation();
   document.getElementById('sheetUrl').value  = localStorage.getItem('sheetUrl')  || '';
   document.getElementById('scriptUrl').value = localStorage.getItem('scriptUrl') || '';
   document.getElementById('sourceStatus').textContent = '';
   document.getElementById('panelOverlay').classList.remove('hidden');
+  // stop the overlay from immediately closing due to the same click bubbling
+  setTimeout(() => {
+    document.getElementById('panelOverlay').addEventListener('click', onOverlayClick);
+  }, 50);
 }
 
 function closeSettings() {
   const overlay = document.getElementById('panelOverlay');
+  overlay.removeEventListener('click', onOverlayClick);
   overlay.classList.add('closing');
   setTimeout(() => {
     overlay.classList.remove('hidden', 'closing');
