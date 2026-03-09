@@ -154,8 +154,10 @@
     white-space: nowrap;
   }
   .swipe-hint-side.hidden, .swipe-hint-vert.hidden { opacity: 0 !important; }
-  .sh-left-hint  { left: 10px;    color: var(--diff); }
-  .sh-right-hint { right: 10px;   color: var(--hsk1); }
+  .sh-left-hint  { left: 10px;  color: var(--muted); }
+  .sh-right-hint { right: 10px; color: var(--muted); }
+  .sh-top-hint   { color: var(--hsk1); }
+  .sh-bot-hint   { color: var(--diff); }
   .sh-top-hint   { top: 12px;  }
   .sh-bot-hint   { bottom: 12px; }
   /* visible state */
@@ -406,7 +408,7 @@
 
 <!-- Header -->
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.7.8</span></div>
+  <div class="logo">汉字 <span class="version">v1.7.9</span></div>
   <div class="header-right">
     <div class="dir-badge" id="dirBadge">—</div>
     <button class="icon-btn" id="settingsBtn" onclick="openSettings(event)" title="Settings">⚙</button>
@@ -434,10 +436,10 @@
 <!-- Card -->
 <div class="card-area" id="cardArea">
   <div class="card-shadow" id="cardShadow"></div>
-  <div class="sh-left-hint  swipe-hint-side hidden" id="swipeHint">← 👎</div>
-  <div class="sh-right-hint swipe-hint-side hidden">👍 →</div>
-  <div class="sh-top-hint   swipe-hint-vert hidden">↑ next</div>
-  <div class="sh-bot-hint   swipe-hint-vert hidden">↓ next</div>
+  <div class="sh-left-hint  swipe-hint-side hidden" id="swipeHint">← next</div>
+  <div class="sh-right-hint swipe-hint-side hidden">next →</div>
+  <div class="sh-top-hint   swipe-hint-vert hidden" id="shTopHint">↑ 👍</div>
+  <div class="sh-bot-hint   swipe-hint-vert hidden" id="shBotHint">↓ 👎</div>
   <div class="card" id="card">
     <div class="front-label" id="frontLabel"></div>
     <div class="card-badges">
@@ -530,6 +532,28 @@
       </div>
       <label class="toggle-switch">
         <input type="checkbox" id="weightingToggle" onchange="saveWeighting(this.checked)" checked>
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </label>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:2px 0">
+      <div>
+        <div class="field-label" style="margin-bottom:2px">Grading</div>
+        <div class="field-hint" style="margin:0">↑/↓ swipe adjusts difficulty score</div>
+      </div>
+      <label class="toggle-switch">
+        <input type="checkbox" id="gradingToggle" onchange="saveGrading(this.checked)" checked>
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </label>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:2px 0">
+      <div>
+        <div class="field-label" style="margin-bottom:2px">Online mode</div>
+        <div class="field-hint" style="margin:0" id="onlineModeHint">Using Google Sheet</div>
+      </div>
+      <label class="toggle-switch">
+        <input type="checkbox" id="onlineToggle" onchange="saveOnlineMode(this.checked)" checked>
         <span class="toggle-track"><span class="toggle-thumb"></span></span>
       </label>
     </div>
@@ -638,14 +662,16 @@ function splitCSVLine(line) {
 
 // ── Load sentences ─────────────────────────────────────────────────────
 async function loadSentences() {
-  const sheetUrl  = localStorage.getItem('sheetUrl')  || '';
-  const sourceUrl = sheetUrl || 'sentences.csv';
+  const sheetUrl   = localStorage.getItem('sheetUrl')  || '';
+  const onlineMode = localStorage.getItem('onlineMode') !== 'false';
+  const useOnline  = onlineMode && sheetUrl;
+  const sourceUrl  = useOnline ? sheetUrl : 'sentences.csv';
 
   document.getElementById('statusMsg').textContent = 'Loading sentences…';
-  document.getElementById('statusSub').textContent = sheetUrl ? '(from Google Sheet)' : '(from local file)';
+  document.getElementById('statusSub').textContent = useOnline ? '(from Google Sheet)' : '(from local file)';
 
   try {
-    const res  = await fetch(sourceUrl + (sheetUrl ? '&t=' + Date.now() : '?t=' + Date.now()));
+    const res  = await fetch(sourceUrl + (useOnline ? '&t=' + Date.now() : '?t=' + Date.now()));
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const text = await res.text();
     allSentences = parseCSV(text);
@@ -654,7 +680,7 @@ async function loadSentences() {
     document.getElementById('status').classList.add('hidden');
     nextCard();
   } catch (e) {
-    document.getElementById('statusMsg').textContent = sheetUrl
+    document.getElementById('statusMsg').textContent = useOnline
       ? `Could not load Google Sheet.\nCheck the URL is published as CSV.`
       : `Could not load sentences.csv`;
     document.getElementById('statusSub').textContent = e.message;
@@ -794,18 +820,27 @@ function revealCard() {
   revealed = true;
   document.getElementById('revealBlock').classList.remove('hidden');
   document.getElementById('tapHint').classList.add('hidden');
+  const gradingOn = localStorage.getItem('gradingOn') !== 'false';
+  if (!gradingOn) {
+    document.getElementById('shTopHint').style.visibility = 'hidden';
+    document.getElementById('shBotHint').style.visibility = 'hidden';
+  } else {
+    document.getElementById('shTopHint').style.visibility = '';
+    document.getElementById('shBotHint').style.visibility = '';
+  }
   document.getElementById('cardArea').classList.add('hints-visible');
   resumeTimer();
 }
 
 function handleCardSwipe(dir) {
-  // always navigate away
-  // L/R also nudge difficulty at the same time
-  if (dir === 'left' || dir === 'right') {
-    const delta = dir === 'left' ? -1 : 1;
+  const gradingOn = localStorage.getItem('gradingOn') !== 'false';
+  if ((dir === 'up' || dir === 'down') && gradingOn) {
+    // up = +1, down = -1; card flies away in that direction
+    const delta = dir === 'up' ? 1 : -1;
     nudgeDiff(delta);
     showDiffFeedback(dir);
   }
+  // always fly the card away in the swipe direction
   animateSwipe(dir);
 }
 
@@ -817,8 +852,10 @@ function showDiffFeedback(dir) {
   const fb = document.createElement('div');
   fb.className = 'diff-feedback ' + dir;
   const entry = hist[histPos]; const val = entry ? entry.sentence.diff : 0;
-  if (dir === 'reset') { fb.className = 'diff-feedback left'; fb.textContent = '⊘'; }
-  else { fb.textContent = dir === 'left' ? '👎 ' + val : '👍 +' + val; }
+  if (dir === 'up')   { fb.className = 'diff-feedback right'; fb.textContent = '👍 +' + val; }
+  else if (dir === 'down') { fb.className = 'diff-feedback left';  fb.textContent = '👎 ' + val; }
+  else if (dir === 'reset') { fb.className = 'diff-feedback left'; fb.textContent = '⊘'; }
+  else { fb.textContent = dir === 'left' ? '← next' : 'next →'; }
   card.appendChild(fb);
   setTimeout(() => fb.remove(), 500);
 }
@@ -919,6 +956,22 @@ function saveWeighting(val) {
   localStorage.setItem('weightingOn', val ? 'true' : 'false');
   applyFilter();
 }
+function saveGrading(val) {
+  localStorage.setItem('gradingOn', val ? 'true' : 'false');
+}
+function saveOnlineMode(val) {
+  localStorage.setItem('onlineMode', val ? 'true' : 'false');
+  updateOnlineHint();
+}
+function updateOnlineHint() {
+  const online = localStorage.getItem('onlineMode') !== 'false';
+  const sheetUrl = localStorage.getItem('sheetUrl') || '';
+  const el = document.getElementById('onlineModeHint');
+  if (!el) return;
+  el.textContent = online
+    ? (sheetUrl ? 'Using Google Sheet' : 'Online — no sheet URL set')
+    : 'Using local sentences.csv';
+}
 let panelJustOpened = false;
 
 function openSettings(e) {
@@ -927,6 +980,10 @@ function openSettings(e) {
   document.getElementById('scriptUrl').value = localStorage.getItem('scriptUrl') || '';
   document.getElementById('sourceStatus').textContent = '';
   document.getElementById('weightingToggle').checked = localStorage.getItem('weightingOn') !== 'false';
+  document.getElementById('gradingToggle').checked   = localStorage.getItem('gradingOn')   !== 'false';
+  const onlineOn = localStorage.getItem('onlineMode') !== 'false';
+  document.getElementById('onlineToggle').checked    = onlineOn;
+  updateOnlineHint();
   const overlay = document.getElementById('panelOverlay');
   overlay.classList.remove('hidden', 'closing');
   panelJustOpened = true;
