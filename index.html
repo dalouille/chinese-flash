@@ -390,7 +390,7 @@
 
 <!-- Header -->
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.8.0</span></div>
+  <div class="logo">汉字 <span class="version">v1.8.1</span></div>
   <div class="header-right">
     <div class="dir-badge" id="dirBadge">—</div>
     <button class="icon-btn" id="settingsBtn" onclick="openSettings(event)" title="Settings">⚙</button>
@@ -822,8 +822,8 @@ function handleCardSwipe(dir) {
 }
 
 function showDiffFeedback(dir) {
-  const card = document.getElementById('card');
-  const old = card.querySelector('.diff-feedback');
+  const area = document.getElementById('cardArea');
+  const old = area.querySelector('.diff-feedback');
   if (old) old.remove();
   const entry = hist[histPos];
   const val = entry ? entry.sentence.diff : 0;
@@ -831,9 +831,9 @@ function showDiffFeedback(dir) {
   fb.className = 'diff-feedback ' + dir;
   if (dir === 'up')        fb.textContent = '👍 +' + val;
   else if (dir === 'down') fb.textContent = '👎 ' + val;
-  else return; // no feedback for L/R or reset
-  card.appendChild(fb);
-  setTimeout(() => fb.remove(), 600);
+  else return;
+  area.appendChild(fb);
+  setTimeout(() => fb.remove(), 700);
 }
 
 function animateSwipe(dir) {
@@ -938,12 +938,6 @@ function saveOnlineMode(val) {
   localStorage.setItem('onlineMode', val ? 'true' : 'false');
   updateOnlineHint();
   updateOnlineUI();
-  // reload so correct source is used
-  setTimeout(() => {
-    document.getElementById('status').classList.remove('hidden');
-    closeSettings();
-    loadSentences();
-  }, 220);
 }
 function updateOnlineUI() {
   const online = localStorage.getItem('onlineMode') !== 'false';
@@ -1003,8 +997,9 @@ async function saveSettings() {
   const sheetUrl  = document.getElementById('sheetUrl').value.trim();
   const scriptUrl = document.getElementById('scriptUrl').value.trim();
   const status    = document.getElementById('sourceStatus');
+  const onlineOn  = document.getElementById('onlineToggle').checked;
 
-  if (sheetUrl) {
+  if (sheetUrl && onlineOn) {
     status.textContent = 'Testing URL…';
     status.className   = 'source-status loading';
     try {
@@ -1055,7 +1050,7 @@ async function saveSettings() {
     if (swipeDir === 'h' && Math.abs(dx) > 40) {
       handleCardSwipe(dx < 0 ? 'left' : 'right');
     } else if (swipeDir === 'v' && Math.abs(dy) > 40) {
-      animateSwipe(dy < 0 ? 'up' : 'down');
+      handleCardSwipe(dy < 0 ? 'up' : 'down');
     } else if (!swipeDir) {
       revealCard();
     }
@@ -1080,7 +1075,7 @@ async function saveSettings() {
     if (mouseDirLocked === 'h' && Math.abs(dx) > 40) {
       handleCardSwipe(dx < 0 ? 'left' : 'right');
     } else if (mouseDirLocked === 'v' && Math.abs(dy) > 40) {
-      animateSwipe(dy < 0 ? 'up' : 'down'); // up/down → next card, no diff change
+      handleCardSwipe(dy < 0 ? 'up' : 'down');
     } else if (!mouseDragging && (e.target === card || card.contains(e.target))) {
       if (!touchActive) revealCard();
     }
