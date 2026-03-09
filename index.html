@@ -165,14 +165,15 @@
   .card-area.hints-visible .swipe-hint-vert { opacity: 1; }
 
   /* swipe feedback flash */
-  @keyframes flashLeft  { 0%{opacity:0;transform:translateX(0)} 30%{opacity:1;transform:translateX(-6px)} 100%{opacity:0;transform:translateX(-12px)} }
-  @keyframes flashRight { 0%{opacity:0;transform:translateX(0)} 30%{opacity:1;transform:translateX(6px)}  100%{opacity:0;transform:translateX(12px)} }
+  @keyframes flashUp    { 0%{opacity:0;transform:translate(-50%,-50%)} 25%{opacity:1;transform:translate(-50%,-70%)} 100%{opacity:0;transform:translate(-50%,-110%)} }
+  @keyframes flashDown  { 0%{opacity:0;transform:translate(-50%,-50%)} 25%{opacity:1;transform:translate(-50%,-30%)} 100%{opacity:0;transform:translate(-50%,10%)} }
   .diff-feedback {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    font-size: 40px; pointer-events: none; z-index: 10;
+    font-size: 36px; pointer-events: none; z-index: 10; white-space: nowrap;
+    font-family: 'Noto Sans', sans-serif; font-weight: 700; letter-spacing: 0.5px;
   }
-  .diff-feedback.left  { animation: flashLeft  0.45s ease-out forwards; }
-  .diff-feedback.right { animation: flashRight 0.45s ease-out forwards; }
+  .diff-feedback.up   { animation: flashUp   0.55s ease-out forwards; }
+  .diff-feedback.down { animation: flashDown 0.55s ease-out forwards; }
 
   @keyframes swipeLeft  { to { transform: translateX(-140%) rotate(-12deg); opacity: 0; } }
   @keyframes swipeRight { to { transform: translateX(140%)  rotate(12deg);  opacity: 0; } }
@@ -224,26 +225,7 @@
     display: flex; align-items: center; justify-content: center;
     gap: 12px; padding: 6px 16px 0; flex-shrink: 0;
   }
-  /* difficulty widget: − · value · + */
-  .diff-widget {
-    display: flex; align-items: center; gap: 0;
-    border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
-  }
-  .diff-btn {
-    background: transparent; border: none; color: var(--muted);
-    font-size: 18px; font-weight: 300; cursor: pointer;
-    padding: 4px 12px; font-family: 'Noto Sans', sans-serif;
-    transition: all 0.15s; line-height: 1;
-  }
-  .diff-btn:active { background: var(--surface2); }
-  .diff-val {
-    font-size: 13px; font-weight: 700; color: var(--text);
-    min-width: 28px; text-align: center; letter-spacing: 0.5px;
-    padding: 4px 2px; pointer-events: none;
-    border-left: 1px solid var(--border); border-right: 1px solid var(--border);
-  }
-  .diff-val.pos { color: var(--hsk1); }
-  .diff-val.neg { color: var(--diff); }
+
   .skip-btn {
     font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;
     background: transparent; border: 1px solid var(--border); color: var(--muted);
@@ -408,7 +390,7 @@
 
 <!-- Header -->
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.7.9</span></div>
+  <div class="logo">汉字 <span class="version">v1.8.0</span></div>
   <div class="header-right">
     <div class="dir-badge" id="dirBadge">—</div>
     <button class="icon-btn" id="settingsBtn" onclick="openSettings(event)" title="Settings">⚙</button>
@@ -453,13 +435,8 @@
   </div>
 </div>
 
-<!-- Tag bar: difficulty + skip -->
+<!-- Tag bar: skip only (grading via swipe) -->
 <div class="tag-bar" id="tagBar">
-  <div class="diff-widget" id="diffWidget">
-    <button class="diff-btn" id="diffMinus" onclick="nudgeDiff(-1)">−</button>
-    <span  class="diff-val"  id="diffVal">—</span>
-    <button class="diff-btn" id="diffPlus"  onclick="nudgeDiff(+1)">+</button>
-  </div>
   <button class="skip-btn" id="skipBtn" onclick="toggleSkip()">⊘ Skip</button>
 </div>
 
@@ -846,18 +823,17 @@ function handleCardSwipe(dir) {
 
 function showDiffFeedback(dir) {
   const card = document.getElementById('card');
-  // remove any existing
   const old = card.querySelector('.diff-feedback');
   if (old) old.remove();
+  const entry = hist[histPos];
+  const val = entry ? entry.sentence.diff : 0;
   const fb = document.createElement('div');
   fb.className = 'diff-feedback ' + dir;
-  const entry = hist[histPos]; const val = entry ? entry.sentence.diff : 0;
-  if (dir === 'up')   { fb.className = 'diff-feedback right'; fb.textContent = '👍 +' + val; }
-  else if (dir === 'down') { fb.className = 'diff-feedback left';  fb.textContent = '👎 ' + val; }
-  else if (dir === 'reset') { fb.className = 'diff-feedback left'; fb.textContent = '⊘'; }
-  else { fb.textContent = dir === 'left' ? '← next' : 'next →'; }
+  if (dir === 'up')        fb.textContent = '👍 +' + val;
+  else if (dir === 'down') fb.textContent = '👎 ' + val;
+  else return; // no feedback for L/R or reset
   card.appendChild(fb);
-  setTimeout(() => fb.remove(), 500);
+  setTimeout(() => fb.remove(), 600);
 }
 
 function animateSwipe(dir) {
@@ -899,7 +875,7 @@ function resetDiff() {
   s.diff = 0;
   // update displays
   const dv = document.getElementById('diffVal');
-  dv.textContent = '—'; dv.className = 'diff-val';
+  if (dv) { dv.textContent = '—'; dv.className = 'diff-val'; }
   document.getElementById('diffBadge').classList.add('hidden');
   document.getElementById('hskTag').className = `hsk-tag h${s.hsk}`;
   // feedback
@@ -914,10 +890,9 @@ function nudgeDiff(delta) {
   const s = entry.sentence;
   s.diff = (s.diff || 0) + delta;
 
-  // update widget display
+  // update widget display (if present)
   const dv = document.getElementById('diffVal');
-  dv.textContent = diffLabel(s.diff);
-  dv.className   = 'diff-val' + diffClass(s.diff);
+  if (dv) { dv.textContent = diffLabel(s.diff); dv.className = 'diff-val' + diffClass(s.diff); }
 
   // diff badge
   const diffBadge = document.getElementById('diffBadge');
@@ -933,7 +908,7 @@ function nudgeDiff(delta) {
   document.getElementById('hskTag').className = `hsk-tag h${s.hsk}`;
 
   applyFilter();
-  writeBack(s, s._colDiff, s.diff !== 0 ? String(s.diff) : '0', document.getElementById('diffMinus'));
+  writeBack(s, s._colDiff, s.diff !== 0 ? String(s.diff) : '0', null);
 }
 
 function toggleSkip() {
@@ -962,6 +937,24 @@ function saveGrading(val) {
 function saveOnlineMode(val) {
   localStorage.setItem('onlineMode', val ? 'true' : 'false');
   updateOnlineHint();
+  updateOnlineUI();
+  // reload so correct source is used
+  setTimeout(() => {
+    document.getElementById('status').classList.remove('hidden');
+    closeSettings();
+    loadSentences();
+  }, 220);
+}
+function updateOnlineUI() {
+  const online = localStorage.getItem('onlineMode') !== 'false';
+  const sheetUrl = localStorage.getItem('sheetUrl') || '';
+  const isOnline = online && sheetUrl;
+  // skip UI only makes sense online (sheet write-back)
+  document.getElementById('tagBar').style.display   = isOnline ? '' : 'none';
+  document.getElementById('skipBadge').style.display = isOnline ? '' : 'none';
+  // skip filter pill
+  const pillSkip = document.getElementById('pillSkip');
+  if (pillSkip) pillSkip.style.display = isOnline ? '' : 'none';
 }
 function updateOnlineHint() {
   const online = localStorage.getItem('onlineMode') !== 'false';
@@ -984,6 +977,7 @@ function openSettings(e) {
   const onlineOn = localStorage.getItem('onlineMode') !== 'false';
   document.getElementById('onlineToggle').checked    = onlineOn;
   updateOnlineHint();
+  updateOnlineUI();
   const overlay = document.getElementById('panelOverlay');
   overlay.classList.remove('hidden', 'closing');
   panelJustOpened = true;
@@ -1002,6 +996,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (panelJustOpened) return;
     if (e.target === document.getElementById('panelOverlay')) closeSettings();
   });
+  updateOnlineUI();
 });
 
 async function saveSettings() {
