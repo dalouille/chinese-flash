@@ -390,7 +390,7 @@
 
 <!-- Header -->
 <div class="header">
-  <div class="logo">汉字 <span class="version">v1.8.1</span></div>
+  <div class="logo">汉字 <span class="version">v1.7.10</span></div>
   <div class="header-right">
     <div class="dir-badge" id="dirBadge">—</div>
     <button class="icon-btn" id="settingsBtn" onclick="openSettings(event)" title="Settings">⚙</button>
@@ -766,10 +766,9 @@ function render(sentence, mode) {
   // skip button state
   document.getElementById('skipBtn').classList.toggle('active', !!sentence.skip);
 
-  // diff widget
+  // diff widget (optional — removed in offline-only builds)
   const dv = document.getElementById('diffVal');
-  dv.textContent = diffLabel(sentence.diff);
-  dv.className   = 'diff-val' + diffClass(sentence.diff);
+  if (dv) { dv.textContent = diffLabel(sentence.diff); dv.className = 'diff-val' + diffClass(sentence.diff); }
 
   // swipe hints hidden until revealed
   document.getElementById('cardArea').classList.remove('hints-visible');
